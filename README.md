@@ -5,7 +5,7 @@ Would everyone make a check mark when they get into the repository.
 When you do use the Enviroment Setup Issue Key to connect with Jira.
 
 - [X] Scott
-- [ ] Darya
+- [X] Darya
 - [ ] Layla
 - [ ] Sienna
 - [ ] Dustin
