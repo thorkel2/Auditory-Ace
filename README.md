@@ -8,6 +8,6 @@ When you do use the Enviroment Setup Issue Key to connect with Jira.
 - [X] Darya
 - [ ] Layla
 - [ ] Sienna
-- [ ] Dustin
+- [x] Dustin
 - [ ] Jordan
 - [ ] Nihar
