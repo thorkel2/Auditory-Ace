@@ -14,6 +14,16 @@ config/name="Auditory-Ace"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://Artwork/icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="res://Scenes/MainMenu.tscn"
+
+[audio]
+
+general/text_to_speech=true
+
+[autoload]
+
+TextToSpeech="*res://Scripts/TextToSpeech.gd"
+TtsTesting="*res://Scripts/TTS_Testing.gd"
 
 [rendering]
 
