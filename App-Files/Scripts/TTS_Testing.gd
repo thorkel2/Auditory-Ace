@@ -3,5 +3,5 @@ extends Node
 @onready var TTS = TextToSpeech
 
 func _ready():
-	TTS.PlayText("Hello Auditory Ace Team")
+	TTS.playText("Hello Auditory Ace Team")
 
