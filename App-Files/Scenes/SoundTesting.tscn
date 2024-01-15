@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://wslvybc7gauj"]
+
+[ext_resource type="Script" path="res://Scripts/SoundTesting.gd" id="1_54bhv"]
+[ext_resource type="AudioStream" uid="uid://f5otw3iwbn6j" path="res://Audio/boarding-accouncement-1.mp3" id="2_520cj"]
+[ext_resource type="AudioStream" uid="uid://ru7at6e6qgsw" path="res://Audio/bus-interior-1.mp3" id="3_livf3"]
+[ext_resource type="AudioStream" uid="uid://c3fs56koluhg1" path="res://Audio/food-court-1.mp3" id="4_243uf"]
+
+[node name="SoundTesting" type="Node2D"]
+script = ExtResource("1_54bhv")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.478431, 0.439216, 0.623529, 1)
+
+[node name="Background Noise 1" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background Noise 1"]
+offset_left = 50.0
+offset_top = 170.0
+offset_right = 260.0
+offset_bottom = 205.0
+color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="CheckButton" type="CheckButton" parent="Background Noise 1"]
+offset_left = 50.0
+offset_top = 170.0
+offset_right = 260.0
+offset_bottom = 205.0
+text = "Background Noise 1
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background Noise 1"]
+stream = ExtResource("2_520cj")
+volume_db = -10.0
+
+[node name="Background Noise 2" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background Noise 2"]
+offset_left = 50.0
+offset_top = 270.0
+offset_right = 260.0
+offset_bottom = 305.0
+color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="CheckButton" type="CheckButton" parent="Background Noise 2"]
+offset_left = 50.0
+offset_top = 270.0
+offset_right = 260.0
+offset_bottom = 305.0
+text = "Background Noise 2
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background Noise 2"]
+stream = ExtResource("3_livf3")
+volume_db = -10.0
+
+[node name="Background Noise 3" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background Noise 3"]
+offset_left = 50.0
+offset_top = 370.0
+offset_right = 260.0
+offset_bottom = 405.0
+color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="CheckButton" type="CheckButton" parent="Background Noise 3"]
+offset_left = 50.0
+offset_top = 370.0
+offset_right = 260.0
+offset_bottom = 405.0
+text = "Background Noise 3
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background Noise 3"]
+stream = ExtResource("4_243uf")
+volume_db = -10.0
+
+[node name="TTS" type="Node2D" parent="."]
+
+[node name="LineEdit" type="LineEdit" parent="TTS"]
+offset_left = 50.0
+offset_top = 470.0
+offset_right = 375.0
+offset_bottom = 505.0
+text = "Enter Text To Play Here Then Press Enter"
+
+[connection signal="toggled" from="Background Noise 1/CheckButton" to="." method="onBG1Switched"]
+[connection signal="finished" from="Background Noise 1/AudioStreamPlayer" to="." method="BG1Finished"]
+[connection signal="toggled" from="Background Noise 2/CheckButton" to="." method="onBG2Switched"]
+[connection signal="finished" from="Background Noise 2/AudioStreamPlayer" to="." method="BG2Finished"]
+[connection signal="toggled" from="Background Noise 3/CheckButton" to="." method="onBG3Switched"]
+[connection signal="finished" from="Background Noise 3/AudioStreamPlayer" to="." method="BG3Finished"]
+[connection signal="text_submitted" from="TTS/LineEdit" to="." method="textSubmitted"]
