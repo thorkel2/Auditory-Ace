@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dn6ycwgltsy06"]
+
+[node name="ExerciseOne" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.858824, 0.733333, 1, 1)
