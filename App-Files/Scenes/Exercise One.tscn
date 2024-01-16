@@ -1,10 +1,58 @@
-[gd_scene format=3 uid="uid://dn6ycwgltsy06"]
+[gd_scene load_steps=3 format=3 uid="uid://dn6ycwgltsy06"]
+
+[ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_1jox1"]
+[ext_resource type="Texture2D" uid="uid://cykxrjfap6ceb" path="res://Artwork/icon.svg" id="2_fvck8"]
 
 [node name="ExerciseOne" type="Node2D"]
+script = ExtResource("1_1jox1")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="Background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.858824, 0.733333, 1, 1)
+color = Color(0.815686, 0.627451, 1, 1)
+
+[node name="Button" type="Node2D" parent="."]
+
+[node name="Button1" type="Button" parent="Button"]
+offset_left = 117.0
+offset_top = 288.0
+offset_right = 545.0
+offset_bottom = 388.0
+text = "Cat"
+
+[node name="Button2" type="Button" parent="Button"]
+offset_left = 610.0
+offset_top = 288.0
+offset_right = 1011.0
+offset_bottom = 390.0
+text = "Dog"
+
+[node name="Button3" type="Button" parent="Button"]
+offset_left = 119.0
+offset_top = 411.0
+offset_right = 546.0
+offset_bottom = 517.0
+text = "Bird"
+
+[node name="Button4" type="Button" parent="Button"]
+offset_left = 613.0
+offset_top = 411.0
+offset_right = 1012.0
+offset_bottom = 509.0
+text = "Mouse"
+
+[node name="Sound Button" type="Button" parent="Button"]
+offset_left = 395.0
+offset_top = 67.0
+offset_right = 754.0
+offset_bottom = 203.0
+text = "Make this an audio icon"
+icon = ExtResource("2_fvck8")
+
+[connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
+[connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]
+[connection signal="pressed" from="Button/Button3" to="." method="onButton3Pressed"]
+[connection signal="pressed" from="Button/Button4" to="." method="onButton4Pressed"]
+[connection signal="pressed" from="Button/Sound Button" to="." method="onSoundButtonPressed"]
