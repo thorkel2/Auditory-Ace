@@ -36,7 +36,6 @@ func onBG1Switched(toggled_on):
 	if (toggled_on):
 		BG1Playing = true
 		BG1.play()
-		
 	else:
 		BG1Playing = false
 		BG1.stop()
@@ -91,3 +90,4 @@ func BG2VolumeChanged(value):
 
 func BG3VolumeChanged(value):
 	BG3.volume_db = value
+

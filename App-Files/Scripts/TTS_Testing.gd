@@ -5,5 +5,5 @@ extends Node
 
 func _ready():
 	TTS.playText("Hello Auditory Ace Team")
-	
+
 

@@ -13,7 +13,7 @@ var voices = DisplayServer.tts_get_voices()
 #Will play text inputted via TTS
 func playText(text : String): 
 	DisplayServer.tts_speak(text, voices[profile.Voice]["id"], profile.Volume)
-	
+
 #Returns the names of all voices in system
 func getVoices(): 
 	var Voices: Array[String]
