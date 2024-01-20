@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="Auditory-Ace"
-config/features=PackedStringArray("4.1", "Mobile")
+run/main_scene="res://Scenes/main_menu.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=576
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 
 [rendering]
 
