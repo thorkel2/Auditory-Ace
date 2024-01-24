@@ -4,7 +4,11 @@ extends Node2D
 @onready var buttonTwo = $Button/Button2
 @onready var buttonThree = $Button/Button3
 @onready var buttonFour = $Button/Button4
-@onready var starOne = $Sprite2D/Star1
+@onready var starOne = $Node2D/Star1
+@onready var starTwo = $Node2D/Star2
+@onready var starThree = $Node2D/Star3
+@onready var starFour = $Node2D/Star4
+@onready var starFive = $Node2D/Star5
 var numRounds
 var maxNumRounds
 var correctWord
@@ -24,7 +28,6 @@ func onButton1Pressed():
 
 func onButton2Pressed():
 	checkCorrect(buttonTwo.text, correctWord)
-	starOne.texture = "res://Artwork/starGreen.png"
 
 func onButton3Pressed():
 	checkCorrect(buttonThree.text, correctWord)
@@ -45,12 +48,35 @@ func checkCorrect(pressedWord, correctWord):
 	#Word is correct
 	if(pressedWord == correctWord):
 		TTS.playText("Correct")
+		changeNextStar(true, numRounds)
 		nextRoundCheck()
 	#Word is incorrect. The functionality here will likely be different.
 	else:
 		TTS.playText("Incorrect, the correct word was")
 		TTS.playText(correctWord)
+		changeNextStar(false, numRounds)
 		nextRoundCheck()
+
+func changeNextStar(correctIncorrect, numRounds):
+	var starToBeChanged
+	match numRounds:
+		1:
+			starToBeChanged = starOne
+		2:
+			starToBeChanged = starTwo
+		3:
+			starToBeChanged = starThree
+		4:
+			starToBeChanged = starFour
+		5:
+			starToBeChanged = starFive
+		_:
+			TTS.playText("Something went wrong")
+	
+	if(correctIncorrect):
+		starToBeChanged.texture = load("res://Artwork/starGreen.png")
+	else:
+		starToBeChanged.texture = load("res://Artwork/starRed.png")
 
 #Checks number of rounds
 func nextRoundCheck():

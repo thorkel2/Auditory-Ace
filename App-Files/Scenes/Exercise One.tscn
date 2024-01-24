@@ -52,9 +52,31 @@ offset_bottom = 206.0
 text = "Make this an audio icon"
 icon = ExtResource("2_fvck8")
 
-[node name="Star1" type="Sprite2D" parent="."]
-position = Vector2(668, 144)
-scale = Vector2(0.291967, 0.274735)
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Star1" type="Sprite2D" parent="Node2D"]
+position = Vector2(679, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star2" type="Sprite2D" parent="Node2D"]
+position = Vector2(765, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star3" type="Sprite2D" parent="Node2D"]
+position = Vector2(849, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star4" type="Sprite2D" parent="Node2D"]
+position = Vector2(929, 142)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star5" type="Sprite2D" parent="Node2D"]
+position = Vector2(1010, 141)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_r8cxn")
 
 [connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
