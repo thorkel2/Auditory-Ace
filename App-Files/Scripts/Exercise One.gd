@@ -4,6 +4,7 @@ extends Node2D
 @onready var buttonTwo = $Button/Button2
 @onready var buttonThree = $Button/Button3
 @onready var buttonFour = $Button/Button4
+@onready var starOne = $Sprite2D/Star1
 var numRounds
 var maxNumRounds
 var correctWord
@@ -23,6 +24,7 @@ func onButton1Pressed():
 
 func onButton2Pressed():
 	checkCorrect(buttonTwo.text, correctWord)
+	starOne.texture = "res://Artwork/starGreen.png"
 
 func onButton3Pressed():
 	checkCorrect(buttonThree.text, correctWord)
