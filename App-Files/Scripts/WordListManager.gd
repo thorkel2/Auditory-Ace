@@ -47,37 +47,34 @@ func loadWordList(filePath: String, type: WordListType) -> void:
 
 # Get a random word pair from the current word sound list
 # Helps randomize the word pairs (may be deleted if each exercise wants to do this themselves)
-func getRandomWordPair(type: WordListType) -> String:
-    var wordList, usedWords: Array
-    if type == WordListType.CONSONANT:
-        wordList = consonantWordList
-        usedWords = usedConsonantWords
-    elif type == WordListType.VOWEL:
-        wordList = vowelWordList
-        usedWords = usedVowelWords
-    else:
-        print("Error: Unknown word list type.")
-        return ""
-
-    if wordList.size() == 0:
-        print("Error: Current word list is empty.")
-        return ""
-
-    # Filter words based on the current list and exclude used words
-    var filteredWords := []
-    for word in wordList:
-        if !usedWords.has(word):
-            filteredWords.append(word)
-
-    # If all words have been used, reset the used words list
-    if filteredWords.size() == 0:
-        usedWords = []
-
-    # Get a random word from the filtered list
-    var randomIndex := randi() % filteredWords.size()
-    var selectedWord := filteredWords[randomIndex]
-
-    # Mark the word as used
-    usedWords.append(selectedWord)
-
-    return selectedWord
+    func getRandomWordPair(type: WordListType, desiredSound: String) -> String:
+        var wordList, usedWords: Array
+        if type == WordListType.CONSONANT:
+            wordList = consonantWordList
+            usedWords = usedConsonantWords
+        elif type == WordListType.VOWEL:
+            wordList = vowelWordList
+            usedWords = usedVowelWords
+        else:
+            print("Error: Unknown word list type.")
+            return ""
+    
+        if wordList.size() == 0:
+            print("Error: Current word list is empty.")
+            return ""
+    
+        # Filter words based on the current list, matching sound, and exclude used words
+        var filteredWords := []
+        for word in wordList:
+            if !usedWords.has(word) and word["sound"] == desiredSound:
+                filteredWords.append(word)
+    
+        if filteredWords.size() == 0:
+            usedWords = []
+    
+        # Get a random word from the filtered list
+        var randomIndex := randi() % filteredWords.size()
+        var selectedWord := filteredWords[randomIndex]["word"]
+    
+        usedWords.append(selectedWord)
+        return selectedWord
