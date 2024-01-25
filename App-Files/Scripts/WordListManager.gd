@@ -1,21 +1,28 @@
 # WordListManager.gd
-# This script reads in a csv file containing our word lists, 
-# and allows exercises to use specific word sound pairs and 
+# This script reads in a csv file containing our word lists,
+# and allows exercises to use specific word sound pairs and
 # randomizes the words checking for duplicates
 
 extends Node
 
 # Dictionary to store paired words and sounds
-var wordPairs := {}
-var currentWordSoundList := []
-var usedWordSoundPairs := []
+enum WordListType {
+    CONSONANT,
+    VOWEL
+}
+
+var consonantWordList := []
+var vowelWordList := []
+var usedConsonantWords := []
+var usedVowelWords := []
 
 func _ready():
-    # Load the word pairs from the CSV file (or any other data source)
-    loadWordPairs("res://word_pairs.csv") #This will reply on Sienna's word csv file
+    # Load the word lists from the CSV files
+    loadWordList("res://consonant_word_list.csv", WordListType.CONSONANT)
+    loadWordList("res://vowel_word_list.csv", WordListType.VOWEL)
 
 # Load the word pairs from a CSV file
-func loadWordPairs(filePath: String) -> void:
+func loadWordList(filePath: String, type: WordListType) -> void:
     var file := File.new()
     file.open(filePath, File.READ)
 
@@ -23,47 +30,47 @@ func loadWordPairs(filePath: String) -> void:
     while !file.eof_reached():
         var line := file.get_line().strip_edges()
 
-        # Split each line into word and sound
-        var parts := line.split(",")
-        if parts.size() == 2:
-            wordPairs[parts[0].to_lower()] = parts[1].to_lower()
+        # Add each line (word) to the appropriate word list
+        if type == WordListType.CONSONANT:
+            consonantWordList.append(line.to_lower())
+        elif type == WordListType.VOWEL:
+            vowelWordList.append(line.to_lower())
 
     file.close()
 
-# Set the current word sound list
-# This way we can seperate the word sound lists for each exercise
-func setWordSoundList(soundList: Array) -> void:
-    currentWordSoundList = soundList
-    usedWordSoundPairs = []
-
 # Get a random word pair from the current word sound list
 # Helps randomize the word pairs (may be deleted if each exercise wants to do this themselves)
-func getRandomWordPair() -> Dictionary:
-    if currentWordSoundList.size() == 0:
-        print("Error: Current word sound list is empty.")
-        return {}
+func getRandomWordPair(type: WordListType) -> String:
+    var wordList, usedWords: Array
+    if type == WordListType.CONSONANT:
+        wordList = consonantWordList
+        usedWords = usedConsonantWords
+    elif type == WordListType.VOWEL:
+        wordList = vowelWordList
+        usedWords = usedVowelWords
+    else:
+        print("Error: Unknown word list type.")
+        return ""
 
-    # Filter word pairs based on the current sound list and exclude used word-sound pairs
-    var filteredPairs := {}
-    for word in currentWordSoundList:
-        var wordSoundPair := {"word": word, "sound": wordPairs[word].to_lower()}
+    if wordList.size() == 0:
+        print("Error: Current word list is empty.")
+        return ""
 
-        if !usedWordSoundPairs.has(wordSoundPair):
-            filteredPairs[word] = wordSoundPair
+    # Filter words based on the current list and exclude used words
+    var filteredWords := []
+    for word in wordList:
+        if !usedWords.has(word):
+            filteredWords.append(word)
 
-    # If all word-sound pairs have been used, reset the used pairs list
-    if filteredPairs.size() == 0:
-        usedWordSoundPairs = []
+    # If all words have been used, reset the used words list
+    if filteredWords.size() == 0:
+        usedWords = []
 
-    # Get a random word pair from the filtered list
-    var keys := filteredPairs.keys()
-    var randomKey := keys[randi() % keys.size()]
+    # Get a random word from the filtered list
+    var randomIndex := randi() % filteredWords.size()
+    var selectedWord := filteredWords[randomIndex]
 
-    # Mark the word-sound pair as used
-    usedWordSoundPairs.append(filteredPairs[randomKey])
+    # Mark the word as used
+    usedWords.append(selectedWord)
 
-    return filteredPairs[randomKey]
-
-# Check if the provided word matches the sound
-func isMatch(word: String, sound: String) -> bool:
-    return wordPairs[word.to_lower()] == sound.to_lower()
+    return selectedWord
