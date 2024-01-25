@@ -1,4 +1,5 @@
 extends Node2D
+# Declaring variables for the nodes
 @onready var TTS = TextToSpeech
 @onready var buttonOne = $Button/Button1
 @onready var buttonTwo = $Button/Button2
@@ -23,6 +24,7 @@ func _ready():
 func _process(delta):
 	pass
 
+# Functions tied to each button
 func onButton1Pressed():
 	checkCorrect(buttonOne.text, correctWord)
 
@@ -38,12 +40,12 @@ func onButton4Pressed():
 func onSoundButtonPressed():
 	TTS.playText(correctWord)
 
-#Load the next set of words
-#Placeholder, this isn't coded yet...
+# Load the next set of words
+# Placeholder, this isn't implemented yet...
 func generateWords():
 	correctWord = "Cat"
 
-#Game logic when user chooses a word
+# Game logic when user chooses a word
 func checkCorrect(pressedWord, correctWord):
 	#Word is correct
 	if(pressedWord == correctWord):
@@ -57,7 +59,9 @@ func checkCorrect(pressedWord, correctWord):
 		changeNextStar(false, numRounds)
 		nextRoundCheck()
 
+# Visually changes the round indicator
 func changeNextStar(correctIncorrect, numRounds):
+	# Choosing starToBeChanged based off round
 	var starToBeChanged
 	match numRounds:
 		1:
@@ -73,18 +77,19 @@ func changeNextStar(correctIncorrect, numRounds):
 		_:
 			TTS.playText("Something went wrong")
 	
+	# Changing based off of correct or incorrect answer
 	if(correctIncorrect):
 		starToBeChanged.texture = load("res://Artwork/starGreen.png")
 	else:
 		starToBeChanged.texture = load("res://Artwork/starRed.png")
 
-#Checks number of rounds
+# Checks number of rounds
 func nextRoundCheck():
 	#Continues the game if there are still rounds to be played
 	if(numRounds < maxNumRounds):
 			generateWords()
 			numRounds += 1
-	#Ends the game if there are not
-	#Functionality will be different here
+	# Ends the game if there are no rounds left
+	# Placeholder, this should reroute to different scene.
 	else:
 		TTS.playText("The game has ended, except not really because I haven't coded that yet")
