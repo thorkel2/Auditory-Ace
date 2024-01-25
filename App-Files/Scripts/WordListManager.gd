@@ -30,11 +30,18 @@ func loadWordList(filePath: String, type: WordListType) -> void:
     while !file.eof_reached():
         var line := file.get_line().strip_edges()
 
-        # Add each line (word) to the appropriate word list
-        if type == WordListType.CONSONANT:
-            consonantWordList.append(line.to_lower())
-        elif type == WordListType.VOWEL:
-            vowelWordList.append(line.to_lower())
+        # Split each line into word and sound
+        var parts := line.split(",")
+
+        if parts.size() == 2:
+            var word := parts[0].strip_edges()
+            var sound := parts[1].strip_edges()
+
+            # Add each word and its associated sound to the appropriate list
+            if type == WordListType.CONSONANT:
+                consonantWordList.append({word: word, sound: sound})
+            elif type == WordListType.VOWEL:
+                vowelWordList.append({word: word, sound: sound})
 
     file.close()
 
