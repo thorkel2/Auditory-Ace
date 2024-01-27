@@ -1,14 +1,37 @@
-extends Node2D
 #Script for testing sounds and background noise
-@onready var BG1 = $"Background Noise 1/AudioStreamPlayer"
-@onready var BG2 = $"Background Noise 2/AudioStreamPlayer"
-@onready var BG3 = $"Background Noise 3/AudioStreamPlayer"
-@onready var TTS = TextToSpeech
+#Contains framework for all sound related functions, can be used as reference for actual implementation
+extends Node2D
 
+#Background Noise 1
+@onready var BG1 = $"Background Noise 1/AudioStreamPlayer"
 var BG1Playing = false
+
+#Background Noise 2
+@onready var BG2 = $"Background Noise 2/AudioStreamPlayer"
 var BG2Playing = false
+
+#Background Noise 3
+@onready var BG3 = $"Background Noise 3/AudioStreamPlayer"
 var BG3Playing = false
 
+#Custom TTS
+@onready var TTS = TextToSpeech
+@onready var profile = Profile
+var Voices: Array[String]
+
+func _ready():
+	#Initializing Background Noise volume sliders
+	$"Background Noise 1/VolumeSlider".value = BG1.volume_db
+	$"Background Noise 2/VolumeSlider".value = BG2.volume_db
+	$"Background Noise 3/VolumeSlider".value = BG3.volume_db
+	#Initializing TTS voice options and volume slider
+	Voices = TTS.getVoices()
+	$TTS/VolumeSlider.value = profile.Volume
+	var Count: int = 0
+	for i in Voices:
+		$TTS/OptionButton.add_item(i, Count)
+		Count += 1
+		
 func onBG1Switched(toggled_on):
 	if (toggled_on):
 		BG1Playing = true
@@ -47,3 +70,24 @@ func BG3Finished():
 
 func textSubmitted(new_text):
 	TTS.playText(new_text)
+
+
+func voiceSelected(index):
+	profile.Voice = index
+
+
+func TTSVolumeChanged(value):
+	profile.Volume = value
+
+
+func BG1VolumeChanged(value):
+	BG1.volume_db = value
+
+
+func BG2VolumeChanged(value):
+	BG2.volume_db = value
+
+
+func BG3VolumeChanged(value):
+	BG3.volume_db = value
+
