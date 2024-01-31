@@ -24,6 +24,7 @@ general/text_to_speech=true
 
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
 TtsTesting="*res://Scripts/TTS_Testing.gd"
+Profile="*res://Scripts/Profile.gd"
 
 [rendering]
 
