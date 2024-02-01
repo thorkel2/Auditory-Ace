@@ -16,7 +16,7 @@ var BG3Playing = false
 
 #Custom TTS
 @onready var TTS = TextToSpeech
-@onready var profile = Profile
+@onready var DB = Database
 var Voices: Array[String]
 
 func _ready():
@@ -26,11 +26,12 @@ func _ready():
 	$"Background Noise 3/VolumeSlider".value = BG3.volume_db
 	#Initializing TTS voice options and volume slider
 	Voices = TTS.getVoices()
-	$TTS/VolumeSlider.value = profile.Volume
+	$TTS/VolumeSlider.value = TTS.Volume
 	var Count: int = 0
 	for i in Voices:
 		$TTS/OptionButton.add_item(i, Count)
 		Count += 1
+	$TTS/OptionButton.selected = TTS.Voice
 		
 func onBG1Switched(toggled_on):
 	if (toggled_on):
@@ -71,14 +72,13 @@ func BG3Finished():
 func textSubmitted(new_text):
 	TTS.playText(new_text)
 
-
 func voiceSelected(index):
-	profile.Voice = index
-
-
+	TTS.Voice = index
+	DB.updateSetting("Default", "Sound", index)
+	
 func TTSVolumeChanged(value):
-	profile.Volume = value
-
+	TTS.Volume = value
+	DB.updateSetting("Default", "Volume", value)
 
 func BG1VolumeChanged(value):
 	BG1.volume_db = value
