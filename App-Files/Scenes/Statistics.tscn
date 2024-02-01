@@ -1,0 +1,209 @@
+[gd_scene load_steps=5 format=3 uid="uid://nkw2igr3aqo7"]
+
+[ext_resource type="Script" path="res://Scripts/StatisticsTesting.gd" id="1_eg361"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t77pj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpd8l"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_0gy6a"]
+
+[node name="StatisticsTesting" type="Node2D"]
+script = ExtResource("1_eg361")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.635294, 0.843137, 0.972549, 1)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="GenerateRandomEntries" type="Button" parent="Buttons"]
+offset_left = 634.0
+offset_top = 573.0
+offset_right = 847.0
+offset_bottom = 605.0
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_t77pj")
+text = "Generate Random Entries"
+
+[node name="SearchEntries" type="Button" parent="Buttons"]
+offset_left = 19.0
+offset_top = 396.0
+offset_right = 288.0
+offset_bottom = 451.0
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xpd8l")
+text = "Search Entries"
+
+[node name="SearchParameters" type="Node2D" parent="."]
+position = Vector2(10, 90)
+
+[node name="SearchDays" type="LineEdit" parent="SearchParameters"]
+offset_left = 94.0
+offset_top = 124.0
+offset_right = 308.0
+offset_bottom = 159.0
+text = "All"
+
+[node name="SearchBGNoise" type="LineEdit" parent="SearchParameters"]
+offset_left = 95.0
+offset_top = 166.0
+offset_right = 308.0
+offset_bottom = 201.0
+text = "All"
+
+[node name="SearchSound" type="LineEdit" parent="SearchParameters"]
+offset_left = 95.0
+offset_top = 208.0
+offset_right = 308.0
+offset_bottom = 243.0
+text = "All"
+
+[node name="SearchExercise" type="LineEdit" parent="SearchParameters"]
+offset_left = 95.0
+offset_top = 249.0
+offset_right = 307.0
+offset_bottom = 284.0
+text = "All"
+
+[node name="TextElements" type="Node2D" parent="."]
+
+[node name="EntryTable" type="ColorRect" parent="TextElements"]
+offset_left = 376.0
+offset_top = 110.0
+offset_right = 1083.0
+offset_bottom = 567.0
+
+[node name="Header" type="Label" parent="TextElements/EntryTable"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 32.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Date                             Score  Time  BGNoise  Sound  Exercise"
+
+[node name="Date" type="Label" parent="TextElements/EntryTable"]
+offset_left = 3.0
+offset_top = 28.0
+offset_right = 193.0
+offset_bottom = 455.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Score" type="Label" parent="TextElements/EntryTable"]
+offset_left = 202.0
+offset_top = 28.0
+offset_right = 260.0
+offset_bottom = 455.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Time" type="Label" parent="TextElements/EntryTable"]
+offset_left = 265.0
+offset_top = 28.0
+offset_right = 323.0
+offset_bottom = 455.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="BGNoise" type="Label" parent="TextElements/EntryTable"]
+offset_left = 323.0
+offset_top = 28.0
+offset_right = 381.0
+offset_bottom = 455.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Sound" type="Label" parent="TextElements/EntryTable"]
+offset_left = 416.0
+offset_top = 28.0
+offset_right = 474.0
+offset_bottom = 455.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Exercise" type="Label" parent="TextElements/EntryTable"]
+offset_left = 487.0
+offset_top = 28.0
+offset_right = 583.0
+offset_bottom = 455.0
+theme = SubResource("Theme_0gy6a")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Date" type="ColorRect" parent="TextElements"]
+offset_left = 13.0
+offset_top = 209.0
+offset_right = 99.0
+offset_bottom = 249.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="TextElements/Date"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Date"
+
+[node name="BGNoise" type="ColorRect" parent="TextElements"]
+offset_left = 13.0
+offset_top = 252.0
+offset_right = 99.0
+offset_bottom = 292.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="TextElements/BGNoise"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "BG"
+
+[node name="Sound" type="ColorRect" parent="TextElements"]
+offset_left = 13.0
+offset_top = 294.0
+offset_right = 99.0
+offset_bottom = 334.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="TextElements/Sound"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Sound"
+
+[node name="Exercise" type="ColorRect" parent="TextElements"]
+offset_left = 13.0
+offset_top = 337.0
+offset_right = 99.0
+offset_bottom = 377.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="TextElements/Exercise"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Exercise"
+
+[connection signal="pressed" from="Buttons/GenerateRandomEntries" to="." method="generateRandomEntries"]
+[connection signal="pressed" from="Buttons/SearchEntries" to="." method="searchEntries"]

@@ -23,8 +23,12 @@ general/text_to_speech=true
 [autoload]
 
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
-TtsTesting="*res://Scripts/TTS_Testing.gd"
-Profile="*res://Scripts/Profile.gd"
+Database="*res://Scripts/Database.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [rendering]
 
