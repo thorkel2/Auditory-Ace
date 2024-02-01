@@ -1,66 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://bynv86vnvi06p"]
+[gd_scene load_steps=4 format=3 uid="uid://5ok47ku6bdin"]
 
-[ext_resource type="Script" path="res://Scripts/loading_screen.gd" id="1_15v7p"]
-[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_sb0kb"]
-[ext_resource type="Texture2D" uid="uid://b4wk88u8bj7cr" path="res://Icons/IMG_9060.png" id="2_mbqw8"]
+[ext_resource type="Script" path="res://Scripts/intro_screen.gd" id="1_lby8p"]
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="2_gjhtr"]
+[ext_resource type="Texture2D" uid="uid://b4wk88u8bj7cr" path="res://Icons/IMG_9060.png" id="3_cfg5d"]
 
-[sub_resource type="Animation" id="Animation_m2ewn"]
-resource_name = "loadingbar"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"load_next_scene"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xp5t"]
-_data = {
-"loadingbar": SubResource("Animation_m2ewn")
-}
-
-[node name="LoadingScreen" type="Node2D"]
-script = ExtResource("1_15v7p")
+[node name="IntroScreen" type="Node2D"]
+script = ExtResource("1_lby8p")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
 offset_bottom = 576.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect"]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 366.0
+offset_right = 663.0
+offset_bottom = 381.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [node name="AppTitle" type="Label" parent="."]
-offset_left = 79.0
-offset_top = 180.732
-offset_right = 1043.0
-offset_bottom = 285.732
+offset_left = 332.579
+offset_top = 236.732
+offset_right = 782.579
+offset_bottom = 341.732
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_sb0kb")
+theme_override_fonts/font = ExtResource("2_gjhtr")
 theme_override_font_sizes/font_size = 80
 text = "uditory ace"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Img9060" type="Sprite2D" parent="."]
-position = Vector2(292, 228.732)
+position = Vector2(301.667, 291.016)
 rotation = -0.31765
-scale = Vector2(0.158628, 0.15833)
-texture = ExtResource("2_mbqw8")
+scale = Vector2(0.124453, 0.123102)
+texture = ExtResource("3_cfg5d")
 
-[node name="LoadingBar" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_2xp5t")
-}
-script = ExtResource("1_15v7p")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 212.0
-offset_top = 370.0
-offset_right = 812.0
-offset_bottom = 410.0
-show_percentage = false
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

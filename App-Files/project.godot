@@ -15,25 +15,22 @@ run/main_scene="res://Scenes/intro_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-LoadingScreen="*res://Scripts/loading_screen.gd"
-
-[display]
-
-window/size/viewport_width=1024
-window/size/viewport_height=576
-window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
-
 [audio]
 
 general/text_to_speech=true
 
 [autoload]
 
+LoadingScreen="*res://Scripts/loading_screen.gd"
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
 Database="*res://Scripts/Database.gd"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=576
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 
