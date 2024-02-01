@@ -1,9 +1,8 @@
 extends Node
-#TTS object for initial loadup processes
-@onready var TTS = TextToSpeech
 #Database 
 var db #database object
 var db_name  #path to database on device
+
 #Search filters
 var searchDays : String = "NULL"
 var searchBGNoise : String = "NULL"
@@ -23,7 +22,7 @@ func _ready():
 	db = SQLite.new()
 	db.path = db_name
 	loadTables()
-	TTS.playText("Welcome, to Auditory Ace")
+	TextToSpeech.playText("Welcome, to Auditory Ace")
 
 #Initial loading of data
 func loadTables():	
@@ -39,8 +38,8 @@ func loadTables():
 		
 	#Load default sound settings
 	db.query("SELECT * FROM Settings WHERE Name = 'Default';")
-	TTS.Voice = db.query_result[0]["Sound"]
-	TTS.Volume = db.query_result[0]["Volume"]
+	TextToSpeech.Voice = db.query_result[0]["Sound"]
+	TextToSpeech.Volume = db.query_result[0]["Volume"]
 	db.close_db()
 	
 #Update value of setting based on name
