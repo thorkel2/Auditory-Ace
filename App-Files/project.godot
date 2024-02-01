@@ -24,7 +24,7 @@ LoadingScreen="*res://Scripts/loading_screen.gd"
 window/size/viewport_width=1024
 window/size/viewport_height=576
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 
 [rendering]
 

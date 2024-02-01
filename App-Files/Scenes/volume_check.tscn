@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckjmnkj2oto1g"]
+
+[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_n7aby"]
+[ext_resource type="Script" path="res://Scripts/success_vol_check.gd" id="2_bwrd4"]
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="14_h7fki"]
+[ext_resource type="FontFile" uid="uid://dayil4h078ps1" path="res://Fonts/JosefinSans-Regular.ttf" id="15_3y1dj"]
+[ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="16_o8ig3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvl4f"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[node name="VolumeCheck" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 576.0
+color = Color(0.631373, 0.823529, 0.945098, 1)
+
+[node name="start" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 420.0
+offset_right = 662.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_n7aby")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvl4f")
+text = "I hear it!"
+script = ExtResource("2_bwrd4")
+
+[node name="AppTitle" type="Label" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_top = 27.0
+offset_right = 1024.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_h7fki")
+theme_override_font_sizes/font_size = 60
+text = "volume check!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="subtext" type="Label" parent="."]
+offset_left = 112.0
+offset_top = 60.0
+offset_right = 912.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_3y1dj")
+theme_override_font_sizes/font_size = 47
+text = "Adjust your volume to ensure you can hear the music playing!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 413.0
+offset_top = 190.0
+offset_right = 613.0
+offset_bottom = 390.0
+icon = ExtResource("16_o8ig3")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="ColorRect/start" to="ColorRect/start" method="_on_pressed"]
