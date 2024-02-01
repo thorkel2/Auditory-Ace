@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_1jox1"]
 [ext_resource type="Texture2D" uid="uid://cykxrjfap6ceb" path="res://Artwork/icon.svg" id="2_fvck8"]
+[ext_resource type="Texture2D" uid="uid://rv8kaeg7qltk" path="res://Artwork/starGray.png" id="3_r8cxn"]
 
 [node name="ExerciseOne" type="Node2D"]
 script = ExtResource("1_1jox1")
@@ -44,12 +45,39 @@ offset_bottom = 509.0
 text = "Mouse"
 
 [node name="Sound Button" type="Button" parent="Button"]
-offset_left = 395.0
-offset_top = 67.0
-offset_right = 754.0
-offset_bottom = 203.0
+offset_left = 192.0
+offset_top = 70.0
+offset_right = 551.0
+offset_bottom = 206.0
 text = "Make this an audio icon"
 icon = ExtResource("2_fvck8")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Star1" type="Sprite2D" parent="Node2D"]
+position = Vector2(679, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star2" type="Sprite2D" parent="Node2D"]
+position = Vector2(765, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star3" type="Sprite2D" parent="Node2D"]
+position = Vector2(849, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star4" type="Sprite2D" parent="Node2D"]
+position = Vector2(929, 142)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
+
+[node name="Star5" type="Sprite2D" parent="Node2D"]
+position = Vector2(1010, 141)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r8cxn")
 
 [connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]
