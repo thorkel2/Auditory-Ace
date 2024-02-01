@@ -168,6 +168,7 @@ expand_icon = true
 script = ExtResource("14_6ij5e")
 
 [node name="OptionButton2" type="OptionButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 532.0
 offset_top = 140.0
 offset_right = 832.0
@@ -197,6 +198,7 @@ popup/item_2/text = "Option 3"
 popup/item_2/id = 2
 
 [node name="OptionButton3" type="OptionButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 532.0
 offset_top = 240.0
 offset_right = 832.0
@@ -226,6 +228,7 @@ popup/item_2/text = "Option 3"
 popup/item_2/id = 2
 
 [node name="OptionButton4" type="OptionButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 532.0
 offset_top = 340.0
 offset_right = 832.0
