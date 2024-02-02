@@ -12,6 +12,9 @@ var searchExercise : String = "NULL"
 #Initial Loadup
 func _ready():
 	match OS.get_name():
+		"macOS":
+			print("OS: macOS")
+			db_name = "res://Database/database"
 		"Windows":
 			print("OS: Windows")
 			db_name = "res://Database/database"
