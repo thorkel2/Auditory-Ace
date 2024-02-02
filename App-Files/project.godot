@@ -11,10 +11,9 @@ config_version=5
 [application]
 
 config/name="Auditory-Ace"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/intro_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://Artwork/icon.svg"
-<<<<<<<Updatedupstreamrun/main_scene="res://Scenes/MainMenu.tscn"
+config/icon="res://icon.svg"
 
 [audio]
 
@@ -22,12 +21,15 @@ general/text_to_speech=true
 
 [autoload]
 
+LoadingScreen="*res://Scripts/loading_screen.gd"
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
 Database="*res://Scripts/Database.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/viewport_width=1024
+window/size/viewport_height=576
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [rendering]
