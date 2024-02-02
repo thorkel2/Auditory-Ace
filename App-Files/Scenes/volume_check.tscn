@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckjmnkj2oto1g"]
+[gd_scene load_steps=8 format=3 uid="uid://ckjmnkj2oto1g"]
 
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_n7aby"]
 [ext_resource type="Script" path="res://Scripts/success_vol_check.gd" id="2_bwrd4"]
+[ext_resource type="AudioStream" uid="uid://dpoy1i487e2j4" path="res://Audio/E-Lot - An ending theme..mp3" id="6_o51ih"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="14_h7fki"]
 [ext_resource type="FontFile" uid="uid://dayil4h078ps1" path="res://Fonts/JosefinSans-Regular.ttf" id="15_3y1dj"]
 [ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="16_o8ig3"]
@@ -70,5 +71,9 @@ icon = ExtResource("16_o8ig3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_o51ih")
+autoplay = true
 
 [connection signal="pressed" from="ColorRect/start" to="ColorRect/start" method="_on_pressed"]

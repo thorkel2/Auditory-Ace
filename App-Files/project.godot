@@ -13,7 +13,6 @@ config_version=5
 config/name="Auditory-Ace"
 run/main_scene="res://Scenes/intro_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
 
 [audio]
 
