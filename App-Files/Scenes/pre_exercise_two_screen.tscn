@@ -126,61 +126,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 924.0
-offset_right = 1024.0
-offset_bottom = 576.0
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("6_ka0v8")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("7_diy1n")
-
-[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("7_eefkt")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("9_uwdxx")
-
-[node name="Settings" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("8_ek56p")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("11_nixe8")
-
-[node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("9_d4wut")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("13_888f1")
-
-[node name="Stats" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("10_8pmph")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("15_dnwet")
-
 [node name="OptionButton2" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 532.0
@@ -270,6 +215,60 @@ popup/item_1/text = "Option 2"
 popup/item_1/id = 1
 popup/item_2/text = "Option 3"
 popup/item_2/id = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
+custom_minimum_size = Vector2(80, 80)
+offset_left = 924.0
+offset_right = 1024.0
+offset_bottom = 576.0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("6_ka0v8")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_diy1n")
+
+[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("7_eefkt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_uwdxx")
+
+[node name="Settings" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("8_ek56p")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("11_nixe8")
+
+[node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("9_d4wut")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("13_888f1")
+
+[node name="Stats" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("10_8pmph")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_dnwet")
 
 [node name="UI" type="Node2D" parent="."]
 

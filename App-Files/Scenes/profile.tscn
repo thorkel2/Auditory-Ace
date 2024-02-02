@@ -66,9 +66,17 @@ text = "profile"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="roundedEdge" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 130.0
+offset_right = 910.0
+offset_bottom = 549.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iuf5p")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
 offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
@@ -120,15 +128,6 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("11_8t1fp")
-
-[node name="roundedEdge" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 70.0
-offset_top = 130.0
-offset_right = 910.0
-offset_bottom = 549.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iuf5p")
 
 [node name="Profilepng" type="Sprite2D" parent="."]
 position = Vector2(140.5, 204)
