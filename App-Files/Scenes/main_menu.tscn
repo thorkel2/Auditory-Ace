@@ -1,0 +1,138 @@
+[gd_scene load_steps=16 format=3 uid="uid://cx6dpxdyw5xy0"]
+
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_a4l8t"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_fguwv"]
+[ext_resource type="Texture2D" uid="uid://c4d4obpswg8s3" path="res://Icons/bar-chart-2.svg" id="2_chsug"]
+[ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="3_nyqgr"]
+[ext_resource type="Script" path="res://Scripts/exercise_one.gd" id="3_r140l"]
+[ext_resource type="Script" path="res://Scripts/exercise_two.gd" id="4_5s1g3"]
+[ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="4_08ad4"]
+[ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="5_em6ev"]
+[ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="6_avtq5"]
+[ext_resource type="Script" path="res://Scripts/profile.gd" id="6_n15ro"]
+[ext_resource type="Script" path="res://Scripts/help.gd" id="8_5o6jj"]
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="10_vjs2i"]
+[ext_resource type="Script" path="res://Scripts/home.gd" id="12_bd6dx"]
+[ext_resource type="Script" path="res://Scripts/stats.gd" id="14_cmvs8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_026xp"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_fguwv")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1024.0
+offset_bottom = 576.0
+color = Color(0.631373, 0.823529, 0.945098, 1)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="AppTitle" type="Label" parent="UI"]
+offset_top = 32.0
+offset_right = 1024.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_a4l8t")
+theme_override_font_sizes/font_size = 60
+text = "auditory ace"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+offset_left = 923.0
+offset_right = 1025.0
+offset_bottom = 576.0
+color = Color(0.854902, 0.929412, 0.980392, 1)
+
+[node name="ExcerciseOne" type="Button" parent="UI"]
+offset_left = 50.0
+offset_top = 120.0
+offset_right = 450.0
+offset_bottom = 520.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_026xp")
+script = ExtResource("3_r140l")
+
+[node name="ExcerciseTwo" type="Button" parent="UI"]
+offset_left = 504.0
+offset_top = 120.0
+offset_right = 904.0
+offset_bottom = 520.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_026xp")
+script = ExtResource("4_5s1g3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(80, 80)
+offset_left = 924.0
+offset_right = 1024.0
+offset_bottom = 576.0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Profile" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("4_08ad4")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_n15ro")
+
+[node name="Help" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("6_avtq5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("8_5o6jj")
+
+[node name="Settings" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("5_em6ev")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_vjs2i")
+
+[node name="Home" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("3_nyqgr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("12_bd6dx")
+
+[node name="Stats" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("2_chsug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14_cmvs8")
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Globals" type="Node2D" parent="."]
+
+[connection signal="pressed" from="UI/ExcerciseOne" to="UI/ExcerciseOne" method="_on_pressed"]
+[connection signal="pressed" from="UI/ExcerciseTwo" to="UI/ExcerciseTwo" method="_on_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Profile" to="UI/VBoxContainer/Profile" method="_on_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Help" to="UI/VBoxContainer/Help" method="_on_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Settings" to="UI/VBoxContainer/Settings" method="_on_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Home" to="UI/VBoxContainer/Home" method="_on_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Stats" to="UI/VBoxContainer/Stats" method="_on_pressed"]

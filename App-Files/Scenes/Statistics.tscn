@@ -82,6 +82,7 @@ offset_right = 1083.0
 offset_bottom = 567.0
 
 [node name="Header" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 49.0
@@ -92,6 +93,7 @@ theme_override_font_sizes/font_size = 20
 text = "Date                             Score  Time  BGNoise  Sound  Exercise"
 
 [node name="Date" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 28.0
 offset_right = 193.0
@@ -101,6 +103,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="Score" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 202.0
 offset_top = 28.0
 offset_right = 260.0
@@ -110,6 +113,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="Time" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 265.0
 offset_top = 28.0
 offset_right = 323.0
@@ -119,6 +123,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="BGNoise" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 323.0
 offset_top = 28.0
 offset_right = 381.0
@@ -128,6 +133,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="Sound" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 416.0
 offset_top = 28.0
 offset_right = 474.0
@@ -137,6 +143,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="Exercise" type="Label" parent="TextElements/EntryTable"]
+layout_mode = 0
 offset_left = 487.0
 offset_top = 28.0
 offset_right = 583.0
@@ -153,6 +160,7 @@ offset_bottom = 249.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="TextElements/Date"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 49.0
@@ -168,6 +176,7 @@ offset_bottom = 292.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="TextElements/BGNoise"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 49.0
@@ -183,6 +192,7 @@ offset_bottom = 334.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="TextElements/Sound"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 49.0
@@ -198,6 +208,7 @@ offset_bottom = 377.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="TextElements/Exercise"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 49.0
