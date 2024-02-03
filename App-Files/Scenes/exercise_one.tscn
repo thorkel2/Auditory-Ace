@@ -1,20 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://8s47jkb2ao0x"]
+[gd_scene load_steps=15 format=3 uid="uid://dn6ycwgltsy06"]
 
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_1671l"]
-[ext_resource type="Script" path="res://Scripts/cancel.gd" id="2_sr8rl"]
-[ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="3_pvssg"]
-[ext_resource type="Script" path="res://Scripts/profile.gd" id="4_8dabs"]
-[ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="5_fiv7q"]
-[ext_resource type="Script" path="res://Scripts/help.gd" id="6_1tbu2"]
-[ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="7_ps23g"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="8_gx4qv"]
-[ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="9_3sj40"]
-[ext_resource type="Script" path="res://Scripts/home.gd" id="10_4qxh2"]
-[ext_resource type="Texture2D" uid="uid://c4d4obpswg8s3" path="res://Icons/bar-chart-2.svg" id="11_wkfjo"]
-[ext_resource type="Script" path="res://Scripts/stats.gd" id="12_eeeg5"]
+[ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_m5qst"]
+[ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="4_2l2q2"]
+[ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="5_hk162"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="13_s6hby"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d68t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dnn1"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -24,7 +20,104 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
-[node name="Main Menu" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyuig"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2epvm"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_musfj"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, -2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oagg8"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lb0a"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt32a"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ydha"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2pnv"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[node name="ExerciseOne" type="Node2D"]
+script = ExtResource("1_m5qst")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -33,101 +126,116 @@ offset_right = 1024.0
 offset_bottom = 576.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
-[node name="cancel" type="Button" parent="Background/ColorRect"]
-layout_mode = 0
-offset_left = 148.0
-offset_top = 450.0
-offset_right = 448.0
-offset_bottom = 542.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_1671l")
-theme_override_font_sizes/font_size = 70
-theme_override_styles/normal = SubResource("StyleBoxFlat_7d68t")
-text = "cancel"
-script = ExtResource("2_sr8rl")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 924.0
-offset_right = 1024.0
-offset_bottom = 576.0
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("3_pvssg")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("4_8dabs")
-
-[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("5_fiv7q")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("6_1tbu2")
-
-[node name="Settings" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("7_ps23g")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("8_gx4qv")
-
-[node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("9_3sj40")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("10_4qxh2")
-
-[node name="Stats" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("11_wkfjo")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("12_eeeg5")
-
-[node name="UI" type="Node2D" parent="."]
-
-[node name="AppTitle" type="Label" parent="UI"]
-offset_top = 32.0
-offset_right = 1024.0
-offset_bottom = 112.0
+[node name="AppTitle" type="Label" parent="Background/ColorRect"]
+offset_left = 162.0
+offset_top = 138.0
+offset_right = 942.0
+offset_bottom = 218.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_s6hby")
 theme_override_font_sizes/font_size = 60
-text = "exercise 1"
+text = "Tap to hear again"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-visible = false
-offset_left = 923.0
-offset_right = 1025.0
-offset_bottom = 576.0
-color = Color(0.854902, 0.929412, 0.980392, 1)
+[node name="Button" type="Node2D" parent="."]
 
-[node name="Buttons" type="Node2D" parent="."]
+[node name="Button1" type="Button" parent="Button"]
+offset_left = 162.0
+offset_top = 297.0
+offset_right = 462.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
+text = "Cat"
 
-[node name="Globals" type="Node2D" parent="."]
+[node name="Button2" type="Button" parent="Button"]
+offset_left = 564.0
+offset_top = 297.0
+offset_right = 864.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2epvm")
+text = "option 2"
 
-[connection signal="pressed" from="Background/ColorRect/cancel" to="Background/ColorRect/cancel" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="Background/ColorRect/VBoxContainer/Profile" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="Background/ColorRect/VBoxContainer/Help" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Settings" to="Background/ColorRect/VBoxContainer/Settings" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="Background/ColorRect/VBoxContainer/Home" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Stats" to="Background/ColorRect/VBoxContainer/Stats" method="_on_pressed"]
+[node name="Button3" type="Button" parent="Button"]
+offset_left = 163.0
+offset_top = 431.0
+offset_right = 463.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_musfj")
+text = "option 3"
+
+[node name="Button4" type="Button" parent="Button"]
+offset_left = 564.0
+offset_top = 431.0
+offset_right = 864.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oagg8")
+text = "option 4"
+
+[node name="Sound Button" type="Button" parent="Button"]
+offset_left = 162.0
+offset_top = 117.0
+offset_right = 282.0
+offset_bottom = 237.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_s6hby")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_6lb0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pt32a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ydha")
+theme_override_styles/focus = SubResource("StyleBoxFlat_a2pnv")
+icon = ExtResource("4_2l2q2")
+expand_icon = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Star1" type="Sprite2D" parent="Node2D"]
+position = Vector2(256, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star2" type="Sprite2D" parent="Node2D"]
+position = Vector2(385, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star3" type="Sprite2D" parent="Node2D"]
+position = Vector2(512, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star4" type="Sprite2D" parent="Node2D"]
+position = Vector2(642, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star5" type="Sprite2D" parent="Node2D"]
+position = Vector2(770, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
+[connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]
+[connection signal="pressed" from="Button/Button3" to="." method="onButton3Pressed"]
+[connection signal="pressed" from="Button/Button4" to="." method="onButton4Pressed"]
+[connection signal="pressed" from="Button/Sound Button" to="." method="onSoundButtonPressed"]
