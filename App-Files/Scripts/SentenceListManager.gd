@@ -17,18 +17,18 @@ enum WordListType {
     VOWEL
 }
 
-var consonantWordList := []
-var vowelWordList := []
-var usedConsonantWords := []
-var usedVowelWords := []
+var consonantSentencePairs := []
+var vowelSentencePairs := []
+var usedConsonantSentences := []
+var usedVowelSentences := []
 
 func _ready():
-    # Load the word lists from the CSV files
-    loadWordList("res://consonant_sentence_list.csv", WordListType.CONSONANT)
-    loadWordList("res://vowel_sentence_list.csv", WordListType.VOWEL)
+    # Load the sentence pairs from the CSV files
+    loadSentencePairs("res://consonant_sentence_list.csv", WordListType.CONSONANT)
+    loadSentencePairs("res://vowel_sentence_list.csv", WordListType.VOWEL)
 
 # Load the sentence pairs from a CSV file
-func loadWordList(filePath: String, type: WordListType) -> void:
+func loadSentencePairs(filePath: String, type: WordListType) -> void:
     var file := File.new()
     file.open(filePath, File.READ)
 
@@ -44,43 +44,46 @@ func loadWordList(filePath: String, type: WordListType) -> void:
             var word := parts[1].strip_edges()
             var sound := parts[2].strip_edges()
 
+            # Create a new SentencePair instance
+            var pair = SentencePair(sentence, word, sound)
+
             # Add each sentence pair to the appropriate list
             if type == WordListType.CONSONANT:
-                consonantWordList.append(SentencePair(sentence: sentence, word: word, sound: sound))
+                consonantSentencePairs.append(pair)
             elif type == WordListType.VOWEL:
-                vowelWordList.append(SentencePair(sentence: sentence, word: word, sound: sound))
+                vowelSentencePairs.append(pair)
 
     file.close()
 
 # Get a random sentence pair from the current sentence sound list
 func getRandomSentencePair(type: WordListType, desiredSound: String) -> SentencePair:
-    var wordList, usedWords: Array
+    var sentencePairs, usedSentences: Array
     if type == WordListType.CONSONANT:
-        wordList = consonantWordList
-        usedWords = usedConsonantWords
+        sentencePairs = consonantSentencePairs
+        usedSentences = usedConsonantSentences
     elif type == WordListType.VOWEL:
-        wordList = vowelWordList
-        usedWords = usedVowelWords
+        sentencePairs = vowelSentencePairs
+        usedSentences = usedVowelSentences
     else:
         print("Error: Unknown word list type.")
         return SentencePair("", "", "")
 
-    if wordList.size() == 0:
-        print("Error: Current word list is empty.")
+    if sentencePairs.size() == 0:
+        print("Error: Current sentence list is empty.")
         return SentencePair("", "", "")
 
-    # Filter sentences based on the current list, matching sound, and exclude used sentences
-    var filteredSentences := []
-    for pair in wordList:
-        if !usedWords.has(pair) and pair.sound == desiredSound:
-            filteredSentences.append(pair)
+    # Filter sentence pairs based on the current list, matching sound, and exclude used sentences
+    var filteredSentencePairs := []
+    for pair in sentencePairs:
+        if !usedSentences.has(pair) and pair.sound == desiredSound:
+            filteredSentencePairs.append(pair)
 
-    if filteredSentences.size() == 0:
-        usedWords = []
+    if filteredSentencePairs.size() == 0:
+        usedSentences = []
 
     # Get a random sentence pair from the filtered list
-    var randomIndex := randi() % filteredSentences.size()
-    var selectedPair := filteredSentences[randomIndex]
+    var randomIndex := randi() % filteredSentencePairs.size()
+    var selectedPair := filteredSentencePairs[randomIndex]
 
-    usedWords.append(selectedPair)
+    usedSentences.append(selectedPair)
     return selectedPair
