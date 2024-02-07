@@ -82,10 +82,10 @@ func generateWords():
 # Checks answer
 func checkCorrect(pressedWord, correctWord):
 	if(pressedWord == correctWord):
-		TTS.playText("Correct")
+		$Node2D/CorrectSound.play()
 		changeNextStar(true, numRounds)
 	else:
-		TTS.playText("Incorrect")
+		$Node2D/IncorrectSound.play()
 		changeNextStar(false, numRounds)
 
 # Visually changes the round indicator
