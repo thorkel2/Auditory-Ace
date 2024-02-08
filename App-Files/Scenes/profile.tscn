@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=14 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="2_eb51m"]
@@ -7,18 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="4_vsits"]
 [ext_resource type="Script" path="res://Scripts/help.gd" id="5_7dn8n"]
 [ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="6_ffgks"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="7_saymg"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="8_hfgah"]
 [ext_resource type="Script" path="res://Scripts/home.gd" id="9_st4a1"]
-[ext_resource type="Texture2D" uid="uid://c4d4obpswg8s3" path="res://Icons/bar-chart-2.svg" id="10_xirio"]
-[ext_resource type="Script" path="res://Scripts/stats.gd" id="11_8t1fp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfp2g"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
@@ -28,6 +24,23 @@ bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0euoa"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reo8k"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
@@ -43,10 +56,10 @@ color = Color(0.631373, 0.823529, 0.945098, 1)
 [node name="AppTitle3" type="Label" parent="ColorRect"]
 z_index = 1
 layout_mode = 0
-offset_left = 205.0
-offset_top = 163.0
-offset_right = 915.0
-offset_bottom = 243.0
+offset_left = 209.0
+offset_top = 78.0
+offset_right = 919.0
+offset_bottom = 158.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_g82c2")
 theme_override_font_sizes/font_size = 50
@@ -54,29 +67,18 @@ text = "username
 "
 vertical_alignment = 1
 
-[node name="AppTitle2" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 1024.0
-offset_bottom = 105.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_g82c2")
-theme_override_font_sizes/font_size = 60
-text = "profile"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="roundedEdge" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 130.0
-offset_right = 910.0
-offset_bottom = 549.0
+offset_left = 196.0
+offset_top = 70.0
+offset_right = 899.0
+offset_bottom = 527.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iuf5p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
 offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
@@ -109,7 +111,6 @@ icon = ExtResource("6_ffgks")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("7_saymg")
 
 [node name="Home" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
@@ -120,17 +121,16 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_st4a1")
 
-[node name="Stats" type="Button" parent="ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("10_xirio")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("11_8t1fp")
+[node name="roundedEdge2" type="Button" parent="ColorRect"]
+offset_left = 51.0
+offset_top = 162.0
+offset_right = 197.0
+offset_bottom = 527.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0euoa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_reo8k")
 
 [node name="Profilepng" type="Sprite2D" parent="."]
-position = Vector2(140.5, 204)
+position = Vector2(125, 98)
 scale = Vector2(0.525, 0.525)
 texture = ExtResource("2_ow4sw")
 
@@ -138,4 +138,3 @@ texture = ExtResource("2_ow4sw")
 [connection signal="pressed" from="ColorRect/VBoxContainer/Help" to="ColorRect/VBoxContainer/Help" method="_on_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Settings" to="ColorRect/VBoxContainer/Settings" method="_on_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="ColorRect/VBoxContainer/Home" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Stats" to="ColorRect/VBoxContainer/Stats" method="_on_pressed"]

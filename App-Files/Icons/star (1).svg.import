@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0bug4ee87b7n"
-path="res://.godot/imported/starGrayold.png-3bdd31cc44e70be3b26e572595610d29.ctex"
+uid="uid://bc2e77aoq5xte"
+path="res://.godot/imported/star (1).svg-c85ffac213d0f5a9be43c9eda9b4dfb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/starGrayold.png"
-dest_files=["res://.godot/imported/starGrayold.png-3bdd31cc44e70be3b26e572595610d29.ctex"]
+source_file="res://Icons/star (1).svg"
+dest_files=["res://.godot/imported/star (1).svg-c85ffac213d0f5a9be43c9eda9b4dfb4.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
