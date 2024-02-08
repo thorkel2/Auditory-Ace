@@ -6,75 +6,94 @@
 extends Node
 
 # Dictionary to store paired words and sounds
+# to add a new type, simply add a comma after the last option,
+# create a new line, and add in (all caps) the type of list
 enum WordListType {
-	CONSONANT,
-	VOWEL
+    MVN,
+    SVF
 }
 
-var consonantWordList := []
-var vowelWordList := []
-var usedConsonantWords := []
-var usedVowelWords := []
+# Data structure to represent a word set
+class WordSet:
+    var correctWord: String
+    var similarWords: Array
+    var wordType: String
+    var sound: String
+
+    func _init(correctWord, similarWords, wordType, sound):
+        self.correctWord = correctWord
+        self.similarWords = similarWords
+        self.wordType = wordType
+        self.sound = sound
+
+var mVnWordSets := []
+var sVfWordSets := []
+var usedmVnWords := []
+var usedsVfWords := []
 
 func _ready():
-	# Load the word lists from the CSV files
-	loadWordList("res://consonant_word_list.csv", WordListType.CONSONANT)
-	loadWordList("res://vowel_word_list.csv", WordListType.VOWEL)
+    # Load the word sets from the CSV files
+    loadWordSets("res://m vs n.csv", WordListType.MVN) # M vs N word types
+    loadWordSets("res://s vs f.csv", WordListType.SVF) # S vs F word types
 
-# Load the word pairs from a CSV file
-func loadWordList(filePath: String, type: WordListType) -> void:
-	var file := File.new()
-	file.open(filePath, File.READ)
+# Load the word sets from a CSV file
+func loadWordSets(filePath: String, type: WordListType) -> void:
+    var file := File.new()
+    file.open(filePath, File.READ)
 
-	# Read each line from the CSV file
-	while !file.eof_reached():
-		var line := file.get_line().strip_edges()
+    # Read each line from the CSV file
+    while !file.eof_reached():
+        var line := file.get_line().strip_edges()
 
-		# Split each line into word and sound
-		var parts := line.split(",")
+        # Split each line into word set components
+        var parts := line.split(",")
 
-		if parts.size() == 2:
-			var word := parts[0].strip_edges()
-			var sound := parts[1].strip_edges()
+        if parts.size() >= 6:
+            var correctWord := parts[0].strip_edges()
+            var similarWords := [parts[1].strip_edges(), parts[2].strip_edges(), parts[3].strip_edges()]
+            var wordType := parts[4].strip_edges()
+            var sound := parts[5].strip_edges()
 
-			# Add each word and its associated sound to the appropriate list
-			if type == WordListType.CONSONANT:
-				consonantWordList.append({word: word, sound: sound})
-			elif type == WordListType.VOWEL:
-				vowelWordList.append({word: word, sound: sound})
+            # Create a new WordSet instance
+            var wordSet = WordSet.new(correctWord, similarWords, wordType, sound)
 
-	file.close()
+            # Add the word set to the appropriate list
+            if type == WordListType.MVN:
+                mVnWordSets.append(wordSet)
+            elif type == WordListType.SVF:
+                sVfWordSets.append(wordSet)
 
-# Get a random word pair from the current word sound list
-# Helps randomize the word pairs (may be deleted if each exercise wants to do this themselves)
-	func getRandomWordPair(type: WordListType, desiredSound: String) -> String:
-		var wordList, usedWords: Array
-		if type == WordListType.CONSONANT:
-			wordList = consonantWordList
-			usedWords = usedConsonantWords
-		elif type == WordListType.VOWEL:
-			wordList = vowelWordList
-			usedWords = usedVowelWords
-		else:
-			print("Error: Unknown word list type.")
-			return ""
-	
-		if wordList.size() == 0:
-			print("Error: Current word list is empty.")
-			return ""
-	
-		# Filter words based on the current list, matching sound, and exclude used words
-		var filteredWords := []
-		for word in wordList:
-			if !usedWords.has(word) and word["sound"] == desiredSound:
-				filteredWords.append(word)
-	
-		if filteredWords.size() == 0:
-			usedWords = []
-	
-		# Get a random word from the filtered list
-		var randomIndex := randi() % filteredWords.size()
-		var selectedWord := filteredWords[randomIndex]["word"]
-	
-		usedWords.append(selectedWord)
-		return selectedWord
+    file.close()
+
+# Get a random word set from the current word sound list
+func getRandomWordSet(type: WordListType, desiredSound: String) -> WordSet:
+    var wordSets, usedWords: Array
+    if type == WordListType.MVN:
+        wordSets = mVnWordSets
+        usedWords = usedmVnWords
+    elif type == WordListType.SVF:
+        wordSets = sVfWordSets
+        usedWords = usedsVfWords
+    else:
+        print("Error: Unknown word list type.")
+        return null
+    
+    if wordSets.size() == 0:
+        print("Error: Current word list is empty.")
+        return null
+    
+    # Filter word sets based on the current list, matching sound, and exclude used words
+    var filteredWordSets := []
+    for wordSet in wordSets:
+        if !usedWords.has(wordSet.correctWord) and wordSet.sound == desiredSound:
+            filteredWordSets.append(wordSet)
+    
+    if filteredWordSets.size() == 0:
+        usedWords = []
+    
+    # Get a random word set from the filtered list
+    var randomIndex := randi() % filteredWordSets.size()
+    var selectedWordSet := filteredWordSets[randomIndex]
+    
+    usedWords.append(selectedWordSet.correctWord)
+    return selectedWordSet
