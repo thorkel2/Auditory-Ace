@@ -3,12 +3,6 @@ extends Node
 var db #database object
 var db_name  #path to database on device
 
-#Search filters
-var searchDays : String = "NULL"
-var searchBGNoise : String = "NULL"
-var searchSound : String = "NULL"
-var searchExercise : String = "NULL"
-
 #Initial Loadup
 func _ready():
 	match OS.get_name():
@@ -40,10 +34,18 @@ func loadTables():
 		print("Created table")
 		
 	#Load default sound settings
-	db.query("SELECT * FROM Settings WHERE Name = 'Default';")
-	TextToSpeech.Voice = db.query_result[0]["Sound"]
-	TextToSpeech.Volume = db.query_result[0]["Volume"]
+	var Setting = retrieveSetting("Default")
+	TextToSpeech.Voice = Setting[0]
+	TextToSpeech.Volume = Setting[1]
 	db.close_db()
+	
+#Retrieve specific sound settings based on name
+func retrieveSetting(setting : String):
+	db.open_db()
+	db.query("SELECT * FROM Settings WHERE Name = '" + setting + "';")
+	var Setting = [db.query_result[0]["Sound"], db.query_result[0]["Volume"]]
+	db.close_db()
+	return Setting
 	
 #Update value of setting based on name
 func updateSetting(category : String, setting : String, value):
@@ -59,7 +61,7 @@ func addEntry(score : int, time : float, bgNoise : String, sound : String, exerc
 	db.close_db()
 	
 #Search for entries based on parameters
-func searchEntries():
+func searchEntries(searchDays : String, searchBGNoise : String, searchSound : String, searchExercise : String):
 	db.open_db() 
 	var Query : String = "SELECT * FROM (SELECT * FROM Entries ORDER BY Date Desc) AS SortedEntries "
 	
