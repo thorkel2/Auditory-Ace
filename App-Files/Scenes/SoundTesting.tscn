@@ -1,5 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://5a3gvm0hnq3q"]
-
+[gd_scene load_steps=5 format=3 uid="uid://wslvybc7gauj"]
 
 [ext_resource type="Script" path="res://Scripts/SoundTesting.gd" id="1_54bhv"]
 [ext_resource type="AudioStream" uid="uid://f5otw3iwbn6j" path="res://Audio/boarding-accouncement-1.mp3" id="2_520cj"]
@@ -37,7 +36,6 @@ text = "Background Noise 1
 stream = ExtResource("2_520cj")
 volume_db = -10.0
 
-
 [node name="VolumeSlider" type="HSlider" parent="Background Noise 1"]
 offset_left = 270.0
 offset_top = 170.0
@@ -45,7 +43,6 @@ offset_right = 375.0
 offset_bottom = 205.0
 min_value = -60.0
 max_value = 10.0
-
 
 [node name="Background Noise 2" type="Node2D" parent="."]
 
@@ -97,7 +94,6 @@ text = "Background Noise 3
 stream = ExtResource("4_243uf")
 volume_db = -10.0
 
-
 [node name="VolumeSlider" type="HSlider" parent="Background Noise 3"]
 offset_left = 270.0
 offset_top = 370.0
@@ -114,7 +110,6 @@ offset_top = 470.0
 offset_right = 375.0
 offset_bottom = 505.0
 text = "Enter Text To Play Here Then Press Enter"
-
 
 [node name="OptionButton" type="OptionButton" parent="TTS"]
 offset_left = 51.0
@@ -140,4 +135,3 @@ offset_bottom = 505.0
 [connection signal="text_submitted" from="TTS/LineEdit" to="." method="textSubmitted"]
 [connection signal="item_selected" from="TTS/OptionButton" to="." method="voiceSelected"]
 [connection signal="value_changed" from="TTS/VolumeSlider" to="." method="TTSVolumeChanged"]
-
