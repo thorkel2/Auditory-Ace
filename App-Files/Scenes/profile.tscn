@@ -122,6 +122,7 @@ expand_icon = true
 script = ExtResource("9_st4a1")
 
 [node name="roundedEdge2" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 162.0
 offset_right = 197.0
