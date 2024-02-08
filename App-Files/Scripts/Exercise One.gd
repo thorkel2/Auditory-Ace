@@ -5,19 +5,25 @@ extends Node2D
 @onready var buttonTwo = $Button/Button2
 @onready var buttonThree = $Button/Button3
 @onready var buttonFour = $Button/Button4
+@onready var nextButton = $Button/NextButton
 @onready var starOne = $Node2D/Star1
 @onready var starTwo = $Node2D/Star2
 @onready var starThree = $Node2D/Star3
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
-var numRounds
-var maxNumRounds
-var correctWord
+
+# Other Variables used in code
+var numRounds # Current number of rounds
+var maxNumRounds # Maximum number of rounds
+var correctWord # Current correct word
+var nextBool = false # Next button is available or not
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
+	# Next button starts off screen
+	nextButton.set_position(Vector2(5000,5000))
 	generateWords()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,38 +32,65 @@ func _process(delta):
 
 # Functions tied to each button
 func onButton1Pressed():
-	checkCorrect(buttonOne.text, correctWord)
+	buttonLogic(buttonOne)
 
 func onButton2Pressed():
-	checkCorrect(buttonTwo.text, correctWord)
+	buttonLogic(buttonTwo)
 
 func onButton3Pressed():
-	checkCorrect(buttonThree.text, correctWord)
+	buttonLogic(buttonThree)
 
 func onButton4Pressed():
-	checkCorrect(buttonFour.text, correctWord)
+	buttonLogic(buttonFour)
 
 func onSoundButtonPressed():
 	TTS.playText(correctWord)
+
+func onNextButtonPressed():
+	# Goes to next round if available
+	if(nextBool && nextButton.text != "Done"):
+		generateWords()
+		nextButton.set_position(Vector2(5000,5000))
+		nextBool = false
+	else:
+		# This should go to a post game scene. Will do this later
+		TTS.playText("Game is done")
+
+func onExitButtonPressed():
+	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
+
+
+# Logic used by four word buttons
+func buttonLogic(buttonNum):
+	if(nextBool):
+		# Just plays audio if user hasn't gone to next round yet.
+		TTS.playText(buttonNum.text)
+	else:
+		checkCorrect(buttonNum.text, correctWord)
+		# Goes to next round or changes next button to be exit button
+		if(numRounds != maxNumRounds):
+			nextBool = true
+			nextButton.set_position(Vector2(569,150))
+			numRounds += 1
+		else:
+			nextBool = true
+			nextButton.set_position(Vector2(569,150))
+			nextButton.text = "Done"
+
 
 # Load the next set of words
 # Placeholder, this isn't implemented yet...
 func generateWords():
 	correctWord = "Cat"
 
-# Game logic when user chooses a word
+# Checks answer
 func checkCorrect(pressedWord, correctWord):
-	#Word is correct
 	if(pressedWord == correctWord):
-		TTS.playText("Correct")
+		$Node2D/CorrectSound.play()
 		changeNextStar(true, numRounds)
-		nextRoundCheck()
-	#Word is incorrect. The functionality here will likely be different.
 	else:
-		TTS.playText("Incorrect, the correct word was")
-		TTS.playText(correctWord)
+		$Node2D/IncorrectSound.play()
 		changeNextStar(false, numRounds)
-		nextRoundCheck()
 
 # Visually changes the round indicator
 func changeNextStar(correctIncorrect, numRounds):
@@ -82,14 +115,3 @@ func changeNextStar(correctIncorrect, numRounds):
 		starToBeChanged.texture = load("res://Artwork/starGreen.png")
 	else:
 		starToBeChanged.texture = load("res://Artwork/starRed.png")
-
-# Checks number of rounds
-func nextRoundCheck():
-	#Continues the game if there are still rounds to be played
-	if(numRounds < maxNumRounds):
-			generateWords()
-			numRounds += 1
-	# Ends the game if there are no rounds left
-	# Placeholder, this should reroute to different scene.
-	else:
-		TTS.playText("The game has ended, except not really because I haven't coded that yet")

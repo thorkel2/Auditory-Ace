@@ -1,0 +1,284 @@
+[gd_scene load_steps=17 format=3 uid="uid://dn6ycwgltsy06"]
+
+[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_1671l"]
+[ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_m5qst"]
+[ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="4_2l2q2"]
+[ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="5_hk162"]
+[ext_resource type="AudioStream" uid="uid://db1t8meobli4l" path="res://Audio/correct.mp3" id="6_rdpg7"]
+[ext_resource type="AudioStream" uid="uid://b7gy2plqnn5de" path="res://Audio/incorrect.mp3" id="7_74vyv"]
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="13_s6hby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dnn1"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyuig"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2epvm"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_musfj"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, -2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oagg8"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lb0a"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt32a"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ydha"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2pnv"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[node name="ExerciseOne" type="Node2D"]
+script = ExtResource("1_m5qst")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1024.0
+offset_bottom = 576.0
+color = Color(0.631373, 0.823529, 0.945098, 1)
+
+[node name="AppTitle" type="Label" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 138.0
+offset_right = 942.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_s6hby")
+theme_override_font_sizes/font_size = 60
+text = "Tap to hear again"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Node2D" parent="."]
+
+[node name="Button1" type="Button" parent="Button"]
+offset_left = 162.0
+offset_top = 297.0
+offset_right = 462.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
+text = "Cat"
+
+[node name="Button2" type="Button" parent="Button"]
+offset_left = 564.0
+offset_top = 297.0
+offset_right = 864.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2epvm")
+text = "option 2"
+
+[node name="Button3" type="Button" parent="Button"]
+offset_left = 163.0
+offset_top = 431.0
+offset_right = 463.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_musfj")
+text = "option 3"
+
+[node name="Button4" type="Button" parent="Button"]
+offset_left = 564.0
+offset_top = 431.0
+offset_right = 864.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oagg8")
+text = "option 4"
+
+[node name="SoundButton" type="Button" parent="Button"]
+offset_left = 167.0
+offset_top = 149.0
+offset_right = 467.0
+offset_bottom = 251.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_s6hby")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_6lb0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pt32a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ydha")
+theme_override_styles/focus = SubResource("StyleBoxFlat_a2pnv")
+text = "Play Word"
+icon = ExtResource("4_2l2q2")
+expand_icon = true
+
+[node name="ExitButton" type="Button" parent="Button"]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 136.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_s6hby")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_6lb0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pt32a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ydha")
+theme_override_styles/focus = SubResource("StyleBoxFlat_a2pnv")
+text = "Exit"
+expand_icon = true
+
+[node name="NextButton" type="Button" parent="Button"]
+offset_left = 569.0
+offset_top = 150.0
+offset_right = 869.0
+offset_bottom = 252.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
+text = "Next"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Star1" type="Sprite2D" parent="Node2D"]
+position = Vector2(256, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star2" type="Sprite2D" parent="Node2D"]
+position = Vector2(385, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star3" type="Sprite2D" parent="Node2D"]
+position = Vector2(512, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star4" type="Sprite2D" parent="Node2D"]
+position = Vector2(642, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="Star5" type="Sprite2D" parent="Node2D"]
+position = Vector2(770, 46)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hk162")
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("6_rdpg7")
+
+[node name="IncorrectSound" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("7_74vyv")
+
+[connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
+[connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]
+[connection signal="pressed" from="Button/Button3" to="." method="onButton3Pressed"]
+[connection signal="pressed" from="Button/Button4" to="." method="onButton4Pressed"]
+[connection signal="pressed" from="Button/SoundButton" to="." method="onSoundButtonPressed"]
+[connection signal="pressed" from="Button/ExitButton" to="." method="onExitButtonPressed"]
+[connection signal="pressed" from="Button/NextButton" to="." method="onNextButtonPressed"]
