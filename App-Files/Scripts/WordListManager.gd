@@ -6,9 +6,11 @@
 extends Node
 
 # Dictionary to store paired words and sounds
+# to add a new type, simply add a comma after the last option,
+# create a new line, and add in (all caps) the type of list
 enum WordListType {
-    CONSONANT,
-    VOWEL
+    MVN,
+    SVF
 }
 
 # Data structure to represent a word set
@@ -24,15 +26,15 @@ class WordSet:
         self.wordType = wordType
         self.sound = sound
 
-var consonantWordSets := []
-var vowelWordSets := []
-var usedConsonantWords := []
-var usedVowelWords := []
+var mVnWordSets := []
+var sVfWordSets := []
+var usedmVnWords := []
+var usedsVfWords := []
 
 func _ready():
     # Load the word sets from the CSV files
-    loadWordSets("res://consonant_word_sets.csv", WordListType.CONSONANT)
-    loadWordSets("res://vowel_word_sets.csv", WordListType.VOWEL)
+    loadWordSets("res://m vs n.csv", WordListType.MVN) # M vs N word types
+    loadWordSets("res://s vs f.csv", WordListType.SVF) # S vs F word types
 
 # Load the word sets from a CSV file
 func loadWordSets(filePath: String, type: WordListType) -> void:
@@ -56,22 +58,22 @@ func loadWordSets(filePath: String, type: WordListType) -> void:
             var wordSet = WordSet.new(correctWord, similarWords, wordType, sound)
 
             # Add the word set to the appropriate list
-            if type == WordListType.CONSONANT:
-                consonantWordSets.append(wordSet)
-            elif type == WordListType.VOWEL:
-                vowelWordSets.append(wordSet)
+            if type == WordListType.MVN:
+                mVnWordSets.append(wordSet)
+            elif type == WordListType.SVF:
+                sVfWordSets.append(wordSet)
 
     file.close()
 
 # Get a random word set from the current word sound list
 func getRandomWordSet(type: WordListType, desiredSound: String) -> WordSet:
     var wordSets, usedWords: Array
-    if type == WordListType.CONSONANT:
-        wordSets = consonantWordSets
-        usedWords = usedConsonantWords
-    elif type == WordListType.VOWEL:
-        wordSets = vowelWordSets
-        usedWords = usedVowelWords
+    if type == WordListType.MVN:
+        wordSets = mVnWordSets
+        usedWords = usedmVnWords
+    elif type == WordListType.SVF:
+        wordSets = sVfWordSets
+        usedWords = usedsVfWords
     else:
         print("Error: Unknown word list type.")
         return null
