@@ -56,6 +56,10 @@ func onNextButtonPressed():
 		# This should go to a post game scene. Will do this later
 		TTS.playText("Game is done")
 
+func onExitButtonPressed():
+	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
+
+
 # Logic used by four word buttons
 func buttonLogic(buttonNum):
 	if(nextBool):

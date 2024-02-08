@@ -198,6 +198,25 @@ text = "Play Word"
 icon = ExtResource("4_2l2q2")
 expand_icon = true
 
+[node name="ExitButton" type="Button" parent="Button"]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 136.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_s6hby")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_6lb0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pt32a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ydha")
+theme_override_styles/focus = SubResource("StyleBoxFlat_a2pnv")
+text = "Exit"
+expand_icon = true
+
 [node name="NextButton" type="Button" parent="Button"]
 offset_left = 569.0
 offset_top = 150.0
@@ -248,4 +267,5 @@ stream = ExtResource("7_74vyv")
 [connection signal="pressed" from="Button/Button3" to="." method="onButton3Pressed"]
 [connection signal="pressed" from="Button/Button4" to="." method="onButton4Pressed"]
 [connection signal="pressed" from="Button/SoundButton" to="." method="onSoundButtonPressed"]
+[connection signal="pressed" from="Button/ExitButton" to="." method="onExitButtonPressed"]
 [connection signal="pressed" from="Button/NextButton" to="." method="onNextButtonPressed"]
