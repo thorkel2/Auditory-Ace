@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgtgr46eden44"]
+
+[ext_resource type="Script" path="res://Scripts/Audio.gd" id="1_klib0"]
+[ext_resource type="AudioStream" uid="uid://b7gy2plqnn5de" path="res://Audio/incorrect.mp3" id="2_iq6np"]
+
+[sub_resource type="AudioStream" id="AudioStream_xi5y2"]
+
+[node name="Audio" type="Node2D"]
+script = ExtResource("1_klib0")
+
+[node name="SoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iq6np")
+volume_db = -36.762
+
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_xi5y2")
+autoplay = true

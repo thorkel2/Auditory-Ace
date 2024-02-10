@@ -28,14 +28,15 @@ func loadTables():
 	
 	#If database does not exist, create database
 	if (db.query_result.size() != 1):
-		db.query("CREATE TABLE Settings (Name VARCHAR(255), Sound INT, Volume INT);")
+		db.query("CREATE TABLE Settings (Name VARCHAR(255), Sound VARCHAR(255), Volume INT);")
 		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('Default', 0, 50);")
+		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('SoundEffect', 0, -12);")
 		db.query("CREATE TABLE Entries (Date TIMESTAMP, Score INT, Time FLOAT, BackgroundNoise INT, Sound VARCHAR(255), Exercise VARCHAR(255));")
 		print("Created table")
 		
 	#Load default sound settings
 	var Setting = retrieveSetting("Default")
-	TextToSpeech.Voice = Setting[0]
+	TextToSpeech.Voice = int(Setting[0])
 	TextToSpeech.Volume = Setting[1]
 	db.close_db()
 	
@@ -43,6 +44,9 @@ func loadTables():
 func retrieveSetting(setting : String):
 	db.open_db()
 	db.query("SELECT * FROM Settings WHERE Name = '" + setting + "';")
+	if (db.query_result.size() < 1):
+		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('" + setting + "', 0, -12);")
+		db.query("SELECT * FROM Settings WHERE Name = '" + setting + "';")
 	var Setting = [db.query_result[0]["Sound"], db.query_result[0]["Volume"]]
 	db.close_db()
 	return Setting
