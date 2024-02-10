@@ -1,0 +1,21 @@
+Correct,Incorrect,Incorrect,Incorrect,Word Type,Sound (Correct)
+Pot,Pop,Top,Cot,Noun,/t/
+Mat,Cat,Cap,Map,Noun,/t/
+Rat,Rap,Bat,Tap,Noun,/t/
+Toy,Ploy,Toe,Prose,Noun,/t/
+Ton,Pun,Tongue,Pawn,Noun,/t/
+Cup,Cut,Pup,Gup,Noun,/p/
+Pin,Tin,Pen,Tent,Noun,/p/
+Tip,Pip,Bit,Pit,Noun,/p/
+Rip,Net,Jet,Blip,Noun,/p/
+Parts,Pants,Tarps,Tarts,Noun,/p/
+Fit,Limp,Plump,Just,Adjective,/t/
+Tough,Puffed,Tacit,Passive,Adjective,/t/
+Tired,Pied,Tiered ,Plum,Adjective,/t/
+Great,Grape,Gaped,Late,Adjective,/t/
+Hot,Cropped,Hip,Mopped,Adjective,/t/
+Pale,Tall,Tan,Pure,Adjective,/p/
+Plain,Pleased,Tame,Teal,Adjective,/p/
+Poor,Pure,Torn,Twirled,Adjective,/p/
+Proud,Toweled,Prone,Toned,Adjective,/p/
+Steep,Sweet,Deep,Swift,Adjective,/p/
