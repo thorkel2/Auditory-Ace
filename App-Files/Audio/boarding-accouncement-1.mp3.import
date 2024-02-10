@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/boarding-accouncement-1.mp3-1b4a7a500b18f12ae
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
