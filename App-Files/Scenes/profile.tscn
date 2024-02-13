@@ -1,14 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=11 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
+[ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="2_eb51m"]
 [ext_resource type="Texture2D" uid="uid://s6wyuuaxxknt" path="res://Icons/profilepng.png" id="2_ow4sw"]
-[ext_resource type="Script" path="res://Scripts/profile.gd" id="3_koyvj"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="4_vsits"]
-[ext_resource type="Script" path="res://Scripts/help.gd" id="5_7dn8n"]
-[ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="6_ffgks"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="8_hfgah"]
-[ext_resource type="Script" path="res://Scripts/home.gd" id="9_st4a1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfp2g"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
@@ -47,6 +44,7 @@ shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
 [node name="Profile" type="Node2D"]
+script = ExtResource("1_re5px")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
@@ -76,6 +74,15 @@ offset_bottom = 527.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iuf5p")
 
+[node name="roundedEdge2" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 162.0
+offset_right = 197.0
+offset_bottom = 527.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0euoa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_reo8k")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 0
@@ -93,21 +100,11 @@ icon = ExtResource("2_eb51m")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("3_koyvj")
 
 [node name="Help" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 icon = ExtResource("4_vsits")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("5_7dn8n")
-
-[node name="Settings" type="Button" parent="ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("6_ffgks")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -119,23 +116,12 @@ icon = ExtResource("8_hfgah")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("9_st4a1")
-
-[node name="roundedEdge2" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 51.0
-offset_top = 162.0
-offset_right = 197.0
-offset_bottom = 527.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0euoa")
-theme_override_styles/hover = SubResource("StyleBoxFlat_reo8k")
 
 [node name="Profilepng" type="Sprite2D" parent="."]
 position = Vector2(125, 98)
 scale = Vector2(0.525, 0.525)
 texture = ExtResource("2_ow4sw")
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Profile" to="ColorRect/VBoxContainer/Profile" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Help" to="ColorRect/VBoxContainer/Help" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Settings" to="ColorRect/VBoxContainer/Settings" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="ColorRect/VBoxContainer/Home" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]

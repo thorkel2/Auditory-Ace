@@ -20,7 +20,6 @@ general/text_to_speech=true
 
 [autoload]
 
-LoadingScreen="*res://Scripts/loading_screen.gd"
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
 Database="*res://Scripts/Database.gd"
 Audio="*res://Scenes/Audio.tscn"
