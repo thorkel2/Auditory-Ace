@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://sk7l35wweph"]
+[gd_scene load_steps=10 format=3 uid="uid://sk7l35wweph"]
 
 [ext_resource type="Script" path="res://Scripts/exercise_two.gd" id="1_1j2px"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_pd8f8"]
@@ -14,6 +14,30 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yj10"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtl51"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -37,10 +61,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_pd8f8")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_hrsoy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0yj10")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qtl51")
 text = "cancel"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
 custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
 offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0

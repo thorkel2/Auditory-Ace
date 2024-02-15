@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6fypuci26d3p"]
+[gd_scene load_steps=17 format=3 uid="uid://6fypuci26d3p"]
 
 [ext_resource type="Script" path="res://Scripts/pre_exercise_two_screen.gd" id="1_u62lv"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_pxkja"]
@@ -17,6 +17,33 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1lt7"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12ls5"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ionqs"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
@@ -24,6 +51,29 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4h52"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vwnj"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -87,6 +137,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_pxkja")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t1lt7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_12ls5")
 text = "cancel"
 
 [node name="start" type="Button" parent="Background/ColorRect"]
@@ -99,6 +151,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_pxkja")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w4h52")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2vwnj")
 text = "start"
 
 [node name="AppTitle" type="Label" parent="Background/ColorRect"]

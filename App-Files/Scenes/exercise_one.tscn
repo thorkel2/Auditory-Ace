@@ -130,10 +130,10 @@ color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="AppTitle" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 120.0
-offset_right = 952.0
-offset_bottom = 200.0
+offset_left = 163.0
+offset_top = 126.0
+offset_right = 943.0
+offset_bottom = 206.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_s6hby")
 theme_override_font_sizes/font_size = 60
@@ -144,10 +144,10 @@ vertical_alignment = 1
 [node name="Button" type="Node2D" parent="."]
 
 [node name="Button1" type="Button" parent="Button"]
-offset_left = 175.0
-offset_top = 253.0
-offset_right = 475.0
-offset_bottom = 355.0
+offset_left = 173.0
+offset_top = 268.0
+offset_right = 473.0
+offset_bottom = 370.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 70
@@ -156,10 +156,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
 text = "Cat"
 
 [node name="Button2" type="Button" parent="Button"]
-offset_left = 547.0
-offset_top = 253.0
-offset_right = 847.0
-offset_bottom = 355.0
+offset_left = 545.0
+offset_top = 268.0
+offset_right = 845.0
+offset_bottom = 370.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 70
@@ -168,10 +168,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_2epvm")
 text = "option 2"
 
 [node name="Button3" type="Button" parent="Button"]
-offset_left = 176.0
-offset_top = 387.0
-offset_right = 476.0
-offset_bottom = 489.0
+offset_left = 174.0
+offset_top = 402.0
+offset_right = 474.0
+offset_bottom = 504.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 70
@@ -180,10 +180,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_musfj")
 text = "option 3"
 
 [node name="Button4" type="Button" parent="Button"]
-offset_left = 547.0
-offset_top = 387.0
-offset_right = 847.0
-offset_bottom = 489.0
+offset_left = 545.0
+offset_top = 402.0
+offset_right = 845.0
+offset_bottom = 504.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 70
@@ -192,10 +192,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_oagg8")
 text = "option 4"
 
 [node name="SoundButton" type="Button" parent="Button"]
-offset_left = 184.0
-offset_top = 109.0
-offset_right = 291.0
-offset_bottom = 211.0
+offset_left = 175.0
+offset_top = 115.0
+offset_right = 282.0
+offset_bottom = 217.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
