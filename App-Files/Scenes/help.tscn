@@ -44,14 +44,6 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Help" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("4_ydf5o")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
 [node name="Home" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
@@ -60,6 +52,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Help" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("4_ydf5o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="VBoxContainer/Profile" to="." method="_on_profile_pressed"]
-[connection signal="pressed" from="VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="VBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="VBoxContainer/Help" to="." method="_on_help_pressed"]

@@ -277,18 +277,18 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("7_eefkt")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
 [node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 icon = ExtResource("9_d4wut")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("7_eefkt")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -313,5 +313,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="Background/ColorRect/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="Background/ColorRect/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]

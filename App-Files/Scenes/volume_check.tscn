@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckjmnkj2oto1g"]
+[gd_scene load_steps=9 format=3 uid="uid://ckjmnkj2oto1g"]
 
 [ext_resource type="Script" path="res://Scripts/volume_check.gd" id="1_2vm7i"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_n7aby"]
@@ -13,6 +13,24 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2desg"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7w1w"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -34,6 +52,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_n7aby")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvl4f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2desg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7w1w")
 text = "I hear it!"
 
 [node name="subtext" type="Label" parent="."]
