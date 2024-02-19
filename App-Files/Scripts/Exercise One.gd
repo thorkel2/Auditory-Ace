@@ -70,11 +70,11 @@ func buttonLogic(buttonNum):
 		# Goes to next round or changes next button to be exit button
 		if(numRounds != maxNumRounds):
 			nextBool = true
-			nextButton.set_position(Vector2(569,150))
+			nextButton.set_position(Vector2(877,477))
 			numRounds += 1
 		else:
 			nextBool = true
-			nextButton.set_position(Vector2(569,150))
+			nextButton.set_position(Vector2(877,477))
 			nextButton.text = "Done"
 
 
