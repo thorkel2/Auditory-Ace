@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/SoundTesting.gd" id="1_54bhv"]
 [ext_resource type="AudioStream" uid="uid://f5otw3iwbn6j" path="res://Audio/boarding-accouncement-1.mp3" id="2_520cj"]
 [ext_resource type="AudioStream" uid="uid://ru7at6e6qgsw" path="res://Audio/bus-interior-1.mp3" id="3_livf3"]
-[ext_resource type="AudioStream" uid="uid://c3fs56koluhg1" path="res://Audio/food-court-1.mp3" id="4_243uf"]
+[ext_resource type="AudioStream" uid="uid://c3fs56koluhg1" path="res://Audio/foodcourt.mp3" id="4_243uf"]
 
 [node name="SoundTesting" type="Node2D"]
 script = ExtResource("1_54bhv")
@@ -123,6 +123,24 @@ offset_top = 470.0
 offset_right = 543.0
 offset_bottom = 505.0
 
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Audio"]
+offset_left = 721.0
+offset_top = 199.0
+offset_right = 822.0
+offset_bottom = 237.0
+text = "Sound Effect
+"
+
+[node name="Button2" type="Button" parent="Audio"]
+offset_left = 721.0
+offset_top = 245.0
+offset_right = 827.0
+offset_bottom = 283.0
+text = "Sound Effect
+"
+
 [connection signal="toggled" from="Background Noise 1/CheckButton" to="." method="onBG1Switched"]
 [connection signal="finished" from="Background Noise 1/AudioStreamPlayer" to="." method="BG1Finished"]
 [connection signal="value_changed" from="Background Noise 1/VolumeSlider" to="." method="BG1VolumeChanged"]
@@ -135,3 +153,5 @@ offset_bottom = 505.0
 [connection signal="text_submitted" from="TTS/LineEdit" to="." method="textSubmitted"]
 [connection signal="item_selected" from="TTS/OptionButton" to="." method="voiceSelected"]
 [connection signal="value_changed" from="TTS/VolumeSlider" to="." method="TTSVolumeChanged"]
+[connection signal="pressed" from="Audio/Button" to="." method="soundEffectButton"]
+[connection signal="pressed" from="Audio/Button2" to="." method="soundEffectButton2"]

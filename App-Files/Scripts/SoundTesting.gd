@@ -32,6 +32,7 @@ func _ready():
 		$TTS/OptionButton.add_item(i, Count)
 		Count += 1
 	$TTS/OptionButton.selected = TTS.Voice
+
 		
 func onBG1Switched(toggled_on):
 	if (toggled_on):
@@ -91,3 +92,14 @@ func BG2VolumeChanged(value):
 func BG3VolumeChanged(value):
 	BG3.volume_db = value
 
+
+
+func soundEffectButton():
+	Audio.loadBGNoise("BG")
+	Database.updateSetting("BG", "Sound", "'foodcourt'")
+	Audio.loadBGNoise("BG")
+	Audio.playBGNoise()
+
+
+func soundEffectButton2():
+	Audio.playFX("correct")

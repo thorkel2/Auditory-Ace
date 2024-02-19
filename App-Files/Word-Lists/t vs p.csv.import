@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://byahltoyxf0ny"
+
+[deps]
+
+files=["res://Word-Lists/t vs p.Incorrect.translation", "res://Word-Lists/t vs p.Incorrect.translation", "res://Word-Lists/t vs p.Incorrect.translation", "res://Word-Lists/t vs p.Word Type.translation", "res://Word-Lists/t vs p.Sound (Correct).translation"]
+
+source_file="res://Word-Lists/t vs p.csv"
+dest_files=["res://Word-Lists/t vs p.Incorrect.translation", "res://Word-Lists/t vs p.Incorrect.translation", "res://Word-Lists/t vs p.Incorrect.translation", "res://Word-Lists/t vs p.Word Type.translation", "res://Word-Lists/t vs p.Sound (Correct).translation"]
+
+[params]
+
+compress=true
+delimiter=0

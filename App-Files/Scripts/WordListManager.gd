@@ -49,6 +49,7 @@ func loadWordSets(filePath: String, type: WordListType) -> void:
 		var line := file.get_line().strip_edges()
 
 		# Split each line into word set components
+		# Split each line into word set components
 		var parts := line.split(",")
 
 		# Ensure the line contains enough components to create a word set
@@ -91,6 +92,9 @@ func getRandomWordSet(type: WordListType, desiredSound: String) -> WordSet:
 	if wordSets.size() == 0:
 		print("Error: Current word list is empty.")
 		return null
+	if wordSets.size() == 0:
+		print("Error: Current word list is empty.")
+		return null
 	
 	# Filter word sets based on the desired sound type and exclude used words
 	var filteredWordSets := []
@@ -100,10 +104,17 @@ func getRandomWordSet(type: WordListType, desiredSound: String) -> WordSet:
 	
 	if filteredWordSets.size() == 0:
 		usedWords = []
+	if filteredWordSets.size() == 0:
+		usedWords = []
 	
 	# Get a random word set from the filtered list
 	var randomIndex := randi() % filteredWordSets.size()
 	var selectedWordSet := filteredWordSets[randomIndex]
+	# Get a random word set from the filtered list
+	var randomIndex := randi() % filteredWordSets.size()
+	var selectedWordSet := filteredWordSets[randomIndex]
 	
+	usedWords.append(selectedWordSet.correctWord)
+	return selectedWordSet
 	usedWords.append(selectedWordSet.correctWord)
 	return selectedWordSet

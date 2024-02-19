@@ -1,0 +1,218 @@
+[gd_scene load_steps=10 format=3 uid="uid://muxpiusgbjw4"]
+
+[ext_resource type="Script" path="res://Scripts/post_exercise_screen.gd" id="1_7x1wm"]
+[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_yf24b"]
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="5_g064n"]
+[ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="6_kqwvc"]
+[ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="8_l4heu"]
+[ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="12_3tavo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guinx"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ionqs"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktuvp"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[node name="Exercise 1 Settings" type="Node2D"]
+script = ExtResource("1_7x1wm")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1024.0
+offset_bottom = 576.0
+color = Color(0.631373, 0.823529, 0.945098, 1)
+
+[node name="try again" type="Button" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 450.0
+offset_right = 489.0
+offset_bottom = 542.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yf24b")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
+text = "try again"
+
+[node name="done" type="Button" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 450.0
+offset_right = 836.0
+offset_bottom = 542.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yf24b")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
+text = "i'm done"
+
+[node name="ExcerciseOne" type="Button" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 126.0
+offset_right = 881.0
+offset_bottom = 420.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ktuvp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 924.0
+offset_right = 1024.0
+offset_bottom = 576.0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("6_kqwvc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("8_l4heu")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+icon = ExtResource("12_3tavo")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="AppTitle2" type="Label" parent="UI"]
+offset_left = 177.0
+offset_top = 38.0
+offset_right = 846.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 60
+text = "Game Summary"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AppTitle" type="Label" parent="UI"]
+z_index = 1
+offset_left = 213.0
+offset_top = 136.0
+offset_right = 654.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "your score: "
+vertical_alignment = 1
+
+[node name="AppTitle4" type="Label" parent="UI"]
+z_index = 1
+offset_left = 213.0
+offset_top = 231.0
+offset_right = 679.0
+offset_bottom = 311.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "word list practiced: "
+vertical_alignment = 1
+
+[node name="AppTitle7" type="Label" parent="UI"]
+z_index = 1
+offset_left = 629.0
+offset_top = 327.0
+offset_right = 747.0
+offset_bottom = 407.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "100"
+vertical_alignment = 1
+
+[node name="AppTitle6" type="Label" parent="UI"]
+z_index = 1
+offset_left = 212.0
+offset_top = 327.0
+offset_right = 675.0
+offset_bottom = 407.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "background sound: "
+vertical_alignment = 1
+
+[node name="AppTitle5" type="Label" parent="UI"]
+z_index = 1
+offset_left = 633.0
+offset_top = 232.0
+offset_right = 751.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "100"
+vertical_alignment = 1
+
+[node name="AppTitle3" type="Label" parent="UI"]
+z_index = 1
+offset_left = 457.0
+offset_top = 137.0
+offset_right = 575.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "100"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+offset_left = 923.0
+offset_right = 1025.0
+offset_bottom = 576.0
+color = Color(0.854902, 0.929412, 0.980392, 1)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Globals" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Background/ColorRect/try again" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Background/ColorRect/done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
