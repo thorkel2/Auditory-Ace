@@ -35,7 +35,7 @@ var usedtVpWords := []
 # Initialization function called when the Node enters the scene tree
 func _ready():
 	# Load the word sets from the CSV files
-	loadWordSets("res://App-Files/Word-Lists/m vs n.csv", WordListType.MVN) # M vs N word types
+  loadWordSets("res://App-Files/Word-Lists/m vs n.csv", WordListType.MVN) # M vs N word types
 	loadWordSets("res://App-Files/Word-Lists/s vs f.csv", WordListType.SVF) # S vs F word types
 	loadWordSets("res://App-Files/Word-Lists/t vs p.csv", WordListType.TVP) # T vs P word types
 
@@ -48,7 +48,6 @@ func loadWordSets(filePath: String, type: WordListType) -> void:
 	while !file.eof_reached():
 		var line := file.get_line().strip_edges()
 
-		# Split each line into word set components
 		# Split each line into word set components
 		var parts := line.split(",")
 
