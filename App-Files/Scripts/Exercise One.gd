@@ -1,6 +1,5 @@
 extends Node2D
 # Declaring variables for the nodes
-@onready var TTS = TextToSpeech
 @onready var buttonOne = $Button/Button1
 @onready var buttonTwo = $Button/Button2
 @onready var buttonThree = $Button/Button3
@@ -44,7 +43,7 @@ func onButton4Pressed():
 	buttonLogic(buttonFour)
 
 func onSoundButtonPressed():
-	TTS.playText(correctWord)
+	TextToSpeech.playText(correctWord)
 
 func onNextButtonPressed():
 	# Goes to next round if available
@@ -53,8 +52,7 @@ func onNextButtonPressed():
 		nextButton.set_position(Vector2(5000,5000))
 		nextBool = false
 	else:
-		# This should go to a post game scene. Will do this later
-		TTS.playText("Game is done")
+		gameDone()
 
 func onExitButtonPressed():
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
@@ -64,7 +62,7 @@ func onExitButtonPressed():
 func buttonLogic(buttonNum):
 	if(nextBool):
 		# Just plays audio if user hasn't gone to next round yet.
-		TTS.playText(buttonNum.text)
+		TextToSpeech.playText(buttonNum.text)
 	else:
 		checkCorrect(buttonNum.text, correctWord)
 		# Goes to next round or changes next button to be exit button
@@ -86,10 +84,10 @@ func generateWords():
 # Checks answer
 func checkCorrect(pressedWord, correctWord):
 	if(pressedWord == correctWord):
-		$Node2D/CorrectSound.play()
+		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
 	else:
-		$Node2D/IncorrectSound.play()
+		Audio.playFX('incorrect')
 		changeNextStar(false, numRounds)
 
 # Visually changes the round indicator
@@ -108,10 +106,16 @@ func changeNextStar(correctIncorrect, numRounds):
 		5:
 			starToBeChanged = starFive
 		_:
-			TTS.playText("Something went wrong")
+			TextToSpeech.playText("Something went wrong")
 	
 	# Changing based off of correct or incorrect answer
 	if(correctIncorrect):
 		starToBeChanged.texture = load("res://Artwork/starGreen.png")
 	else:
 		starToBeChanged.texture = load("res://Artwork/starRed.png")
+
+# Function to finish the game and send statistics info
+#Not Fully implemented yet.
+func gameDone():
+	Database.addEntry(1,1,'Low','MVN','Exercise 1')
+	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")
