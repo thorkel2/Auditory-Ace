@@ -10,6 +10,7 @@ extends Node2D
 @onready var starThree = $Node2D/Star3
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
+@onready var soundIcon = preload('res://Icons/volume-2.svg')
 
 # Other Variables used in code
 var numRounds # Current number of rounds
@@ -49,6 +50,7 @@ func onNextButtonPressed():
 	# Goes to next round if available
 	if(nextBool && nextButton.text != "Done"):
 		generateWords()
+		buttonColorChange(false)
 		nextButton.set_position(Vector2(5000,5000))
 		nextBool = false
 	else:
@@ -65,6 +67,7 @@ func buttonLogic(buttonNum):
 		TextToSpeech.playText(buttonNum.text)
 	else:
 		checkCorrect(buttonNum.text, correctWord)
+		buttonColorChange(true)
 		# Goes to next round or changes next button to be exit button
 		if(numRounds != maxNumRounds):
 			nextBool = true
@@ -113,6 +116,23 @@ func changeNextStar(correctIncorrect, numRounds):
 		starToBeChanged.texture = load("res://Artwork/starGreen.png")
 	else:
 		starToBeChanged.texture = load("res://Artwork/starRed.png")
+
+# Function to chance colors of buttons
+func buttonColorChange(colorBool: bool):
+	var buttonArray = [buttonOne, buttonTwo, buttonThree, buttonFour]
+	if(colorBool):
+		for button in buttonArray:
+			button.set_button_icon(soundIcon)
+			
+			if(button.text == correctWord):
+				button.add_theme_color_override("font_color", Color('Green'))
+			else:
+				button.add_theme_color_override("font_color", Color('Red'))
+	else:
+		for button in buttonArray:
+			button.set_button_icon(null)
+			button.add_theme_color_override("font_color", Color('Black'))
+
 
 # Function to finish the game and send statistics info
 #Not Fully implemented yet.
