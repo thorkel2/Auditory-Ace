@@ -10,6 +10,7 @@ extends Node2D
 @onready var starThree = $Node2D/Star3
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
+@onready var roundTimer = $RoundTimer
 @onready var soundIcon = preload('res://Icons/volume-2.svg')
 
 # Other Variables used in code
@@ -137,5 +138,5 @@ func buttonColorChange(colorBool: bool):
 # Function to finish the game and send statistics info
 #Not Fully implemented yet.
 func gameDone():
-	Database.addEntry(1,1,'Low','MVN','Exercise 1')
+	Database.addEntry(1, round(4096 - roundTimer.time_left),'Low','MVN','Exercise 1')
 	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")

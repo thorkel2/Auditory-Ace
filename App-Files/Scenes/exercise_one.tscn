@@ -266,6 +266,11 @@ position = Vector2(770, 46)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_hk162")
 
+[node name="RoundTimer" type="Timer" parent="."]
+wait_time = 4096.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]
 [connection signal="pressed" from="Button/Button3" to="." method="onButton3Pressed"]
