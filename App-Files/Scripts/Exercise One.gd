@@ -23,6 +23,12 @@ var nextBool = false # Next button is available or not
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
+	
+	#Hardcoding loading up a couple sets for testing
+	WordListManager.loadWordSets("res://Word-Lists/m vs n.csv", WordListManager.WordListType.MVN)
+	WordListManager.loadWordSets("res://Word-Lists/s vs f.csv", WordListManager.WordListType.SVF)
+	WordListManager.loadWordSets("res://Word-Lists/t vs p.csv", WordListManager.WordListType.TVP)
+	
 	# Next button starts off screen
 	nextButton.set_position(Vector2(5000,5000))
 	generateWords()
@@ -60,7 +66,6 @@ func onNextButtonPressed():
 func onExitButtonPressed():
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 
-
 # Logic used by four word buttons
 func buttonLogic(buttonNum):
 	if(nextBool):
@@ -80,10 +85,24 @@ func buttonLogic(buttonNum):
 			nextButton.text = "Done"
 
 
-# Load the next set of words
-# Placeholder, this isn't implemented yet...
+# Generate next set of words and change buttons
 func generateWords():
-	correctWord = "Cat"
+	# Using WordListManager.gd
+	# Change this when pre-exercise is implemented
+	# Hard coded for 'MVN' for now
+	var wordSet = WordListManager.getRandomWordSet(WordListManager.WordListType.MVN)
+	correctWord = wordSet.correctWord
+	
+	# Changing text on buttons
+	var randomIndex = (randi() % 4) + 1
+	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
+	var j = 0
+	for i in range(1,5):
+		if(randomIndex == i):
+			buttons[i-1].text = wordSet.correctWord
+		else:
+			buttons[i-1].text = wordSet.similarWords[j]
+			j += 1
 
 # Checks answer
 func checkCorrect(pressedWord, correctWord):
@@ -97,34 +116,19 @@ func checkCorrect(pressedWord, correctWord):
 # Visually changes the round indicator
 func changeNextStar(correctIncorrect, numRounds):
 	# Choosing starToBeChanged based off round
-	var starToBeChanged
-	match numRounds:
-		1:
-			starToBeChanged = starOne
-		2:
-			starToBeChanged = starTwo
-		3:
-			starToBeChanged = starThree
-		4:
-			starToBeChanged = starFour
-		5:
-			starToBeChanged = starFive
-		_:
-			TextToSpeech.playText("Something went wrong")
-	
-	# Changing based off of correct or incorrect answer
+	var stars = [starOne, starTwo, starThree, starFour, starFive]
 	if(correctIncorrect):
-		starToBeChanged.texture = load("res://Artwork/starGreen.png")
+		stars[numRounds-1].texture = load("res://Artwork/starGreen.png")
 	else:
-		starToBeChanged.texture = load("res://Artwork/starRed.png")
+		stars[numRounds-1].texture = load("res://Artwork/starRed.png")
 
 # Function to chance colors of buttons
 func buttonColorChange(colorBool: bool):
 	var buttonArray = [buttonOne, buttonTwo, buttonThree, buttonFour]
+	# Iterate through each button
 	if(colorBool):
 		for button in buttonArray:
 			button.set_button_icon(soundIcon)
-			
 			if(button.text == correctWord):
 				button.add_theme_color_override("font_color", Color('Dark_Green'))
 				button.add_theme_color_override("font_hover_color", Color('Dark_Green'))
