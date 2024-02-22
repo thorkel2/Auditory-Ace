@@ -31,12 +31,12 @@ func _ready():
     loadSentencePairs("res://Word-Lists/verb sentence list.csv", WordListType.VERB)
 
 # Load the sentence pairs from a CSV file
-func loadSentencePairs(filePath: String, type: WordListType) -> void:
-    var file = FileAccess.open(filePath, FileAccess.READ)
+func loadSentencePairs(filePath: String) -> void:
+	var file = FileAccess.open(filePath, FileAccess.READ)
 
-    if file == null:
-        print("Error: Failed to open file at", filePath)
-        return
+	if file == null:
+		print("Error: Failed to open file at", filePath)
+		return
         
     # Read each line from the CSV file
     while !file.eof_reached():
@@ -53,13 +53,14 @@ func loadSentencePairs(filePath: String, type: WordListType) -> void:
             var pair = SentencePair(sentence, wordType)
 
             # Add each sentence pair to the appropriate list
-            match type:
-                WordListType.NOUN:
+            match wordType:
+                "NOUN":
                     nounSentencePairs.append(pair)
-                WordListType.ADJ:
+                "ADJ":
                     adjSentencePairs.append(pair)
-                WordListType.VERB:
+                "VERB":
                     verbSentencePairs.append(pair)
+                # Add more cases for other word types as needed
 
     file.close()
 
