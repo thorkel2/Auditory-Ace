@@ -11,20 +11,24 @@ extends Node2D
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
 @onready var roundTimer = $RoundTimer
-@onready var soundIcon = preload('res://Icons/volume-2.svg')
+
 
 # Other Variables used in code
 var numRounds # Current number of rounds
 var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
 var nextBool = false # Next button is available or not
+var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
-	# Next button starts off screen
-	nextButton.set_position(Vector2(5000,5000))
+	
+	# Next button starts disabled
+	nextButton.set_disabled(true)
+	
+	# Start exercise
 	generateWords()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,7 +56,7 @@ func onNextButtonPressed():
 	if(nextBool && nextButton.text != "Done"):
 		generateWords()
 		buttonColorChange(false)
-		nextButton.set_position(Vector2(5000,5000))
+		nextButton.set_disabled(true)
 		nextBool = false
 	else:
 		gameDone()
@@ -60,30 +64,45 @@ func onNextButtonPressed():
 func onExitButtonPressed():
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 
-
 # Logic used by four word buttons
 func buttonLogic(buttonNum):
 	if(nextBool):
-		# Just plays audio if user hasn't gone to next round yet.
+		# Plays word audio if user hasn't gone to next round yet
 		TextToSpeech.playText(buttonNum.text)
 	else:
 		checkCorrect(buttonNum.text, correctWord)
 		buttonColorChange(true)
+		
 		# Goes to next round or changes next button to be exit button
 		if(numRounds != maxNumRounds):
 			nextBool = true
-			nextButton.set_position(Vector2(877,477))
+			nextButton.set_disabled(false)
 			numRounds += 1
 		else:
 			nextBool = true
-			nextButton.set_position(Vector2(877,477))
+			nextButton.set_disabled(false)
 			nextButton.text = "Done"
 
 
-# Load the next set of words
-# Placeholder, this isn't implemented yet...
+# Generate next set of words and change buttons
 func generateWords():
-	correctWord = "Cat"
+	# Using WordListManager.gd
+	var wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
+	correctWord = wordSet.correctWord
+	
+	# Playing text for user
+	TextToSpeech.playText(correctWord)
+	
+	# Changing text on buttons randomly
+	var randomIndex = (randi() % 4) + 1
+	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
+	var j = 0
+	for i in range(1,5):
+		if(randomIndex == i):
+			buttons[i-1].text = wordSet.correctWord
+		else:
+			buttons[i-1].text = wordSet.similarWords[j]
+			j += 1
 
 # Checks answer
 func checkCorrect(pressedWord, correctWord):
@@ -97,38 +116,24 @@ func checkCorrect(pressedWord, correctWord):
 # Visually changes the round indicator
 func changeNextStar(correctIncorrect, numRounds):
 	# Choosing starToBeChanged based off round
-	var starToBeChanged
-	match numRounds:
-		1:
-			starToBeChanged = starOne
-		2:
-			starToBeChanged = starTwo
-		3:
-			starToBeChanged = starThree
-		4:
-			starToBeChanged = starFour
-		5:
-			starToBeChanged = starFive
-		_:
-			TextToSpeech.playText("Something went wrong")
-	
-	# Changing based off of correct or incorrect answer
+	var stars = [starOne, starTwo, starThree, starFour, starFive]
 	if(correctIncorrect):
-		starToBeChanged.texture = load("res://Artwork/starGreen.png")
+		stars[numRounds-1].texture = load("res://Artwork/starGreen.png")
 	else:
-		starToBeChanged.texture = load("res://Artwork/starRed.png")
+		stars[numRounds-1].texture = load("res://Artwork/starRed.png")
 
-# Function to chance colors of buttons
+# Function to change colors of buttons
 func buttonColorChange(colorBool: bool):
 	var buttonArray = [buttonOne, buttonTwo, buttonThree, buttonFour]
+	# Iterate through each button
 	if(colorBool):
 		for button in buttonArray:
 			button.set_button_icon(soundIcon)
-			
 			if(button.text == correctWord):
 				button.add_theme_color_override("font_color", Color('Green'))
 			else:
 				button.add_theme_color_override("font_color", Color('Red'))
+	#Resetting colors if false
 	else:
 		for button in buttonArray:
 			button.set_button_icon(null)
@@ -138,5 +143,6 @@ func buttonColorChange(colorBool: bool):
 # Function to finish the game and send statistics info
 #Not Fully implemented yet.
 func gameDone():
+	# This database entry is garbage. WIP
 	Database.addEntry(1, round(4096 - roundTimer.time_left),'Low','MVN','Exercise 1')
 	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")
