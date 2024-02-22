@@ -11,20 +11,24 @@ extends Node2D
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
 @onready var roundTimer = $RoundTimer
-@onready var soundIcon = preload('res://Icons/volume-2.svg')
+
 
 # Other Variables used in code
 var numRounds # Current number of rounds
 var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
 var nextBool = false # Next button is available or not
+var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
+	
 	# Next button starts disabled
 	nextButton.set_disabled(true)
+	
+	# Start exercise
 	generateWords()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,11 +67,12 @@ func onExitButtonPressed():
 # Logic used by four word buttons
 func buttonLogic(buttonNum):
 	if(nextBool):
-		# Just plays audio if user hasn't gone to next round yet.
+		# Plays word audio if user hasn't gone to next round yet
 		TextToSpeech.playText(buttonNum.text)
 	else:
 		checkCorrect(buttonNum.text, correctWord)
 		buttonColorChange(true)
+		
 		# Goes to next round or changes next button to be exit button
 		if(numRounds != maxNumRounds):
 			nextBool = true
@@ -82,12 +87,10 @@ func buttonLogic(buttonNum):
 # Generate next set of words and change buttons
 func generateWords():
 	# Using WordListManager.gd
-	# Change this when pre-exercise is implemented
-	# Hard coded for 'MVN' for now
-	var wordSet = WordListManager.getRandomWordSet(WordListManager.WordListType.MVN)
+	var wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
 	correctWord = wordSet.correctWord
 	
-	# Changing text on buttons
+	# Changing text on buttons randomly
 	var randomIndex = (randi() % 4) + 1
 	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
 	var j = 0
@@ -116,7 +119,7 @@ func changeNextStar(correctIncorrect, numRounds):
 	else:
 		stars[numRounds-1].texture = load("res://Artwork/starRed.png")
 
-# Function to chance colors of buttons
+# Function to change colors of buttons
 func buttonColorChange(colorBool: bool):
 	var buttonArray = [buttonOne, buttonTwo, buttonThree, buttonFour]
 	# Iterate through each button
@@ -148,5 +151,6 @@ func buttonColorChange(colorBool: bool):
 # Function to finish the game and send statistics info
 #Not Fully implemented yet.
 func gameDone():
+	# This database entry is garbage. WIP
 	Database.addEntry(1, round(4096 - roundTimer.time_left),'Low','MVN','Exercise 1')
 	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")

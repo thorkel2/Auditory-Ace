@@ -136,7 +136,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_crrfk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5114w")
 text = "start"
 
-[node name="OptionButton2" type="OptionButton" parent="Background/ColorRect"]
+[node name="WordListDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 189.0
 offset_top = 129.0
@@ -168,7 +168,7 @@ popup/item_2/id = 2
 popup/item_3/text = "T vs P"
 popup/item_3/id = 3
 
-[node name="OptionButton3" type="OptionButton" parent="Background/ColorRect"]
+[node name="TTSDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 189.0
 offset_top = 229.0
@@ -187,18 +187,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 1
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Text to Speech Voice"
 popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
-popup/item_1/id = 1
-popup/item_2/text = "Option 3"
-popup/item_2/id = 2
 
-[node name="OptionButton4" type="OptionButton" parent="Background/ColorRect"]
+[node name="BGNoiseDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 189.0
 offset_top = 332.0
@@ -264,7 +259,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TextureButton" type="TextureButton" parent="Background/ColorRect"]
+[node name="BGNone" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 522.0
 offset_top = 339.0
@@ -273,7 +268,8 @@ offset_bottom = 549.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_lak4t")
 
-[node name="TextureButton2" type="TextureButton" parent="Background/ColorRect"]
+[node name="BGLow" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 601.0
 offset_top = 339.0
 offset_right = 851.0
@@ -281,7 +277,8 @@ offset_bottom = 549.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_lak4t")
 
-[node name="TextureButton3" type="TextureButton" parent="Background/ColorRect"]
+[node name="BGMedium" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 678.0
 offset_top = 339.0
 offset_right = 928.0
@@ -289,7 +286,8 @@ offset_bottom = 549.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_lak4t")
 
-[node name="TextureButton4" type="TextureButton" parent="Background/ColorRect"]
+[node name="BGHigh" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 755.0
 offset_top = 339.0
 offset_right = 1005.0
@@ -325,6 +323,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="AppTitle2" type="Label" parent="UI/AppTitle"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 361.0
 offset_right = 847.0
@@ -343,6 +342,13 @@ autowrap_mode = 2
 
 [connection signal="pressed" from="Background/ColorRect/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="Background/ColorRect/start" to="." method="_on_start_pressed"]
+[connection signal="item_selected" from="Background/ColorRect/WordListDropdown" to="." method="wordListDropdownItemSelected"]
+[connection signal="item_selected" from="Background/ColorRect/TTSDropdown" to="." method="TTSDropdownItemSelected"]
+[connection signal="item_selected" from="Background/ColorRect/BGNoiseDropdown" to="." method="BGNoiseDropdownItemSelected"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Background/ColorRect/BGNone" to="." method="BGNonePressed"]
+[connection signal="pressed" from="Background/ColorRect/BGLow" to="." method="BGLowPressed"]
+[connection signal="pressed" from="Background/ColorRect/BGMedium" to="." method="BGMediumPressed"]
+[connection signal="pressed" from="Background/ColorRect/BGHigh" to="." method="BGHighPressed"]
