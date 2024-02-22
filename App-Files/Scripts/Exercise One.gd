@@ -90,6 +90,9 @@ func generateWords():
 	var wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
 	correctWord = wordSet.correctWord
 	
+	# Playing text for user
+	TextToSpeech.playText(correctWord)
+	
 	# Changing text on buttons randomly
 	var randomIndex = (randi() % 4) + 1
 	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
