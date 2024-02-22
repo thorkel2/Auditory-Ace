@@ -2,18 +2,6 @@
 #Contains framework for all sound related functions, can be used as reference for actual implementation
 extends Node2D
 
-#Background Noise 1
-@onready var BG1 = $"Background Noise 1/AudioStreamPlayer"
-var BG1Playing = false
-
-#Background Noise 2
-@onready var BG2 = $"Background Noise 2/AudioStreamPlayer"
-var BG2Playing = false
-
-#Background Noise 3
-@onready var BG3 = $"Background Noise 3/AudioStreamPlayer"
-var BG3Playing = false
-
 #Custom TTS
 var Voices: Array[String]
 
@@ -27,6 +15,7 @@ func _ready():
 		Count += 1
 	$TTS/OptionButton.selected = TextToSpeech.Voice
 
+#TTS Functions
 func textSubmitted(new_text):
 	TextToSpeech.playText(new_text)
 
@@ -38,6 +27,7 @@ func TTSVolumeChanged(value):
 	TextToSpeech.Volume = value
 	Database.updateSetting("TTS", "Volume", value)
 
+#BG Noise Functions
 func bgButton():
 	Audio.playBGNoise()
 
@@ -46,7 +36,8 @@ func editBGSound(new_text):
 
 func editBGVolume(new_text):
 	Audio.changeBGVolume("BG", int(new_text))
-	
+
+#Sound Effect Functions
 func editFXSound(new_text):
 	Audio.playFX(new_text)
 	
