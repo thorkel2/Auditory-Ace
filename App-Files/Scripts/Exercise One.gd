@@ -23,14 +23,8 @@ var nextBool = false # Next button is available or not
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
-	
-	#Hardcoding loading up a couple sets for testing
-	WordListManager.loadWordSets("res://Word-Lists/m vs n.csv", WordListManager.WordListType.MVN)
-	WordListManager.loadWordSets("res://Word-Lists/s vs f.csv", WordListManager.WordListType.SVF)
-	WordListManager.loadWordSets("res://Word-Lists/t vs p.csv", WordListManager.WordListType.TVP)
-	
-	# Next button starts off screen
-	nextButton.set_position(Vector2(5000,5000))
+	# Next button starts disabled
+	nextButton.set_disabled(true)
 	generateWords()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,7 +52,7 @@ func onNextButtonPressed():
 	if(nextBool && nextButton.text != "Done"):
 		generateWords()
 		buttonColorChange(false)
-		nextButton.set_position(Vector2(5000,5000))
+		nextButton.set_disabled(true)
 		nextBool = false
 	else:
 		gameDone()
@@ -77,11 +71,11 @@ func buttonLogic(buttonNum):
 		# Goes to next round or changes next button to be exit button
 		if(numRounds != maxNumRounds):
 			nextBool = true
-			nextButton.set_position(Vector2(877,477))
+			nextButton.set_disabled(false)
 			numRounds += 1
 		else:
 			nextBool = true
-			nextButton.set_position(Vector2(877,477))
+			nextButton.set_disabled(false)
 			nextButton.text = "Done"
 
 
