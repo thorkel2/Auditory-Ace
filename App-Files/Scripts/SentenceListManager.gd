@@ -13,24 +13,31 @@ struct SentencePair:
 # Dictionary to store paired sentences and word types
 enum WordListType {
     NOUN,
-    ADJ
+    ADJ,
+    VERB
 }
 
 var nounSentencePairs := []
 var adjSentencePairs := []
+var verbSentencePairs := []
 var usedNounSentences := []
 var usedAdjSentences := []
+var usedVerbSentences := []
 
 func _ready():
     # Load the sentence pairs from the CSV files
-    loadSentencePairs("res://noun_sentence_list.csv", WordListType.NOUN)
-    loadSentencePairs("res://adj_sentence_list.csv", WordListType.ADJ)
+    loadSentencePairs("res://Word-Lists/noun sentence list.csv", WordListType.NOUN)
+    loadSentencePairs("res://Word-Lists/adj sentence list.csv", WordListType.ADJ)
+    loadSentencePairs("res://Word-Lists/verb sentence list.csv", WordListType.VERB)
 
 # Load the sentence pairs from a CSV file
 func loadSentencePairs(filePath: String, type: WordListType) -> void:
-    var file := File.new()
-    file.open(filePath, File.READ)
+    var file = FileAccess.open(filePath, FileAccess.READ)
 
+    if file == null:
+        print("Error: Failed to open file at", filePath)
+        return
+        
     # Read each line from the CSV file
     while !file.eof_reached():
         var line := file.get_line().strip_edges()
@@ -51,6 +58,8 @@ func loadSentencePairs(filePath: String, type: WordListType) -> void:
                     nounSentencePairs.append(pair)
                 WordListType.ADJ:
                     adjSentencePairs.append(pair)
+                WordListType.VERB:
+                    verbSentencePairs.append(pair)
 
     file.close()
 
@@ -63,6 +72,9 @@ func getRandomSentencePair(type: WordListType) -> SentencePair:
     elif type == WordListType.ADJ:
         sentencePairs = adjSentencePairs
         usedSentences = usedAdjSentences
+    elif type == WordListType.VERB:
+        sentencePairs = verbSentencePairs
+        usedSentences = usedVerbSentences
     else:
         print("Error: Unknown word list type.")
         return SentencePair("", "")
