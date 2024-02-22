@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dn6ycwgltsy06"]
+[gd_scene load_steps=15 format=3 uid="uid://dn6ycwgltsy06"]
 
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_1671l"]
 [ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_m5qst"]
 [ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="4_2l2q2"]
 [ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="5_hk162"]
-[ext_resource type="AudioStream" uid="uid://db1t8meobli4l" path="res://Audio/correct.mp3" id="6_rdpg7"]
-[ext_resource type="AudioStream" uid="uid://b7gy2plqnn5de" path="res://Audio/incorrect.mp3" id="7_74vyv"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="13_s6hby"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dnn1"]
@@ -268,11 +266,10 @@ position = Vector2(770, 46)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_hk162")
 
-[node name="CorrectSound" type="AudioStreamPlayer" parent="Node2D"]
-stream = ExtResource("6_rdpg7")
-
-[node name="IncorrectSound" type="AudioStreamPlayer" parent="Node2D"]
-stream = ExtResource("7_74vyv")
+[node name="RoundTimer" type="Timer" parent="."]
+wait_time = 4096.0
+one_shot = true
+autostart = true
 
 [connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]
