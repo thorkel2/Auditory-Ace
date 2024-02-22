@@ -30,6 +30,11 @@ var usedmVnWords = []
 var usedsVfWords = []
 var usedtVpWords = []
 
+# Variables used as a global variables for exercise one
+var chosenWordList: WordListType
+var score = 0
+var timeScore = 0
+
 # Initialization function called when the Node enters the scene tree
 func _ready():
 	# Load the word sets from the CSV files
@@ -104,4 +109,12 @@ func getRandomWordSet(type: WordListType) -> WordSet:
 
 	return selectedWordSet
 
-
+# Setter for chosenWordList
+func setWordListVar(chosen: int):
+	match chosen:
+		1:
+			chosenWordList = WordListType.MVN
+		2:
+			chosenWordList = WordListType.SVF
+		3:
+			chosenWordList = WordListType.TVP
