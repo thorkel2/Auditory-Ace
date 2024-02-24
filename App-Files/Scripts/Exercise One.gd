@@ -11,7 +11,8 @@ extends Node2D
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
 @onready var roundTimer = $RoundTimer
-@onready var topText = $Background/ColorRect/TopText 
+@onready var topText = $Background/ColorRect/TopText
+@onready var selectedIndicator = $SelectedIndicator
 
 # Other Variables used in code
 var numRounds # Current number of rounds
@@ -29,10 +30,7 @@ func _ready():
 	nextButton.set_disabled(true)
 	replayMode = false
 	generateWords()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	selectedIndicator.set_visible(false)
 
 # Functions tied to each button
 func onButton1Pressed():
@@ -56,6 +54,7 @@ func onNextButtonPressed():
 	else:
 		replayMode = false
 		buttonColorChange(false)
+		selectedIndicator.set_visible(false)
 		generateWords()
 		nextButton.set_disabled(true)
 		topText.text = "Tap to hear again"
@@ -81,6 +80,8 @@ func buttonLogic(buttonNum):
 		replayMode = true
 		nextButton.set_disabled(true)
 		buttonColorChange(true)
+		selectedIndicator.set_position(buttonNum.get_position())
+		selectedIndicator.set_visible(true)
 		topText.text = "Tap words to practice"
 	elif (correct && !roundAvailable):
 		# Short pause before game end
@@ -90,6 +91,8 @@ func buttonLogic(buttonNum):
 		replayMode = true
 		nextButton.set_disabled(true)
 		buttonColorChange(true)
+		selectedIndicator.set_position(buttonNum.get_position())
+		selectedIndicator.set_visible(true)
 		topText.text = "Tap words to practice"
 		nextButton.text = "Done"
 	else:
@@ -160,7 +163,6 @@ func buttonColorChange(colorBool: bool):
 		for button in buttonArray:
 			button.set_button_icon(null)
 			button.add_theme_color_override("font_color", Color('Black'))
-
 
 # Function to finish the game and send statistics info
 #Not Fully implemented yet.
