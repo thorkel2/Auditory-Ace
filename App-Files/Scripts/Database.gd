@@ -33,12 +33,12 @@ func loadTables():
 		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('SoundEffect', 0, -12);")
 		db.query("CREATE TABLE Entries (Date TIMESTAMP, Score INT, Time FLOAT, BackgroundNoise INT, Sound VARCHAR(255), Exercise VARCHAR(255));")
 		print("Created table")
-		
+	db.close_db()
 	#Load default sound settings
 	var Setting = retrieveSetting("TTS")
 	TextToSpeech.Voice = int(Setting[0])
 	TextToSpeech.Volume = Setting[1]
-	db.close_db()
+	
 	
 #Retrieve specific sound settings based on name
 func retrieveSetting(setting : String):
