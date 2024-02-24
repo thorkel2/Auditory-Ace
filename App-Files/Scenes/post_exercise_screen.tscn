@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://muxpiusgbjw4"]
+[gd_scene load_steps=15 format=3 uid="uid://muxpiusgbjw4"]
 
 [ext_resource type="Script" path="res://Scripts/post_exercise_screen.gd" id="1_7x1wm"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_yf24b"]
@@ -8,6 +8,36 @@
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="12_3tavo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guinx"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42nvv"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25cuj"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hucv"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -37,6 +67,26 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt636"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5717n"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
 [node name="Exercise 1 Settings" type="Node2D"]
 script = ExtResource("1_7x1wm")
 
@@ -54,9 +104,17 @@ offset_top = 450.0
 offset_right = 489.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yf24b")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_42nvv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_25cuj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0hucv")
 text = "try again"
 
 [node name="done" type="Button" parent="Background/ColorRect"]
@@ -66,9 +124,17 @@ offset_top = 450.0
 offset_right = 836.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yf24b")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_42nvv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_25cuj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0hucv")
 text = "i'm done"
 
 [node name="ExcerciseOne" type="Button" parent="Background/ColorRect"]
@@ -78,6 +144,8 @@ offset_top = 126.0
 offset_right = 881.0
 offset_bottom = 420.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktuvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yt636")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5717n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
 custom_minimum_size = Vector2(80, 80)
@@ -86,7 +154,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]

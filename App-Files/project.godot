@@ -31,6 +31,10 @@ window/size/viewport_height=576
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="mobile"
