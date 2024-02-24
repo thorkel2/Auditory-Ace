@@ -126,13 +126,25 @@ func buttonColorChange(colorBool: bool):
 			button.set_button_icon(soundIcon)
 			
 			if(button.text == correctWord):
-				button.add_theme_color_override("font_color", Color('Green'))
+				button.add_theme_color_override("font_color", Color('Dark_Green'))
+				button.add_theme_color_override("font_hover_color", Color('Dark_Green'))
+				button.add_theme_color_override("font_pressed_color", Color('Dark_Green'))
+				button.add_theme_color_override("font_focus_color", Color('Dark_Green'))
+				button.add_theme_color_override("font_hover_pressed_color", Color('Dark_Green'))
 			else:
-				button.add_theme_color_override("font_color", Color('Red'))
+				button.add_theme_color_override("font_color", Color('Indian_Red'))
+				button.add_theme_color_override("font_hover_color", Color('Indian_Red'))
+				button.add_theme_color_override("font_pressed_color", Color('Indian_Red'))
+				button.add_theme_color_override("font_focus_color", Color('Indian_Red'))
+				button.add_theme_color_override("font_hover_pressed_color", Color('Indian_Red'))
 	else:
 		for button in buttonArray:
 			button.set_button_icon(null)
 			button.add_theme_color_override("font_color", Color('Black'))
+			button.add_theme_color_override("font_hover_color", Color('Black'))
+			button.add_theme_color_override("font_pressed_color", Color('Black'))
+			button.add_theme_color_override("font_focus_color", Color('Black'))
+			button.add_theme_color_override("font_hover_pressed_color", Color('Black'))
 
 
 # Function to finish the game and send statistics info
