@@ -126,17 +126,16 @@ offset_right = 1024.0
 offset_bottom = 576.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
-[node name="AppTitle" type="Label" parent="Background/ColorRect"]
+[node name="TopText" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 163.0
+offset_left = 304.0
 offset_top = 126.0
-offset_right = 943.0
+offset_right = 837.0
 offset_bottom = 206.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_s6hby")
 theme_override_font_sizes/font_size = 60
 text = "Tap to hear again"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Node2D" parent="."]
@@ -151,7 +150,7 @@ theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
-text = "Cat"
+text = "option 1"
 
 [node name="Button2" type="Button" parent="Button"]
 offset_left = 545.0

@@ -11,7 +11,7 @@ extends Node2D
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
 @onready var roundTimer = $RoundTimer
-
+@onready var topText = $Background/ColorRect/TopText 
 
 # Other Variables used in code
 var numRounds # Current number of rounds
@@ -58,6 +58,7 @@ func onNextButtonPressed():
 		buttonColorChange(false)
 		generateWords()
 		nextButton.set_disabled(true)
+		topText.text = "Tap to hear again"
 
 func onExitButtonPressed():
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
@@ -80,6 +81,7 @@ func buttonLogic(buttonNum):
 		replayMode = true
 		nextButton.set_disabled(true)
 		buttonColorChange(true)
+		topText.text = "Tap words to practice"
 	elif (correct && !roundAvailable):
 		# Short pause before game end
 		await get_tree().create_timer(1.0).timeout
@@ -88,6 +90,7 @@ func buttonLogic(buttonNum):
 		replayMode = true
 		nextButton.set_disabled(true)
 		buttonColorChange(true)
+		topText.text = "Tap words to practice"
 		nextButton.text = "Done"
 	else:
 		print("Error")
