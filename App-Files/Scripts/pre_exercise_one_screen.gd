@@ -14,6 +14,7 @@ func _ready():
 	# Choosing random word list in case user doesn't pick
 	WordListManager.setWordListVar(randi() % 3 + 1)
 	
+	# Default BG volume to low
 	lastVolumePressed = BGLow
 	
 	# Disable BG options

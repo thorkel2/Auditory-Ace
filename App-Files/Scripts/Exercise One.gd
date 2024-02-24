@@ -17,7 +17,7 @@ extends Node2D
 var numRounds # Current number of rounds
 var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
-var nextBool = false # Next button is available or not
+var replayMode: bool # Boolean for game being in replay mode
 var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
 
 # Called when the node enters the scene tree for the first time.
@@ -25,10 +25,9 @@ func _ready():
 	numRounds = 1
 	maxNumRounds = 5
 	
-	# Next button starts disabled
-	nextButton.set_disabled(true)
-	
 	# Start exercise
+	nextButton.set_disabled(true)
+	replayMode = false
 	generateWords()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,36 +51,54 @@ func onSoundButtonPressed():
 	TextToSpeech.playText(correctWord)
 
 func onNextButtonPressed():
-	# Goes to next round if available
-	if(nextBool && nextButton.text != "Done"):
-		generateWords()
-		buttonColorChange(false)
-		nextButton.set_disabled(true)
-		nextBool = false
-	else:
+	if(nextButton.text == "Done"):
 		gameDone()
+	else:
+		replayMode = false
+		buttonColorChange(false)
+		generateWords()
+		nextButton.set_disabled(true)
 
 func onExitButtonPressed():
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 
 # Logic used by four word buttons
 func buttonLogic(buttonNum):
-	if(nextBool):
-		# Plays word audio if user hasn't gone to next round yet
+	# If game is in replay mode just play text and end function
+	if(replayMode):
 		TextToSpeech.playText(buttonNum.text)
-	else:
-		checkCorrect(buttonNum.text, correctWord)
+		return
+	
+	var correct: bool = checkCorrect(buttonNum.text, correctWord)
+	var roundAvailable: bool = (numRounds != maxNumRounds)
+	
+	if (correct && roundAvailable):
+		numRounds += 1
+		onNextButtonPressed()
+	elif (!correct && roundAvailable):
+		numRounds += 1
+		replayMode = true
+		nextButton.set_disabled(true)
 		buttonColorChange(true)
-		
-		# Goes to next round or changes next button to be exit button
-		if(numRounds != maxNumRounds):
-			nextBool = true
-			nextButton.set_disabled(false)
-			numRounds += 1
-		else:
-			nextBool = true
-			nextButton.set_disabled(false)
-			nextButton.text = "Done"
+	elif (correct && !roundAvailable):
+		# Short pause before game end
+		await get_tree().create_timer(1.0).timeout
+		gameDone()
+	elif (!correct && !roundAvailable):
+		replayMode = true
+		nextButton.set_disabled(true)
+		buttonColorChange(true)
+		nextButton.text = "Done"
+	else:
+		print("Error")
+	
+	
+	# Enter replay mode if incorrect
+	if(!correct):
+		replayMode = true
+		nextButton.set_disabled(false)
+	
+
 
 
 # Generate next set of words and change buttons
@@ -104,14 +121,16 @@ func generateWords():
 			buttons[i-1].text = wordSet.similarWords[j]
 			j += 1
 
-# Checks answer
-func checkCorrect(pressedWord, correctWord):
+# Checks answer, plays audio, changes indicator
+func checkCorrect(pressedWord, correctWord) -> bool:
 	if(pressedWord == correctWord):
 		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
+		return true
 	else:
 		Audio.playFX('incorrect')
 		changeNextStar(false, numRounds)
+		return false
 
 # Visually changes the round indicator
 func changeNextStar(correctIncorrect, numRounds):
