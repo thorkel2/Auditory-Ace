@@ -29,16 +29,16 @@ func loadTables():
 	#If database does not exist, create database
 	if (db.query_result.size() != 1):
 		db.query("CREATE TABLE Settings (Name VARCHAR(255), Sound VARCHAR(255), Volume INT);")
-		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('Default', 0, 50);")
+		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('TTS', 0, 50);")
 		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('SoundEffect', 0, -12);")
 		db.query("CREATE TABLE Entries (Date TIMESTAMP, Score INT, Time FLOAT, BackgroundNoise INT, Sound VARCHAR(255), Exercise VARCHAR(255));")
 		print("Created table")
-		
+	db.close_db()
 	#Load default sound settings
-	var Setting = retrieveSetting("Default")
+	var Setting = retrieveSetting("TTS")
 	TextToSpeech.Voice = int(Setting[0])
 	TextToSpeech.Volume = Setting[1]
-	db.close_db()
+	
 	
 #Retrieve specific sound settings based on name
 func retrieveSetting(setting : String):
@@ -52,9 +52,12 @@ func retrieveSetting(setting : String):
 	return Setting
 	
 #Update value of setting based on name
-func updateSetting(category : String, setting : String, value):
+func updateSetting(settingName : String, settingCategory : String, settingValue):
 	db.open_db()
-	db.query("UPDATE Settings SET " + setting + " = " + str(value) + " WHERE Name = '" + category + "';")
+	db.query("SELECT * FROM Settings WHERE Name = '" + settingName + "';")
+	if (db.query_result.size() < 1):
+		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('" + settingName + "', 0, -12);")
+	db.query("UPDATE Settings SET " + settingCategory + " = " + str(settingValue) + " WHERE Name = '" + settingName + "';")
 	db.close_db()
 	
 #Add entry based on parameters

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx6dpxdyw5xy0"]
+[gd_scene load_steps=16 format=3 uid="uid://cx6dpxdyw5xy0"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_a4l8t"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_fguwv"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="4_08ad4"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="6_avtq5"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="6_kixc0"]
-[ext_resource type="Texture2D" uid="uid://dwjfd6potskd0" path="res://Icons/open-book-1-512.png" id="7_tetmf"]
+[ext_resource type="Texture2D" uid="uid://c5eiubbcpakuh" path="res://Icons/flash-cards.png" id="7_8jk7a"]
+[ext_resource type="Texture2D" uid="uid://bjlclw8yg7bd5" path="res://Icons/open-book.png" id="8_x43ni"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_026xp"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
@@ -24,6 +25,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -33,6 +35,18 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdero"]
+content_margin_left = 7.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -42,6 +56,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -51,6 +66,17 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v223"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -72,7 +98,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
@@ -121,18 +147,20 @@ offset_bottom = 520.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_026xp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_voo7y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qrf6c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wdero")
 text = "
 "
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ExcerciseOne"]
+layout_mode = 0
 offset_left = -1.0
-offset_top = 89.0
+offset_top = 2.0
 offset_right = 399.0
-offset_bottom = 307.0
-theme_override_constants/separation = 100
+offset_bottom = 402.0
+theme_override_constants/separation = 20
+alignment = 1
 
 [node name="AppTitle" type="Label" parent="UI/ExcerciseOne/VBoxContainer"]
-z_index = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kixc0")
@@ -141,13 +169,23 @@ text = "Practice"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MarginContainer" type="MarginContainer" parent="UI/ExcerciseOne/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 135
+theme_override_constants/margin_right = 135
+
+[node name="TextureRect" type="TextureRect" parent="UI/ExcerciseOne/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+texture = ExtResource("7_8jk7a")
+expand_mode = 1
+
 [node name="AppTitle2" type="Label" parent="UI/ExcerciseOne/VBoxContainer"]
-z_index = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kixc0")
 theme_override_font_sizes/font_size = 45
-text = "words!"
+text = "Words!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -159,15 +197,17 @@ offset_bottom = 520.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_026xp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lwyhq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c2o4w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7v223")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/ExcerciseTwo"]
-offset_top = 88.0
-offset_right = 400.0
-offset_bottom = 306.0
-theme_override_constants/separation = 100
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ExcerciseTwo"]
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 399.0
+offset_bottom = 402.0
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="AppTitle" type="Label" parent="UI/ExcerciseTwo/VBoxContainer3"]
-z_index = 1
+[node name="AppTitle" type="Label" parent="UI/ExcerciseTwo/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kixc0")
@@ -176,29 +216,29 @@ text = "Practice"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AppTitle2" type="Label" parent="UI/ExcerciseTwo/VBoxContainer3"]
-z_index = 1
+[node name="MarginContainer" type="MarginContainer" parent="UI/ExcerciseTwo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 135
+theme_override_constants/margin_right = 135
+
+[node name="TextureRect" type="TextureRect" parent="UI/ExcerciseTwo/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+texture = ExtResource("8_x43ni")
+expand_mode = 1
+
+[node name="AppTitle2" type="Label" parent="UI/ExcerciseTwo/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kixc0")
 theme_override_font_sizes/font_size = 45
-text = "sentences!"
+text = "Sentences!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="Globals" type="Node2D" parent="."]
-
-[node name="Open-book-1-512" type="Sprite2D" parent="."]
-position = Vector2(246, 316)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_tetmf")
-
-[node name="Open-book-1-513" type="Sprite2D" parent="."]
-position = Vector2(697, 318)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_tetmf")
 
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
