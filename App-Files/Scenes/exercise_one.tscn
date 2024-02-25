@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_m5qst"]
 [ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="4_2l2q2"]
 [ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="5_hk162"]
+[ext_resource type="Texture2D" uid="uid://dw6n4hwbrq30j" path="res://Artwork/you selected.png" id="6_c7up6"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="13_s6hby"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dnn1"]
@@ -213,17 +214,16 @@ offset_right = 1024.0
 offset_bottom = 576.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
-[node name="AppTitle" type="Label" parent="Background/ColorRect"]
+[node name="TopText" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 163.0
+offset_left = 304.0
 offset_top = 126.0
-offset_right = 943.0
+offset_right = 837.0
 offset_bottom = 206.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_s6hby")
 theme_override_font_sizes/font_size = 55
 text = "Tap to hear again"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Node2D" parent="."]
@@ -251,9 +251,10 @@ theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
+
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12hia")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8t240")
-text = "Cat"
+text = "option 1"
 expand_icon = true
 
 [node name="Button2" type="Button" parent="Button"]
@@ -425,6 +426,12 @@ texture = ExtResource("5_hk162")
 wait_time = 4096.0
 one_shot = true
 autostart = true
+
+[node name="SelectedIndicator" type="Sprite2D" parent="."]
+position = Vector2(173, 268)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_c7up6")
+offset = Vector2(50, 10)
 
 [connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="onButton2Pressed"]

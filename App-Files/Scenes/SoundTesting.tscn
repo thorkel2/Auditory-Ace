@@ -1,6 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://wslvybc7gauj"]
 
 [ext_resource type="Script" path="res://Scripts/SoundTesting.gd" id="1_54bhv"]
+[ext_resource type="AudioStream" uid="uid://f5otw3iwbn6j" path="res://Audio/Announcer.mp3" id="2_520cj"]
+[ext_resource type="AudioStream" uid="uid://ru7at6e6qgsw" path="res://Audio/Bus Interior.mp3" id="3_livf3"]
+[ext_resource type="AudioStream" uid="uid://c3fs56koluhg1" path="res://Audio/Food Court.mp3" id="4_243uf"]
 
 [node name="SoundTesting" type="Node2D"]
 script = ExtResource("1_54bhv")
