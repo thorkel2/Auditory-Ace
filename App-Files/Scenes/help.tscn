@@ -1,18 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://si0jgvd6h2mo"]
+[gd_scene load_steps=6 format=3 uid="uid://si0jgvd6h2mo"]
 
+[ext_resource type="Script" path="res://Scripts/help.gd" id="1_2sgix"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_6oev2"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="2_t2jo4"]
-[ext_resource type="Script" path="res://Scripts/profile.gd" id="3_p4qn1"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="4_ydf5o"]
-[ext_resource type="Script" path="res://Scripts/help.gd" id="5_8kj3p"]
-[ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="6_48khb"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="7_unc2u"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="8_j3qun"]
-[ext_resource type="Script" path="res://Scripts/home.gd" id="9_3khjp"]
-[ext_resource type="Texture2D" uid="uid://c4d4obpswg8s3" path="res://Icons/bar-chart-2.svg" id="10_b0mrj"]
-[ext_resource type="Script" path="res://Scripts/stats.gd" id="11_pw120"]
 
 [node name="Help" type="Node2D"]
+script = ExtResource("1_2sgix")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
@@ -32,63 +27,39 @@ text = "help
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
 offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Profile" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Profile" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 icon = ExtResource("2_t2jo4")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("3_p4qn1")
 
-[node name="Help" type="Button" parent="ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("4_ydf5o")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("5_8kj3p")
-
-[node name="Settings" type="Button" parent="ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("6_48khb")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("7_unc2u")
-
-[node name="Home" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Home" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 icon = ExtResource("8_j3qun")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("9_3khjp")
 
-[node name="Stats" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Help" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-icon = ExtResource("10_b0mrj")
+icon = ExtResource("4_ydf5o")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("11_pw120")
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Profile" to="ColorRect/VBoxContainer/Profile" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Help" to="ColorRect/VBoxContainer/Help" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Settings" to="ColorRect/VBoxContainer/Settings" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="ColorRect/VBoxContainer/Home" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Stats" to="ColorRect/VBoxContainer/Stats" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="VBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="VBoxContainer/Help" to="." method="_on_help_pressed"]

@@ -2,13 +2,8 @@
 extends Node2D
 
 func searchEntries():
-	#Set filters based on input
-	Database.searchDays = $SearchParameters/SearchDays.text
-	Database.searchBGNoise = $SearchParameters/SearchBGNoise.text
-	Database.searchSound = $SearchParameters/SearchSound.text
-	Database.searchExercise = $SearchParameters/SearchExercise.text
-	
-	var entries = Database.searchEntries()
+	var entries = Database.searchEntries($SearchParameters/SearchDays.text, 
+	$SearchParameters/SearchBGNoise.text, $SearchParameters/SearchSound.text, $SearchParameters/SearchExercise.text)
 	#Reset text objects
 	$TextElements/EntryTable/Date.text = ""
 	$TextElements/EntryTable/Score.text = ""

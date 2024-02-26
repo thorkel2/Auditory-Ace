@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://wslvybc7gauj"]
+[gd_scene load_steps=2 format=3 uid="uid://wslvybc7gauj"]
 
 [ext_resource type="Script" path="res://Scripts/SoundTesting.gd" id="1_54bhv"]
-[ext_resource type="AudioStream" uid="uid://f5otw3iwbn6j" path="res://Audio/boarding-accouncement-1.mp3" id="2_520cj"]
-[ext_resource type="AudioStream" uid="uid://ru7at6e6qgsw" path="res://Audio/bus-interior-1.mp3" id="3_livf3"]
-[ext_resource type="AudioStream" uid="uid://c3fs56koluhg1" path="res://Audio/food-court-1.mp3" id="4_243uf"]
+[ext_resource type="AudioStream" uid="uid://f5otw3iwbn6j" path="res://Audio/Announcer.mp3" id="2_520cj"]
+[ext_resource type="AudioStream" uid="uid://ru7at6e6qgsw" path="res://Audio/Bus Interior.mp3" id="3_livf3"]
+[ext_resource type="AudioStream" uid="uid://c3fs56koluhg1" path="res://Audio/Food Court.mp3" id="4_243uf"]
 
 [node name="SoundTesting" type="Node2D"]
 script = ExtResource("1_54bhv")
@@ -14,93 +14,6 @@ script = ExtResource("1_54bhv")
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.478431, 0.439216, 0.623529, 1)
-
-[node name="Background Noise 1" type="Node2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Background Noise 1"]
-offset_left = 50.0
-offset_top = 170.0
-offset_right = 260.0
-offset_bottom = 205.0
-color = Color(0.301961, 0.301961, 0.301961, 1)
-
-[node name="CheckButton" type="CheckButton" parent="Background Noise 1"]
-offset_left = 50.0
-offset_top = 170.0
-offset_right = 260.0
-offset_bottom = 205.0
-text = "Background Noise 1
-"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background Noise 1"]
-stream = ExtResource("2_520cj")
-volume_db = -10.0
-
-[node name="VolumeSlider" type="HSlider" parent="Background Noise 1"]
-offset_left = 270.0
-offset_top = 170.0
-offset_right = 375.0
-offset_bottom = 205.0
-min_value = -60.0
-max_value = 10.0
-
-[node name="Background Noise 2" type="Node2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Background Noise 2"]
-offset_left = 50.0
-offset_top = 270.0
-offset_right = 260.0
-offset_bottom = 305.0
-color = Color(0.301961, 0.301961, 0.301961, 1)
-
-[node name="CheckButton" type="CheckButton" parent="Background Noise 2"]
-offset_left = 50.0
-offset_top = 270.0
-offset_right = 260.0
-offset_bottom = 305.0
-text = "Background Noise 2
-"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background Noise 2"]
-stream = ExtResource("3_livf3")
-volume_db = -10.0
-
-[node name="VolumeSlider" type="HSlider" parent="Background Noise 2"]
-offset_left = 270.0
-offset_top = 270.0
-offset_right = 375.0
-offset_bottom = 305.0
-min_value = -60.0
-max_value = 10.0
-
-[node name="Background Noise 3" type="Node2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Background Noise 3"]
-offset_left = 50.0
-offset_top = 370.0
-offset_right = 260.0
-offset_bottom = 405.0
-color = Color(0.301961, 0.301961, 0.301961, 1)
-
-[node name="CheckButton" type="CheckButton" parent="Background Noise 3"]
-offset_left = 50.0
-offset_top = 370.0
-offset_right = 260.0
-offset_bottom = 405.0
-text = "Background Noise 3
-"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background Noise 3"]
-stream = ExtResource("4_243uf")
-volume_db = -10.0
-
-[node name="VolumeSlider" type="HSlider" parent="Background Noise 3"]
-offset_left = 270.0
-offset_top = 370.0
-offset_right = 375.0
-offset_bottom = 405.0
-min_value = -60.0
-max_value = 10.0
 
 [node name="TTS" type="Node2D" parent="."]
 
@@ -123,15 +36,47 @@ offset_top = 470.0
 offset_right = 543.0
 offset_bottom = 505.0
 
-[connection signal="toggled" from="Background Noise 1/CheckButton" to="." method="onBG1Switched"]
-[connection signal="finished" from="Background Noise 1/AudioStreamPlayer" to="." method="BG1Finished"]
-[connection signal="value_changed" from="Background Noise 1/VolumeSlider" to="." method="BG1VolumeChanged"]
-[connection signal="toggled" from="Background Noise 2/CheckButton" to="." method="onBG2Switched"]
-[connection signal="finished" from="Background Noise 2/AudioStreamPlayer" to="." method="BG2Finished"]
-[connection signal="value_changed" from="Background Noise 2/VolumeSlider" to="." method="BG2VolumeChanged"]
-[connection signal="toggled" from="Background Noise 3/CheckButton" to="." method="onBG3Switched"]
-[connection signal="finished" from="Background Noise 3/AudioStreamPlayer" to="." method="BG3Finished"]
-[connection signal="value_changed" from="Background Noise 3/VolumeSlider" to="." method="BG3VolumeChanged"]
+[node name="Background Noise" type="Node2D" parent="."]
+
+[node name="BG Noise Button" type="Button" parent="Background Noise"]
+offset_left = 63.0
+offset_top = 75.0
+offset_right = 164.0
+offset_bottom = 113.0
+text = "BG Noise
+"
+
+[node name="Edit Sound" type="LineEdit" parent="Background Noise"]
+offset_left = 175.0
+offset_top = 79.0
+offset_right = 365.0
+offset_bottom = 110.0
+
+[node name="Edit Volume" type="LineEdit" parent="Background Noise"]
+offset_left = 65.0
+offset_top = 122.0
+offset_right = 154.0
+offset_bottom = 153.0
+
+[node name="Sound Effects" type="Node2D" parent="."]
+
+[node name="Edit Sound" type="LineEdit" parent="Sound Effects"]
+offset_left = 62.0
+offset_top = 276.0
+offset_right = 250.0
+offset_bottom = 307.0
+
+[node name="Edit Volume" type="LineEdit" parent="Sound Effects"]
+offset_left = 59.0
+offset_top = 319.0
+offset_right = 164.0
+offset_bottom = 350.0
+
 [connection signal="text_submitted" from="TTS/LineEdit" to="." method="textSubmitted"]
 [connection signal="item_selected" from="TTS/OptionButton" to="." method="voiceSelected"]
 [connection signal="value_changed" from="TTS/VolumeSlider" to="." method="TTSVolumeChanged"]
+[connection signal="pressed" from="Background Noise/BG Noise Button" to="." method="bgButton"]
+[connection signal="text_submitted" from="Background Noise/Edit Sound" to="." method="editBGSound"]
+[connection signal="text_submitted" from="Background Noise/Edit Volume" to="." method="editBGVolume"]
+[connection signal="text_submitted" from="Sound Effects/Edit Sound" to="." method="editFXSound"]
+[connection signal="text_submitted" from="Sound Effects/Edit Volume" to="." method="editFXVolume"]

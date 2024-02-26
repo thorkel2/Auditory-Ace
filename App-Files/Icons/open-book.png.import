@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cprx3upgufobt"
-path="res://.godot/imported/x.svg-4402340e2f725e924f2e7d83afde3bea.ctex"
+uid="uid://bjlclw8yg7bd5"
+path="res://.godot/imported/open-book.png-c3ae1ccf4f1c1ddfa6d6a809ac0a6252.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/x.svg"
-dest_files=["res://.godot/imported/x.svg-4402340e2f725e924f2e7d83afde3bea.ctex"]
+source_file="res://Icons/open-book.png"
+dest_files=["res://.godot/imported/open-book.png-c3ae1ccf4f1c1ddfa6d6a809ac0a6252.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

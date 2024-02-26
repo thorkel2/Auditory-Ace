@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckjmnkj2oto1g"]
+[gd_scene load_steps=9 format=3 uid="uid://ckjmnkj2oto1g"]
 
+[ext_resource type="Script" path="res://Scripts/volume_check.gd" id="1_2vm7i"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_n7aby"]
-[ext_resource type="Script" path="res://Scripts/success_vol_check.gd" id="2_bwrd4"]
 [ext_resource type="AudioStream" uid="uid://dpoy1i487e2j4" path="res://Audio/E-Lot - An ending theme..mp3" id="6_o51ih"]
-[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="14_h7fki"]
 [ext_resource type="FontFile" uid="uid://dayil4h078ps1" path="res://Fonts/JosefinSans-Regular.ttf" id="15_3y1dj"]
 [ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="16_o8ig3"]
 
@@ -17,7 +16,28 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2desg"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7w1w"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
 [node name="VolumeCheck" type="Node2D"]
+script = ExtResource("1_2vm7i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
@@ -31,24 +51,17 @@ offset_top = 420.0
 offset_right = 662.0
 offset_bottom = 512.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_n7aby")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvl4f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2desg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7w1w")
 text = "I hear it!"
-script = ExtResource("2_bwrd4")
-
-[node name="AppTitle" type="Label" parent="ColorRect"]
-visible = false
-layout_mode = 0
-offset_top = 27.0
-offset_right = 1024.0
-offset_bottom = 107.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("14_h7fki")
-theme_override_font_sizes/font_size = 60
-text = "volume check!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="subtext" type="Label" parent="."]
 offset_left = 112.0
@@ -76,4 +89,4 @@ expand_icon = true
 stream = ExtResource("6_o51ih")
 autoplay = true
 
-[connection signal="pressed" from="ColorRect/start" to="ColorRect/start" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/start" to="." method="_on_start_pressed"]

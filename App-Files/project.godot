@@ -20,9 +20,10 @@ general/text_to_speech=true
 
 [autoload]
 
-LoadingScreen="*res://Scripts/loading_screen.gd"
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
 Database="*res://Scripts/Database.gd"
+Audio="*res://Scenes/Audio.tscn"
+WordListManager="*res://Scripts/WordListManager.gd"
 
 [display]
 
@@ -30,6 +31,10 @@ window/size/viewport_width=1024
 window/size/viewport_height=576
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [rendering]
 

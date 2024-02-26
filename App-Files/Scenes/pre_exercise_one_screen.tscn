@@ -1,22 +1,34 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhq3j05ofi0lb"]
+[gd_scene load_steps=16 format=3 uid="uid://dhq3j05ofi0lb"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_l1tsm"]
+[ext_resource type="Script" path="res://Scripts/pre_exercise_one_screen.gd" id="1_igkpn"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_so2u2"]
-[ext_resource type="Script" path="res://Scripts/cancel.gd" id="3_5ml27"]
-[ext_resource type="Script" path="res://Scripts/start_one.gd" id="4_q58m8"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="5_ogckx"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="6_2mtaq"]
-[ext_resource type="Script" path="res://Scripts/profile.gd" id="6_v6k1p"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="7_80feb"]
-[ext_resource type="Script" path="res://Scripts/help.gd" id="8_8f6ra"]
-[ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="8_ub3ya"]
+[ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="7_lak4t"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="9_6kevv"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="10_t4r5i"]
-[ext_resource type="Texture2D" uid="uid://c4d4obpswg8s3" path="res://Icons/bar-chart-2.svg" id="10_vir1a"]
-[ext_resource type="Script" path="res://Scripts/home.gd" id="12_5wq2l"]
-[ext_resource type="Script" path="res://Scripts/stats.gd" id="14_6ij5e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guinx"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crrfk"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5114w"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -77,7 +89,7 @@ shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
 [node name="Exercise 1 Settings" type="Node2D"]
-script = ExtResource("1_l1tsm")
+script = ExtResource("1_igkpn")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -93,11 +105,17 @@ offset_top = 450.0
 offset_right = 489.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_so2u2")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crrfk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5114w")
 text = "cancel"
-script = ExtResource("3_5ml27")
 
 [node name="start" type="Button" parent="Background/ColorRect"]
 layout_mode = 0
@@ -106,18 +124,24 @@ offset_top = 450.0
 offset_right = 836.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_so2u2")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crrfk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5114w")
 text = "start"
-script = ExtResource("4_q58m8")
 
-[node name="OptionButton2" type="OptionButton" parent="Background/ColorRect"]
+[node name="WordListDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 140.0
-offset_right = 832.0
-offset_bottom = 200.0
+offset_left = 189.0
+offset_top = 129.0
+offset_right = 489.0
+offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -131,23 +155,25 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 4
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Word List"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
+popup/item_1/text = "M vs N"
 popup/item_1/id = 1
-popup/item_2/text = "Option 3"
+popup/item_2/text = "S vs F"
 popup/item_2/id = 2
+popup/item_3/text = "T vs P"
+popup/item_3/id = 3
 
-[node name="OptionButton3" type="OptionButton" parent="Background/ColorRect"]
+[node name="TTSDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 240.0
-offset_right = 832.0
-offset_bottom = 300.0
+offset_left = 189.0
+offset_top = 229.0
+offset_right = 489.0
+offset_bottom = 289.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -161,23 +187,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 1
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Text to Speech Voice"
 popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
-popup/item_1/id = 1
-popup/item_2/text = "Option 3"
-popup/item_2/id = 2
 
-[node name="OptionButton4" type="OptionButton" parent="Background/ColorRect"]
+[node name="BGNoiseDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 340.0
-offset_right = 832.0
-offset_bottom = 400.0
+offset_left = 189.0
+offset_top = 332.0
+offset_right = 489.0
+offset_bottom = 392.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -191,16 +212,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 5
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Background Noise"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
-popup/item_1/id = 1
-popup/item_2/text = "Option 3"
-popup/item_2/id = 2
+popup/item_1/text = "None"
+popup/item_1/id = 4
+popup/item_2/text = "Announcer"
+popup/item_2/id = 1
+popup/item_3/text = "Bus Interior"
+popup/item_3/id = 2
+popup/item_4/text = "Food Court"
+popup/item_4/id = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
 custom_minimum_size = Vector2(80, 80)
@@ -209,7 +234,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
@@ -219,25 +244,6 @@ icon = ExtResource("6_2mtaq")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("6_v6k1p")
-
-[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("7_80feb")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("8_8f6ra")
-
-[node name="Settings" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("8_ub3ya")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("10_t4r5i")
 
 [node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
@@ -246,16 +252,41 @@ icon = ExtResource("9_6kevv")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("12_5wq2l")
 
-[node name="Stats" type="Button" parent="Background/ColorRect/VBoxContainer"]
+[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-icon = ExtResource("10_vir1a")
+icon = ExtResource("7_80feb")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("14_6ij5e")
+
+[node name="BGLow" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 339.0
+offset_right = 779.0
+offset_bottom = 549.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_lak4t")
+
+[node name="BGMedium" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 339.0
+offset_right = 861.0
+offset_bottom = 549.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_lak4t")
+
+[node name="BGHigh" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 339.0
+offset_right = 939.0
+offset_bottom = 549.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_lak4t")
 
 [node name="UI" type="Node2D" parent="."]
 
@@ -272,10 +303,10 @@ vertical_alignment = 1
 
 [node name="AppTitle" type="Label" parent="UI/AppTitle"]
 layout_mode = 0
-offset_left = 170.0
-offset_top = 86.0
-offset_right = 492.0
-offset_bottom = 396.0
+offset_left = 536.0
+offset_top = 91.0
+offset_right = 861.0
+offset_bottom = 289.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_ogckx")
 theme_override_font_sizes/font_size = 45
@@ -284,21 +315,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-visible = false
-offset_left = 923.0
-offset_right = 1025.0
-offset_bottom = 576.0
-color = Color(0.854902, 0.929412, 0.980392, 1)
+[node name="AppTitle2" type="Label" parent="UI/AppTitle"]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 361.0
+offset_right = 764.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ogckx")
+theme_override_font_sizes/font_size = 22
+text = "Low   Medium   High"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="Globals" type="Node2D" parent="."]
 
-[connection signal="pressed" from="Background/ColorRect/cancel" to="Background/ColorRect/cancel" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/start" to="Background/ColorRect/start" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="Background/ColorRect/VBoxContainer/Profile" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="Background/ColorRect/VBoxContainer/Help" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Settings" to="Background/ColorRect/VBoxContainer/Settings" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="Background/ColorRect/VBoxContainer/Home" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Stats" to="Background/ColorRect/VBoxContainer/Stats" method="_on_pressed"]
+[connection signal="pressed" from="Background/ColorRect/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Background/ColorRect/start" to="." method="_on_start_pressed"]
+[connection signal="item_selected" from="Background/ColorRect/WordListDropdown" to="." method="wordListDropdownItemSelected"]
+[connection signal="item_selected" from="Background/ColorRect/TTSDropdown" to="." method="TTSDropdownItemSelected"]
+[connection signal="item_selected" from="Background/ColorRect/BGNoiseDropdown" to="." method="BGNoiseDropdownItemSelected"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Background/ColorRect/BGLow" to="." method="BGLowPressed"]
+[connection signal="pressed" from="Background/ColorRect/BGMedium" to="." method="BGMediumPressed"]
+[connection signal="pressed" from="Background/ColorRect/BGHigh" to="." method="BGHighPressed"]

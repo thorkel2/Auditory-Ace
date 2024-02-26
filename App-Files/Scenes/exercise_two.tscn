@@ -1,17 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://sk7l35wweph"]
+[gd_scene load_steps=10 format=3 uid="uid://sk7l35wweph"]
 
+[ext_resource type="Script" path="res://Scripts/exercise_two.gd" id="1_1j2px"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_pd8f8"]
-[ext_resource type="Script" path="res://Scripts/cancel.gd" id="2_gursg"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="3_vql17"]
-[ext_resource type="Script" path="res://Scripts/profile.gd" id="4_vqysk"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="5_66nqn"]
-[ext_resource type="Script" path="res://Scripts/help.gd" id="6_hwvyb"]
-[ext_resource type="Texture2D" uid="uid://ccfs70qpwq8q4" path="res://Icons/settings.svg" id="7_ehv6t"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="8_uo87x"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="9_pk121"]
-[ext_resource type="Script" path="res://Scripts/home.gd" id="10_ea4vi"]
-[ext_resource type="Texture2D" uid="uid://c4d4obpswg8s3" path="res://Icons/bar-chart-2.svg" id="11_tlr46"]
-[ext_resource type="Script" path="res://Scripts/stats.gd" id="12_fu2df"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="13_b21hx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrsoy"]
@@ -24,7 +17,32 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
-[node name="Main Menu" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yj10"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtl51"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[node name="Exercise Two" type="Node2D"]
+script = ExtResource("1_1j2px")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -43,8 +61,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_pd8f8")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_hrsoy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0yj10")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qtl51")
 text = "cancel"
-script = ExtResource("2_gursg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
 custom_minimum_size = Vector2(80, 80)
@@ -53,7 +72,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
@@ -63,25 +82,6 @@ icon = ExtResource("3_vql17")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("4_vqysk")
-
-[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("5_66nqn")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("6_hwvyb")
-
-[node name="Settings" type="Button" parent="Background/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-icon = ExtResource("7_ehv6t")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("8_uo87x")
 
 [node name="Home" type="Button" parent="Background/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
@@ -90,16 +90,14 @@ icon = ExtResource("9_pk121")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("10_ea4vi")
 
-[node name="Stats" type="Button" parent="Background/ColorRect/VBoxContainer"]
+[node name="Help" type="Button" parent="Background/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-icon = ExtResource("11_tlr46")
+icon = ExtResource("5_66nqn")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("12_fu2df")
 
 [node name="UI" type="Node2D" parent="."]
 
@@ -114,20 +112,11 @@ text = "exercise 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-visible = false
-offset_left = 923.0
-offset_right = 1025.0
-offset_bottom = 576.0
-color = Color(0.854902, 0.929412, 0.980392, 1)
-
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="Globals" type="Node2D" parent="."]
 
-[connection signal="pressed" from="Background/ColorRect/cancel" to="Background/ColorRect/cancel" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="Background/ColorRect/VBoxContainer/Profile" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="Background/ColorRect/VBoxContainer/Help" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Settings" to="Background/ColorRect/VBoxContainer/Settings" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="Background/ColorRect/VBoxContainer/Home" method="_on_pressed"]
-[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Stats" to="Background/ColorRect/VBoxContainer/Stats" method="_on_pressed"]
+[connection signal="pressed" from="Background/ColorRect/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]

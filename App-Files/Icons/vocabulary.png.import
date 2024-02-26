@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dslxpb5uubs1a"
-path="res://.godot/imported/x-circle.svg-df8b6d3bf481a74240f269548a2d3b3d.ctex"
+uid="uid://cjuf5iqxafgv5"
+path="res://.godot/imported/vocabulary.png-dfab3cfd50bbba9c0b17532e44272948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/x-circle.svg"
-dest_files=["res://.godot/imported/x-circle.svg-df8b6d3bf481a74240f269548a2d3b3d.ctex"]
+source_file="res://Icons/vocabulary.png"
+dest_files=["res://.godot/imported/vocabulary.png-dfab3cfd50bbba9c0b17532e44272948.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
