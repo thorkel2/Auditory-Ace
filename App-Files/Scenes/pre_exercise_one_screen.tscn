@@ -24,6 +24,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -33,6 +34,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -103,6 +105,11 @@ offset_top = 450.0
 offset_right = 489.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_so2u2")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
@@ -117,6 +124,11 @@ offset_top = 450.0
 offset_right = 836.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_so2u2")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
@@ -200,18 +212,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 4
+item_count = 5
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Background Noise"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_1/text = "Announcer"
-popup/item_1/id = 1
-popup/item_2/text = "Bus Interior"
-popup/item_2/id = 2
-popup/item_3/text = "Food Court"
-popup/item_3/id = 3
+popup/item_1/text = "None"
+popup/item_1/id = 4
+popup/item_2/text = "Announcer"
+popup/item_2/id = 1
+popup/item_3/text = "Bus Interior"
+popup/item_3/id = 2
+popup/item_4/text = "Food Court"
+popup/item_4/id = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
 custom_minimum_size = Vector2(80, 80)
@@ -220,7 +234,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]
@@ -247,38 +261,29 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="BGNone" type="TextureButton" parent="Background/ColorRect"]
-layout_mode = 0
-offset_left = 522.0
-offset_top = 339.0
-offset_right = 772.0
-offset_bottom = 549.0
-scale = Vector2(0.25, 0.25)
-texture_normal = ExtResource("7_lak4t")
-
 [node name="BGLow" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 601.0
+offset_left = 529.0
 offset_top = 339.0
-offset_right = 851.0
+offset_right = 779.0
 offset_bottom = 549.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_lak4t")
 
 [node name="BGMedium" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 678.0
+offset_left = 611.0
 offset_top = 339.0
-offset_right = 928.0
+offset_right = 861.0
 offset_bottom = 549.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_lak4t")
 
 [node name="BGHigh" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 755.0
+offset_left = 689.0
 offset_top = 339.0
-offset_right = 1005.0
+offset_right = 939.0
 offset_bottom = 549.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_lak4t")
@@ -312,14 +317,14 @@ autowrap_mode = 2
 
 [node name="AppTitle2" type="Label" parent="UI/AppTitle"]
 layout_mode = 0
-offset_left = 491.0
+offset_left = 523.0
 offset_top = 361.0
-offset_right = 847.0
+offset_right = 764.0
 offset_bottom = 399.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_ogckx")
 theme_override_font_sizes/font_size = 22
-text = "None     Low   Medium  High"
+text = "Low   Medium   High"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -336,7 +341,6 @@ autowrap_mode = 2
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="Background/ColorRect/BGNone" to="." method="BGNonePressed"]
 [connection signal="pressed" from="Background/ColorRect/BGLow" to="." method="BGLowPressed"]
 [connection signal="pressed" from="Background/ColorRect/BGMedium" to="." method="BGMediumPressed"]
 [connection signal="pressed" from="Background/ColorRect/BGHigh" to="." method="BGHighPressed"]

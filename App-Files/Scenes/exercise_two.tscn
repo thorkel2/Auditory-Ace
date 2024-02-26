@@ -72,7 +72,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]

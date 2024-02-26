@@ -27,8 +27,9 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(2, 2)
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12ls5"]
 content_margin_left = 5.0
@@ -40,7 +41,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -134,6 +135,11 @@ offset_top = 450.0
 offset_right = 487.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_pxkja")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
@@ -148,6 +154,11 @@ offset_top = 450.0
 offset_right = 834.0
 offset_bottom = 542.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_pxkja")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
@@ -266,7 +277,7 @@ offset_left = 924.0
 offset_right = 1024.0
 offset_bottom = 576.0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Profile" type="Button" parent="Background/ColorRect/VBoxContainer"]

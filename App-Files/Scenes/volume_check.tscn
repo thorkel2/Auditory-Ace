@@ -22,6 +22,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -31,6 +32,7 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -49,6 +51,11 @@ offset_top = 420.0
 offset_right = 662.0
 offset_bottom = 512.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_n7aby")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvl4f")
