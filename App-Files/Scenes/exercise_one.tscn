@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dn6ycwgltsy06"]
+[gd_scene load_steps=22 format=3 uid="uid://dn6ycwgltsy06"]
 
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_1671l"]
 [ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_m5qst"]
@@ -251,7 +251,6 @@ theme_override_fonts/font = ExtResource("1_1671l")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
-
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12hia")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8t240")
 text = "option 1"
