@@ -72,7 +72,7 @@ func searchEntries(searchDays : String, searchBGNoise : String, searchSound : St
 	var Query : String = "SELECT * FROM (SELECT * FROM Entries ORDER BY Date Desc) AS SortedEntries "
 	
 	if (searchDays == "All" && searchBGNoise == "All" && searchSound == "All" && searchExercise == "All"):
-		db.query(Query)
+		db.query("SELECT DATE(Date) AS Day, AVG(Score) AS AverageScore FROM (" + Query + ") AS FilteredEntries GROUP BY DATE(Date);")
 	else:
 		var filter = ["NULL", "NULL", "NULL", "NULL"]
 		if (searchDays != "All"):
@@ -93,26 +93,55 @@ func searchEntries(searchDays : String, searchBGNoise : String, searchSound : St
 		Query += filter[1] + ", BackgroundNoise))
 		AND (Sound = COALESCE(" + filter[2] + ", Sound))
 		AND (Exercise = COALESCE(" + filter[3] + ", Exercise));"
-		db.query(Query)
-	
-	var results = db.query_result
+		db.query("SELECT DATE(Date) AS Day, AVG(Score) AS AverageScore FROM (" + Query + ") AS FilteredEntries GROUP BY DATE(Date);")
+
+	var queryResult = db.query_result
 	db.close_db()
-	return(results)	
+	var result := []
+	for i in range(queryResult.size()): 
+		var row := []
+		result.append(row)
+	for n in range (1, queryResult.size(), 1):
+		result[0].append(queryResult[n]["Day"])
+		result[1].append(str(int(queryResult[n]["AverageScore"])))
+		
+	return(result)	
 
 #Randomly generates x amount of entries (testing purposes)
 func addRandomEntry(num : int):
-	var sounds = ["aw", "ee", "ir", "owe", "er", "i", "ear", "or"]
+	var sounds = ["MvN", "TvP", "SvF"]
+	var BGNoiseLevels = ["None", "Low", "Medium", "High"]
 	db.open_db()
 	for n in 100:
-		var day : int = randi_range(1, 30)
+		var day : int = randi_range(1, 28)
+		var hour : int = randi_range(1, 23)
+		var minute : int = randi_range(1, 60)
+		var second : int = randi_range(1, 60)
 		var randomTime : String
+		
 		if (day < 10):
-			randomTime = "'2024-01-0" + str(day) + " " + str(randi_range(1, 12)) + ":" + str(randi_range(10, 59)) + ":" + str(randi_range(10, 59)) + "'"
+			randomTime = "'2024-02-0" + str(day) + " "
 		else:
-			randomTime = "'2024-01-" + str(day) + " " + str(randi_range(1, 12)) + ":" + str(randi_range(10, 59)) + ":" + str(randi_range(10, 59)) + "'"
-		var score : String = str(randi_range(1, 1000))
-		var time : String = str(randi_range(1, 10))
-		var bgNoise : String = str(randi_range(1, 10))
+			randomTime = "'2024-02-" + str(day) + " "
+			
+		if (hour < 10):
+			randomTime += "0" + str(hour) + ":"
+		else:
+			randomTime += str(hour) + ":"
+			
+		if (minute < 10):
+			randomTime += "0" + str(minute) + ":"
+		else:
+			randomTime += str(minute) + ":"
+			
+		if (second < 10):
+			randomTime += "0" + str(second) + "'"
+		else:
+			randomTime += str(second) + "'"
+			
+		var score : String = str(randi_range(1, 5000))
+		var time : String = str(randi_range(1, 30))
+		var bgNoise : String = BGNoiseLevels[randi_range(0, sounds.size() - 1)]
 		var sound : String = sounds[randi_range(0, sounds.size() - 1)]
 		var exercise : String = "Exercise " + str(randi_range(1, 2))
 		

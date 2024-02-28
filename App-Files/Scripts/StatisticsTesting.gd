@@ -14,12 +14,12 @@ func searchEntries():
 	
 	#Set text of text objects based on entries returned
 	for n in range (0, entries.size(), 1):
-		$TextElements/EntryTable/Date.text += entries[n]["Date"] + "\n"
-		$TextElements/EntryTable/Score.text += str(entries[n]["Score"]) + "\n"
-		$TextElements/EntryTable/Time.text += str(entries[n]["Time"]) + "\n"
-		$TextElements/EntryTable/BGNoise.text += str(entries[n]["BackgroundNoise"]) + "\n"
-		$TextElements/EntryTable/Sound.text += entries[n]["Sound"] + "\n"
-		$TextElements/EntryTable/Exercise.text += entries[n]["Exercise"] + "\n"
+		$TextElements/EntryTable/Date.text += entries[0][n] + "\n"
+		$TextElements/EntryTable/Score.text += entries[1][n] + "\n"
+		#$TextElements/EntryTable/Time.text += str(entries[n]["Time"]) + "\n"
+		#$TextElements/EntryTable/BGNoise.text += str(entries[n]["BackgroundNoise"]) + "\n"
+		#$TextElements/EntryTable/Sound.text += entries[n]["Sound"] + "\n"
+		#$TextElements/EntryTable/Exercise.text += entries[n]["Exercise"] + "\n"
 		if (n == 13):
 			break
 
