@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhq3j05ofi0lb"]
+[gd_scene load_steps=16 format=3 uid="uid://dhq3j05ofi0lb"]
 
 [ext_resource type="Script" path="res://Scripts/pre_exercise_one_screen.gd" id="1_igkpn"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_so2u2"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="5_ogckx"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="6_2mtaq"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="7_80feb"]
+[ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="7_lak4t"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="9_6kevv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guinx"]
@@ -135,12 +136,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_crrfk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5114w")
 text = "start"
 
-[node name="OptionButton2" type="OptionButton" parent="Background/ColorRect"]
+[node name="WordListDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 140.0
-offset_right = 832.0
-offset_bottom = 200.0
+offset_left = 189.0
+offset_top = 129.0
+offset_right = 489.0
+offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -154,23 +155,25 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 4
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Word List"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
+popup/item_1/text = "M vs N"
 popup/item_1/id = 1
-popup/item_2/text = "Option 3"
+popup/item_2/text = "S vs F"
 popup/item_2/id = 2
+popup/item_3/text = "T vs P"
+popup/item_3/id = 3
 
-[node name="OptionButton3" type="OptionButton" parent="Background/ColorRect"]
+[node name="TTSDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 240.0
-offset_right = 832.0
-offset_bottom = 300.0
+offset_left = 189.0
+offset_top = 229.0
+offset_right = 489.0
+offset_bottom = 289.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -184,23 +187,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 1
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Text to Speech Voice"
 popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
-popup/item_1/id = 1
-popup/item_2/text = "Option 3"
-popup/item_2/id = 2
 
-[node name="OptionButton4" type="OptionButton" parent="Background/ColorRect"]
+[node name="BGNoiseDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 340.0
-offset_right = 832.0
-offset_bottom = 400.0
+offset_left = 189.0
+offset_top = 332.0
+offset_right = 489.0
+offset_bottom = 392.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -214,16 +212,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i46g6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d2vqy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0jcuu")
 button_pressed = true
-item_count = 3
+item_count = 5
 selected = 0
 allow_reselect = true
 popup/item_0/text = "Background Noise"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_1/text = "Option 2"
-popup/item_1/id = 1
-popup/item_2/text = "Option 3"
-popup/item_2/id = 2
+popup/item_1/text = "None"
+popup/item_1/id = 4
+popup/item_2/text = "Announcer"
+popup/item_2/id = 1
+popup/item_3/text = "Bus Interior"
+popup/item_3/id = 2
+popup/item_4/text = "Food Court"
+popup/item_4/id = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ColorRect"]
 custom_minimum_size = Vector2(80, 80)
@@ -259,6 +261,33 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="BGLow" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 339.0
+offset_right = 779.0
+offset_bottom = 549.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_lak4t")
+
+[node name="BGMedium" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 339.0
+offset_right = 861.0
+offset_bottom = 549.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_lak4t")
+
+[node name="BGHigh" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 339.0
+offset_right = 939.0
+offset_bottom = 549.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_lak4t")
+
 [node name="UI" type="Node2D" parent="."]
 
 [node name="AppTitle" type="Label" parent="UI"]
@@ -274,14 +303,28 @@ vertical_alignment = 1
 
 [node name="AppTitle" type="Label" parent="UI/AppTitle"]
 layout_mode = 0
-offset_left = 170.0
-offset_top = 86.0
-offset_right = 492.0
-offset_bottom = 396.0
+offset_left = 536.0
+offset_top = 91.0
+offset_right = 861.0
+offset_bottom = 289.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_ogckx")
 theme_override_font_sizes/font_size = 45
 text = "this is the description of the exercise!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AppTitle2" type="Label" parent="UI/AppTitle"]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 361.0
+offset_right = 764.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ogckx")
+theme_override_font_sizes/font_size = 22
+text = "Low   Medium   High"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -292,6 +335,12 @@ autowrap_mode = 2
 
 [connection signal="pressed" from="Background/ColorRect/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="Background/ColorRect/start" to="." method="_on_start_pressed"]
+[connection signal="item_selected" from="Background/ColorRect/WordListDropdown" to="." method="wordListDropdownItemSelected"]
+[connection signal="item_selected" from="Background/ColorRect/TTSDropdown" to="." method="TTSDropdownItemSelected"]
+[connection signal="item_selected" from="Background/ColorRect/BGNoiseDropdown" to="." method="BGNoiseDropdownItemSelected"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Background/ColorRect/BGLow" to="." method="BGLowPressed"]
+[connection signal="pressed" from="Background/ColorRect/BGMedium" to="." method="BGMediumPressed"]
+[connection signal="pressed" from="Background/ColorRect/BGHigh" to="." method="BGHighPressed"]

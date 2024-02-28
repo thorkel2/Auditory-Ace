@@ -7,10 +7,10 @@ func _ready():
 #Loads the volume for sound effects from database 
 func loadFXVolume():
 	var volume = Database.retrieveSetting("SoundEffect")
-	$SoundEffect.volume_db = volume[1]
+	$SoundEffect.volume_db = int(volume[1])
 
 #Changes the volume level of sound effects and loads it
-func changeFXVolume(volume : int):
+func changeFXVolume(volume : String):
 	Database.updateSetting("SoundEffect", "Volume", volume)
 	loadFXVolume()
 	
@@ -23,10 +23,18 @@ func playFX(sound : String):
 func loadBGNoise(BGNoise : String):
 	var Setting = Database.retrieveSetting(BGNoise)
 	$BackgroundNoise.stream = load("res://Audio/" + Setting[0] + ".mp3")
-	$BackgroundNoise.volume_db = Setting[1]
-
+	match Setting[1]:
+		"None":
+			$BackgroundNoise.volume_db = -100
+		"Low":
+			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 28
+		"Medium":
+			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 18
+		"High":
+			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 8
+			
 #Changes the volume level of background noise and loads it
-func changeBGVolume(setting : String, volume : int):
+func changeBGVolume(setting : String, volume : String):
 	Database.updateSetting(setting, "Volume", volume)
 	loadBGNoise(setting)
 	

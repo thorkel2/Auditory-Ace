@@ -220,7 +220,7 @@ theme_override_font_sizes/font_size = 45
 text = "word list practiced: "
 vertical_alignment = 1
 
-[node name="AppTitle7" type="Label" parent="UI"]
+[node name="bgVolumeVal" type="Label" parent="UI"]
 z_index = 1
 offset_left = 629.0
 offset_top = 327.0
@@ -229,7 +229,7 @@ offset_bottom = 407.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g064n")
 theme_override_font_sizes/font_size = 45
-text = "100"
+text = "bgvolume"
 vertical_alignment = 1
 
 [node name="AppTitle6" type="Label" parent="UI"]
@@ -244,7 +244,7 @@ theme_override_font_sizes/font_size = 45
 text = "background sound: "
 vertical_alignment = 1
 
-[node name="AppTitle5" type="Label" parent="UI"]
+[node name="wordListVal" type="Label" parent="UI"]
 z_index = 1
 offset_left = 633.0
 offset_top = 232.0
@@ -253,10 +253,10 @@ offset_bottom = 312.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g064n")
 theme_override_font_sizes/font_size = 45
-text = "100"
+text = "word list"
 vertical_alignment = 1
 
-[node name="AppTitle3" type="Label" parent="UI"]
+[node name="scoreVal" type="Label" parent="UI"]
 z_index = 1
 offset_left = 457.0
 offset_top = 137.0
@@ -265,7 +265,7 @@ offset_bottom = 217.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g064n")
 theme_override_font_sizes/font_size = 45
-text = "100"
+text = "score"
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI"]

@@ -23,6 +23,7 @@ general/text_to_speech=true
 TextToSpeech="*res://Scripts/TextToSpeech.gd"
 Database="*res://Scripts/Database.gd"
 Audio="*res://Scenes/Audio.tscn"
+WordListManager="*res://Scripts/WordListManager.gd"
 
 [display]
 
