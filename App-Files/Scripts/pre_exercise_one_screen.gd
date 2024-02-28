@@ -17,6 +17,7 @@ func _ready():
 	
 	# Default BG volume to low
 	lastVolumePressed = BGLow
+	Audio.changeBGVolume("BG", "Low")
 	
 	# Disable BG options
 	BGLow.set_disabled(true)
@@ -30,18 +31,23 @@ func _ready():
 
 # Scene change functions
 func _on_cancel_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_start_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/exercise_one.tscn")
 
 func _on_profile_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/profile.tscn")
 
 func _on_help_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/help.tscn")
 
 func _on_home_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 # Button Functions
@@ -70,6 +76,7 @@ func BGNoiseDropdownItemSelected(index):
 		BGLow.set_disabled(true)
 		BGMedium.set_disabled(true)
 		BGHigh.set_disabled(true)
+		Audio.changeBGSound("BG", BGOptionsButton.get_item_text(index))
 		Audio.stopBGNoise()
 	else:
 		# Otherwise enable buttons and set to latest volume
@@ -79,7 +86,6 @@ func BGNoiseDropdownItemSelected(index):
 		BGButtonsLogic(lastVolumePressed)
 		
 		Audio.changeBGSound("BG", BGOptionsButton.get_item_text(index))
-		print(BGOptionsButton.get_item_text(index))
 		Audio.playBGNoise()
 
 
