@@ -21,7 +21,7 @@ var correctWord # Current correct word
 var replayMode: bool # Boolean for game being in replay mode
 var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
 var numCorrect = 0
-
+var initialTime
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numRounds = 1
@@ -114,6 +114,9 @@ func generateWords():
 	var wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
 	correctWord = wordSet.correctWord
 	
+	# Start time tracking
+	initialTime = Time.get_ticks_msec()
+	
 	# Playing text for user
 	TextToSpeech.playText(correctWord)
 	
@@ -130,6 +133,7 @@ func generateWords():
 
 # Checks answer, plays audio, changes indicator
 func checkCorrect(pressedWord, correctWord) -> bool:
+	print("Time: " + str((Time.get_ticks_msec() - initialTime)) + "ms")
 	if(pressedWord == correctWord):
 		numCorrect += 1
 		Audio.playFX('correct')
