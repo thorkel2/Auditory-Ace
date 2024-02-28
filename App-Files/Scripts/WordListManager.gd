@@ -34,6 +34,7 @@ var usedtVpWords = []
 var chosenWordList: WordListType
 var score = 0
 var timeScore = 0
+var bgLevel = "None"
 
 # Initialization function called when the Node enters the scene tree
 func _ready():

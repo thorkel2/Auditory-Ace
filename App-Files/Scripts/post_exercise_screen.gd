@@ -18,3 +18,18 @@ func _on_help_pressed():
 
 func _on_home_pressed():
 	get_tree().change_scene_to_file("res://Scenes/home.tscn")
+
+
+func _ready():
+	var wordListText
+	match str(WordListManager.chosenWordList):
+		'0':
+			wordListText = 'M vs N'
+		'1':
+			wordListText = 'S vs F'
+		'2':
+			wordListText = 'T vs P'
+	
+	$UI/scoreVal.set_text(str(WordListManager.score))
+	$UI/wordListVal.set_text(wordListText)
+	$UI/bgVolumeVal.set_text(WordListManager.bgLevel)
