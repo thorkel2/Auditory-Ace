@@ -76,6 +76,7 @@ func BGNoiseDropdownItemSelected(index):
 		BGLow.set_disabled(true)
 		BGMedium.set_disabled(true)
 		BGHigh.set_disabled(true)
+		Audio.changeBGSound("BG", BGOptionsButton.get_item_text(index))
 		Audio.stopBGNoise()
 	else:
 		# Otherwise enable buttons and set to latest volume
@@ -85,7 +86,6 @@ func BGNoiseDropdownItemSelected(index):
 		BGButtonsLogic(lastVolumePressed)
 		
 		Audio.changeBGSound("BG", BGOptionsButton.get_item_text(index))
-		print(BGOptionsButton.get_item_text(index))
 		Audio.playBGNoise()
 
 
