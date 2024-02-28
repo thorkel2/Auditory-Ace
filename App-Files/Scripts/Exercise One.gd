@@ -64,6 +64,7 @@ func onNextButtonPressed():
 		topText.text = "Tap to hear again"
 
 func onExitButtonPressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 
 # Logic used by four word buttons
