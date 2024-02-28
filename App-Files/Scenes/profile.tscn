@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=15 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]

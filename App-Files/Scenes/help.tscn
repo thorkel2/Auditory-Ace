@@ -38,8 +38,8 @@ shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_v6tc1"]
-content_margin_left = 15.0
-content_margin_right = 15.0
+content_margin_left = 30.0
+content_margin_right = 30.0
 grow_begin = 0.0
 grow_end = 0.0
 thickness = 0
@@ -72,9 +72,9 @@ vertical_alignment = 1
 [node name="ExcerciseOne" type="Button" parent="ColorRect"]
 layout_mode = 0
 offset_left = 59.0
-offset_top = 122.0
+offset_top = 108.0
 offset_right = 919.0
-offset_bottom = 503.0
+offset_bottom = 524.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_vf7x5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k52fl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eoghp")
@@ -114,42 +114,44 @@ expand_icon = true
 
 [node name="AppTitle" type="Label" parent="."]
 offset_left = 59.0
-offset_top = 135.0
+offset_top = 122.0
 offset_right = 919.0
-offset_bottom = 251.0
+offset_bottom = 238.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_6oev2")
-theme_override_font_sizes/font_size = 23
+theme_override_constants/line_spacing = -9
+theme_override_fonts/font = ExtResource("6_ygppa")
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxLine_v6tc1")
 text = "Auditory Ace is a free open source project for users of cochlear implants to work on improving their hearing in an easy and fun-to-use environment."
-horizontal_alignment = 1
+horizontal_alignment = 3
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="AppTitle2" type="Label" parent="."]
-offset_left = 59.0
-offset_top = 439.0
-offset_right = 919.0
-offset_bottom = 494.0
+offset_left = 60.0
+offset_top = 437.0
+offset_right = 920.0
+offset_bottom = 510.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -8
 theme_override_fonts/font = ExtResource("6_ygppa")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxLine_v6tc1")
 text = "Made By: Darya Haines, Dustin Huynh, Jordan Nguyen, Layla Smith, Nihar Koppolu, Scott Thorkel, Sienna Day"
-horizontal_alignment = 1
+horizontal_alignment = 3
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 103.0
-offset_top = 270.0
-offset_right = 729.0
-offset_bottom = 409.0
+offset_left = 105.0
+offset_top = 257.0
+offset_right = 872.0
+offset_bottom = 419.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("6_ygppa")
-theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/normal_font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vlmbm")
 text = "- The open source code for the app can be found
 - Documentation can be found
@@ -157,58 +159,58 @@ text = "- The open source code for the app can be found
 - Report bugs to auditoryacereporting@gmail.com"
 
 [node name="LinkButton2" type="LinkButton" parent="."]
-offset_left = 463.0
-offset_top = 301.0
-offset_right = 515.0
-offset_bottom = 339.0
+offset_left = 538.0
+offset_top = 294.0
+offset_right = 601.0
+offset_bottom = 332.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0.882353, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_ygppa")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 28
 text = "here."
 uri = "https://deviousdeveloperdream.atlassian.net/wiki/spaces/AAD"
 
 [node name="LinkButton3" type="LinkButton" parent="."]
-offset_left = 404.0
-offset_top = 332.0
-offset_right = 482.0
-offset_bottom = 370.0
+offset_left = 462.0
+offset_top = 331.0
+offset_right = 558.0
+offset_bottom = 369.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0.882353, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_ygppa")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 28
 text = "Freepik"
 uri = "https://www.flaticon.com/free-icons/flash-cards"
 
 [node name="LinkButton4" type="LinkButton" parent="."]
-offset_left = 533.0
-offset_top = 332.0
-offset_right = 616.0
-offset_bottom = 370.0
+offset_left = 616.0
+offset_top = 331.0
+offset_right = 718.0
+offset_bottom = 369.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0.882353, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_ygppa")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 28
 text = "iconixar"
 uri = "https://www.flaticon.com/free-icons/english"
 
 [node name="LinkButton" type="LinkButton" parent="."]
-offset_left = 656.0
-offset_top = 270.0
-offset_right = 708.0
-offset_bottom = 308.0
+offset_left = 780.0
+offset_top = 257.0
+offset_right = 843.0
+offset_bottom = 295.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0.882353, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_ygppa")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 28
 text = "here."
 uri = "https://github.com/thorkel2/Auditory-Ace"
 
