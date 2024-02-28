@@ -103,7 +103,7 @@ func searchEntries(searchDays : String, searchBGNoise : String, searchSound : St
 		result.append(row)
 	for n in range (1, queryResult.size(), 1):
 		result[0].append(queryResult[n]["Day"])
-		result[1].append(str(int(queryResult[n]["AverageScore"])))
+		result[1].append(int(queryResult[n]["AverageScore"]))
 		
 	return(result)	
 
