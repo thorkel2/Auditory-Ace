@@ -20,6 +20,7 @@ var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
 var replayMode: bool # Boolean for game being in replay mode
 var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
+var numCorrect = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +32,9 @@ func _ready():
 	replayMode = false
 	generateWords()
 	selectedIndicator.set_visible(false)
+	
+	# BG Noise
+	Audio.playBGNoise()
 
 # Functions tied to each button
 func onButton1Pressed():
@@ -98,14 +102,10 @@ func buttonLogic(buttonNum):
 	else:
 		print("Error")
 	
-	
 	# Enter replay mode if incorrect
 	if(!correct):
 		replayMode = true
 		nextButton.set_disabled(false)
-	
-
-
 
 # Generate next set of words and change buttons
 func generateWords():
@@ -130,6 +130,7 @@ func generateWords():
 # Checks answer, plays audio, changes indicator
 func checkCorrect(pressedWord, correctWord) -> bool:
 	if(pressedWord == correctWord):
+		numCorrect += 1
 		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
 		return true
@@ -176,8 +177,29 @@ func buttonColorChange(colorBool: bool):
 			button.add_theme_color_override("font_hover_pressed_color", Color('Black'))
 
 # Function to finish the game and send statistics info
-#Not Fully implemented yet.
 func gameDone():
-	# This database entry is garbage. WIP
-	Database.addEntry(1, round(4096 - roundTimer.time_left),'Low','MVN','Exercise 1')
+	Audio.stopBGNoise()
+	
+	# Converting chosenWordList value to usable string for database
+	var wordListEntry
+	match str(WordListManager.chosenWordList):
+		'0':
+			wordListEntry = 'MVN'
+		'1':
+			wordListEntry = 'SVF'
+		'2':
+			wordListEntry = 'TVP'
+	
+	# Calculating score
+	# Change this calculation @Jordan
+	WordListManager.score = numCorrect
+	
+	# Calculating time
+	# Change this calculation @Jordan
+	var timeScore = round(4096 - roundTimer.time_left)
+	
+	# Database entry
+	Database.addEntry(WordListManager.score, timeScore, WordListManager.bgLevel, wordListEntry, 'Exercise 1')
+	
+	# Move to post game
 	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")
