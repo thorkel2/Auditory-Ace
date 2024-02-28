@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=14 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]
@@ -25,6 +25,21 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eir50"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_right = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyrgu"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0euoa"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
@@ -38,6 +53,13 @@ bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lq6yt"]
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -71,6 +93,9 @@ offset_right = 899.0
 offset_bottom = 527.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iuf5p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eir50")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yyrgu")
+disabled = true
 
 [node name="roundedEdge2" type="Button" parent="ColorRect"]
 layout_mode = 0
@@ -80,6 +105,9 @@ offset_right = 197.0
 offset_bottom = 527.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0euoa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_reo8k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eir50")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lq6yt")
+disabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 custom_minimum_size = Vector2(80, 80)
