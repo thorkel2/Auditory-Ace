@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=16 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://s6wyuuaxxknt" path="res://Icons/profilepng.png" id="2_ow4sw"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="4_vsits"]
 [ext_resource type="PackedScene" uid="uid://chcj7up8k8pa8" path="res://addons/easy_charts/examples/line_chart/Control.tscn" id="7_luyg8"]
+[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="8_5dca3"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="8_hfgah"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfp2g"]
@@ -72,24 +73,10 @@ offset_right = 1024.0
 offset_bottom = 576.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
-[node name="AppTitle3" type="Label" parent="ColorRect"]
-z_index = 1
-layout_mode = 0
-offset_left = 209.0
-offset_top = 78.0
-offset_right = 919.0
-offset_bottom = 158.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_g82c2")
-theme_override_font_sizes/font_size = 50
-text = "username
-"
-vertical_alignment = 1
-
 [node name="roundedEdge" type="Button" parent="ColorRect"]
 layout_mode = 0
 offset_left = 196.0
-offset_top = 70.0
+offset_top = 52.0
 offset_right = 899.0
 offset_bottom = 527.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
@@ -149,11 +136,78 @@ position = Vector2(125, 98)
 scale = Vector2(0.525, 0.525)
 texture = ExtResource("2_ow4sw")
 
-[node name="Control2" parent="." instance=ExtResource("7_luyg8")]
-offset_left = 203.0
-offset_top = 200.0
-offset_right = 803.0
-offset_bottom = 500.0
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 230.0
+offset_top = 85.0
+offset_right = 860.0
+offset_bottom = 495.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(630, 1000)
+layout_mode = 2
+
+[node name="AppTitle3" type="Label" parent="ScrollContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_g82c2")
+theme_override_font_sizes/font_size = 50
+text = "User Statistics"
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_5dca3")
+theme_override_font_sizes/normal_font_size = 30
+text = "Scores Over Time:"
+
+[node name="Control2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("7_luyg8")]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_5dca3")
+theme_override_font_sizes/normal_font_size = 30
+text = "All-Time Best Word-List:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_5dca3")
+theme_override_font_sizes/normal_font_size = 30
+text = "All-Time Worst Word-List:"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_5dca3")
+theme_override_font_sizes/normal_font_size = 30
+text = "All-Time Best Exercise:"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_5dca3")
+theme_override_font_sizes/normal_font_size = 30
+text = "All-Time Worst Exercise:"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
