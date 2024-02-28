@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b7etr78ydqemo"
+
+[deps]
+
+files=["res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Word Type.translation"]
+
+source_file="res://Word-Lists/Places.csv"
+dest_files=["res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Word Type.translation"]
+
+[params]
+
+compress=true
+delimiter=0
