@@ -1,3 +1,8 @@
+# WordListManager.gd
+# This script reads in multiple CSV files containing our words lists,
+# and allows exercises to use specific word sound pairs and
+# randomizes the words checking for duplicates
+
 extends Node
 
 # Enumerated type to represent different word list types
@@ -5,7 +10,8 @@ enum WordListType {
 	MVN,  # M vs N word types
 	SVF,  # S vs F word types
 	TVP,  # T vs P word types
-	FOOD  # Food word types 
+	FOOD,  # Food word types 
+	PLACE
 }
 
 # Data structure to represent a word set containing a correct word,
@@ -28,11 +34,13 @@ var mVnWordSets = []
 var sVfWordSets = []
 var tVpWordSets = []
 var foodWordSets = []
+var placeWordSets = []
 
 var usedmVnWords = []
 var usedsVfWords = []
 var usedtVpWords = []
 var usedFoodWords = []
+var usedPlaceWords = []
 
 # Variables used as a global variables for exercise one
 var chosenWordList: WordListType
@@ -47,6 +55,7 @@ func _ready():
 	loadWordSets("res://Word-Lists/s vs f.csv", WordListType.SVF) # S vs F word types
 	loadWordSets("res://Word-Lists/t vs p.csv", WordListType.TVP) # T vs P word types
 	loadWordSets("res//Word-Lists/Food.csv", WordListType.FOOD)   # Food word types
+	loadWordSets("res//Word-Lists/Places.csv", WordListType.PLACE) # Place word types
 
 # Load the word sets from a CSV file and add them to the appropriate list
 func loadWordSets(filePath: String, type: WordListType) -> void:
@@ -83,7 +92,9 @@ func loadWordSets(filePath: String, type: WordListType) -> void:
 					tVpWordSets.append(wordSet)
 				WordListType.FOOD:
 					foodWordSets.append(wordSet)
-	
+				WordListType.PLACE:
+					placeWordSets.append(wordSet)
+
 	file.close()
 
 # Get a random word set from the current word sound list based on the desired sound type
@@ -103,6 +114,9 @@ func getRandomWordSet(type: WordListType) -> WordSet:
 		WordListType.FOOD:
 			wordSets = foodWordSets
 			usedWords = usedFoodWords
+		WordListType.PLACE:
+			wordSets = placeWordSets
+			usedWords = usedPlaceWords
 		_:
 			print("Error: Unknown word list type.")
 			return null
@@ -131,6 +145,8 @@ func setWordListVar(chosen: int):
 			chosenWordList = WordListType.TVP
 		4:
 			chosenWordList = WordListType.FOOD
+		5:
+			chosenWordList = WordListType.PLACE
 			
 func calculateTimeScore(correct : bool):
 	var timeTaken = Time.get_ticks_msec() - initialTime
