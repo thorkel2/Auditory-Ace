@@ -3,6 +3,7 @@ extends Node2D
 @onready var BGLow = $Background/ColorRect/BGLow
 @onready var BGMedium = $Background/ColorRect/BGMedium
 @onready var BGHigh = $Background/ColorRect/BGHigh
+@onready var BGOptionsButton = $Background/ColorRect/BGNoiseDropdown
 
 var Voices: Array[String] # Array to hold available system voices
 var onButton = preload("res://Artwork/starGreen.png") # Preload image
@@ -16,6 +17,7 @@ func _ready():
 	
 	# Default BG volume to low
 	lastVolumePressed = BGLow
+	Audio.changeBGVolume("BG", "Low")
 	
 	# Disable BG options
 	BGLow.set_disabled(true)
@@ -29,18 +31,23 @@ func _ready():
 
 # Scene change functions
 func _on_cancel_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_start_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/exercise_one.tscn")
 
 func _on_profile_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/profile.tscn")
 
 func _on_help_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/help.tscn")
 
 func _on_home_pressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 # Button Functions
@@ -54,7 +61,7 @@ func TTSDropdownItemSelected(index):
 	
 	# Set voice
 	TextToSpeech.Voice = index
-	Database.updateSetting("Default", "Sound", index)
+	Database.updateSetting("TTS", "Sound", str(index))
 	
 	# Play voice for user
 	TextToSpeech.playText("Hello")
@@ -62,42 +69,46 @@ func TTSDropdownItemSelected(index):
 func BGNoiseDropdownItemSelected(index):
 	# Disable volume options if user picked none
 	if(index == 1):
+		WordListManager.bgLevel = "None"
 		BGLow.set_texture_normal(offButton)
 		BGMedium.set_texture_normal(offButton)
 		BGHigh.set_texture_normal(offButton)
 		BGLow.set_disabled(true)
 		BGMedium.set_disabled(true)
 		BGHigh.set_disabled(true)
+		Audio.changeBGSound("BG", BGOptionsButton.get_item_text(index))
+		Audio.stopBGNoise()
 	else:
-		# If volume options are disabled re-enable and set to last pressed
-		if(BGLow.is_disabled()):
-			BGLow.set_disabled(false)
-			BGMedium.set_disabled(false)
-			BGHigh.set_disabled(false)
-			BGButtonsLogic(lastVolumePressed)
-		else:
-			# Otherwise just re-enable
-			BGLow.set_disabled(false)
-			BGMedium.set_disabled(false)
-			BGHigh.set_disabled(false)
+		# Otherwise enable buttons and set to latest volume
+		BGLow.set_disabled(false)
+		BGMedium.set_disabled(false)
+		BGHigh.set_disabled(false)
+		BGButtonsLogic(lastVolumePressed)
 		
-		# Use Jordan's BG functions here. WIP
-		
-		
-	
+		Audio.changeBGSound("BG", BGOptionsButton.get_item_text(index))
+		Audio.playBGNoise()
+
 
 # The four BG buttons "turn off" the other BG buttons when one is pressed
-# Likely a better way to code this... lol
 func BGLowPressed():
 	BGButtonsLogic(BGLow)
+	WordListManager.bgLevel = "Low"
+	Audio.changeBGVolume("BG", "Low")
+	Audio.playBGNoise()
 
 func BGMediumPressed():
 	BGButtonsLogic(BGMedium)
+	WordListManager.bgLevel = "Medium"
+	Audio.changeBGVolume("BG", "Medium")
+	Audio.playBGNoise()
 
 func BGHighPressed():
 	BGButtonsLogic(BGHigh)
+	WordListManager.bgLevel = "High"
+	Audio.changeBGVolume("BG", "High")
+	Audio.playBGNoise()
 
-# Background volume button logic
+# Background volume button on/off logic
 func BGButtonsLogic(buttonPressed):
 	lastVolumePressed = buttonPressed
 	var buttonArray = [BGLow, BGMedium, BGHigh]
