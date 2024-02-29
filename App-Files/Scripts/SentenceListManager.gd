@@ -20,21 +20,25 @@ enum WordListType {
     NOUN,
     ADJ,
     PLACE,
-    FOOD
+    FOOD,
+    VERB
 }
 
 var nounSentencePairs: Array = []
 var adjSentencePairs: Array = []
 var placeSentencePairs: Array = []
 var foodSentencePairs: Array = []
+var verbSentencePairs: Array = []
+
 var usedNounSentences: Array = []
 var usedAdjSentences: Array = []
 var usedPlaceSentences: Array = []
 var usedFoodSentences: Array = []
+var usedVerbSentences: Array = []
 
 func _ready():
     # Load the sentence pairs from the CSV file
-    loadSentencePairs("res://Sentence Frames.csv")
+    loadSentencePairs("res://Word-Lists/Sentence Frames.csv")
 
 # Load the sentence pairs from a CSV file
 func loadSentencePairs(filePath: String) -> void:
@@ -64,6 +68,8 @@ func loadSentencePairs(filePath: String) -> void:
                     nounSentencePairs.append(pair)
                 "Adjective":
                     adjSentencePairs.append(pair)
+                "Verb":
+                    verbSentencePairs.append(pair)
                 "Place":
                     placeSentencePairs.append(pair)
                 "Food":
@@ -72,30 +78,37 @@ func loadSentencePairs(filePath: String) -> void:
 
     file.close()
 
-# Get a random sentence pair from the current sentence list
-func getRandomSentencePair(type: WordListType) -> SentencePair:
+# Get a random sentence pair with the specified word type
+func getRandomSentencePair(wordType: String) -> SentencePair:
     var sentencePairs: Array
     var usedSentences: Array
-    
-    if type == WordListType.NOUN:
-        sentencePairs = nounSentencePairs
-        usedSentences = usedNounSentences
-    elif type == WordListType.ADJ:
-        sentencePairs = adjSentencePairs
-        usedSentences = usedAdjSentences
-    elif type == WordListType.PLACE:
-        sentencePairs = placeSentencePairs
-        usedSentences = usedPlaceSentences
-    elif type == WordListType.FOOD:
-        sentencePairs = foodSentencePairs
-        usedSentences = usedFoodSentences
-    else:
-        print("Error: Unknown word list type.")
-        return SentencePair.new("", "")  # Corrected
 
+    # Select the appropriate sentence pairs list based on the word type
+    match wordType:
+        "Noun":
+            sentencePairs = nounSentencePairs
+            usedSentences = usedNounSentences
+        "Adjective":
+            sentencePairs = adjSentencePairs
+            usedSentences = usedAdjSentences
+        "Verb":
+            sentencePairs = verbSentencePairs
+            usedSentences = usedVerbSentences
+        "Place":
+            sentencePairs = placeSentencePairs
+            usedSentences = usedPlaceSentences
+        "Food":
+            sentencePairs = foodSentencePairs
+            usedSentences = usedFoodSentences
+        # Add more cases for other word types as needed
+        _:
+            print("Error: Unknown word type.")
+            return SentencePair("", "")
+
+    # Check if the selected sentence pairs list is empty
     if sentencePairs.size() == 0:
         print("Error: Current sentence list is empty.")
-        return SentencePair.new("", "")  # Corrected
+        return SentencePair("", "")
 
     # Filter sentence pairs based on the current list and exclude used sentences
     var filteredSentencePairs: Array = []
@@ -103,6 +116,7 @@ func getRandomSentencePair(type: WordListType) -> SentencePair:
         if !usedSentences.has(pair):
             filteredSentencePairs.append(pair)
 
+    # Reset used sentences list if all sentences have been used
     if filteredSentencePairs.size() == 0:
         usedSentences = []
 
