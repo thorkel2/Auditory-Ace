@@ -443,5 +443,4 @@ offset = Vector2(50, 10)
 [connection signal="pressed" from="Button/Button3" to="." method="onButton3Pressed"]
 [connection signal="pressed" from="Button/Button4" to="." method="onButton4Pressed"]
 [connection signal="pressed" from="Button/SoundButton" to="." method="onSoundButtonPressed"]
-[connection signal="pressed" from="Button/ExitButton" to="." method="onExitButtonPressed"]
 [connection signal="pressed" from="Button/NextButton" to="." method="onNextButtonPressed"]
