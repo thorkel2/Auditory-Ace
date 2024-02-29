@@ -4,7 +4,8 @@ extends Node
 enum WordListType {
 	MVN,  # M vs N word types
 	SVF,  # S vs F word types
-	TVP   # T vs P word types
+	TVP,  # T vs P word types
+	FOOD  # Food word types 
 }
 
 # Data structure to represent a word set containing a correct word,
@@ -26,9 +27,12 @@ class WordSet:
 var mVnWordSets = []
 var sVfWordSets = []
 var tVpWordSets = []
+var foodWordSets = []
+
 var usedmVnWords = []
 var usedsVfWords = []
 var usedtVpWords = []
+var usedFoodWords = []
 
 # Variables used as a global variables for exercise one
 var chosenWordList: WordListType
@@ -42,6 +46,7 @@ func _ready():
 	loadWordSets("res://Word-Lists/m vs n.csv", WordListType.MVN) # M vs N word types
 	loadWordSets("res://Word-Lists/s vs f.csv", WordListType.SVF) # S vs F word types
 	loadWordSets("res://Word-Lists/t vs p.csv", WordListType.TVP) # T vs P word types
+	loadWordSets("res//Word-Lists/Food.csv", WordListType.FOOD)   # Food word types
 
 # Load the word sets from a CSV file and add them to the appropriate list
 func loadWordSets(filePath: String, type: WordListType) -> void:
@@ -76,6 +81,8 @@ func loadWordSets(filePath: String, type: WordListType) -> void:
 					sVfWordSets.append(wordSet)
 				WordListType.TVP:
 					tVpWordSets.append(wordSet)
+				WordListType.FOOD:
+					foodWordSets.append(wordSet)
 	
 	file.close()
 
@@ -93,6 +100,9 @@ func getRandomWordSet(type: WordListType) -> WordSet:
 		WordListType.TVP:
 			wordSets = tVpWordSets
 			usedWords = usedtVpWords
+		WordListType.FOOD:
+			wordSets = foodWordSets
+			usedWords = usedFoodWords
 		_:
 			print("Error: Unknown word list type.")
 			return null
@@ -119,6 +129,8 @@ func setWordListVar(chosen: int):
 			chosenWordList = WordListType.SVF
 		3:
 			chosenWordList = WordListType.TVP
+		4:
+			chosenWordList = WordListType.FOOD
 			
 func calculateTimeScore(correct : bool):
 	var timeTaken = Time.get_ticks_msec() - initialTime
