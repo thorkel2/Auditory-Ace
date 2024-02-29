@@ -126,4 +126,3 @@ func getRandomSentencePair(wordType: String) -> SentencePair:
 
     usedSentences.append(selectedPair)
     return selectedPair
-
