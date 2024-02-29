@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dej4bubls74xf"
+
+[deps]
+
+files=["res://Word-Lists/Sentence Frames.Noun.translation"]
+
+source_file="res://Word-Lists/Sentence Frames.csv"
+dest_files=["res://Word-Lists/Sentence Frames.Noun.translation"]
+
+[params]
+
+compress=true
+delimiter=0

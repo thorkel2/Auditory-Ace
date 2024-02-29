@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b2cdoi7p4gmkj"
+
+[deps]
+
+files=["res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Word Type.translation"]
+
+source_file="res://Word-Lists/Food.csv"
+dest_files=["res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Word Type.translation"]
+
+[params]
+
+compress=true
+delimiter=0
