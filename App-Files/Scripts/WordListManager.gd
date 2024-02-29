@@ -74,13 +74,12 @@ func loadWordSets(filePath: String, type: WordListType) -> void:
 
 		# Ensure the line contains enough components to create a word set
 		if parts.size() >= 6:
-			var correctWord = parts[0].strip_edges()
-			var similarWords = [parts[1].strip_edges(), parts[2].strip_edges(), parts[3].strip_edges()]
+			var similarWords = [parts[0].strip_edges(), parts[1].strip_edges(), parts[2].strip_edges(), parts[3].strip_edges()]
 			var wordType = parts[4].strip_edges()
 			var sound = parts[5].strip_edges()
 
 			# Create a new WordSet instance
-			var wordSet = WordSet.new(correctWord, similarWords, wordType, sound)
+			var wordSet = WordSet.new("", similarWords, wordType, sound)
 
 			# Add the word set to the appropriate list based on the word list type
 			match type:
@@ -128,6 +127,10 @@ func getRandomWordSet(type: WordListType) -> WordSet:
 	# Get a random word set from the list
 	var randomIndex := randi() % wordSets.size()
 	var selectedWordSet = wordSets[randomIndex] as WordSet
+
+	# Randomly select one of the words from similarWords as the correct word
+	var correctWordIndex = randi() % selectedWordSet.similarWords.size()
+	selectedWordSet.correctWord = selectedWordSet.similarWords[correctWordIndex]
 
 	# Add the selected word to the used words list
 	usedWords.append(selectedWordSet.correctWord)

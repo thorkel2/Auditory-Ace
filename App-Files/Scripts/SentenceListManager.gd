@@ -11,9 +11,9 @@ class SentencePair:
     var wordType: String
 
     # Constructor
-    func _init(sentence: String, wordType: String):
-        self.sentence = sentence
-        self.wordType = wordType
+    func _init(sentence_arg: String, wordType_arg: String):
+        sentence = sentence_arg
+        wordType = wordType_arg
 
 # Dictionary to store paired sentences and word types
 enum WordListType {
@@ -103,12 +103,12 @@ func getRandomSentencePair(wordType: String) -> SentencePair:
         # Add more cases for other word types as needed
         _:
             print("Error: Unknown word type.")
-            return SentencePair("", "")
+            return null
 
     # Check if the selected sentence pairs list is empty
     if sentencePairs.size() == 0:
         print("Error: Current sentence list is empty.")
-        return SentencePair("", "")
+        return null
 
     # Filter sentence pairs based on the current list and exclude used sentences
     var filteredSentencePairs: Array = []
