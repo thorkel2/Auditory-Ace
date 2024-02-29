@@ -33,8 +33,9 @@ var usedtVpWords = []
 # Variables used as a global variables for exercise one
 var chosenWordList: WordListType
 var score = 0
-var timeScore = 0
-
+var bgLevel = "None"
+var initialTime = 0
+var finalTime = 0
 # Initialization function called when the Node enters the scene tree
 func _ready():
 	# Load the word sets from the CSV files
@@ -118,3 +119,13 @@ func setWordListVar(chosen: int):
 			chosenWordList = WordListType.SVF
 		3:
 			chosenWordList = WordListType.TVP
+			
+func calculateTimeScore(correct : bool):
+	var timeTaken = Time.get_ticks_msec() - initialTime
+	if (correct):
+		if timeTaken < 1500:
+			score += 1000
+		elif timeTaken < 27777:
+			score += int(1000 - (6 * sqrt(timeTaken - 1500)))
+	finalTime += timeTaken
+	print("Time taken: " + str(timeTaken) + "ms Total time: " + str(finalTime) + "ms Score: " + str(score))

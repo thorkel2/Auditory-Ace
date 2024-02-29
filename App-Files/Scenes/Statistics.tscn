@@ -16,17 +16,17 @@ script = ExtResource("1_eg361")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1023.0
+offset_bottom = 574.0
 color = Color(0.635294, 0.843137, 0.972549, 1)
 
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="GenerateRandomEntries" type="Button" parent="Buttons"]
-offset_left = 634.0
-offset_top = 573.0
-offset_right = 847.0
-offset_bottom = 605.0
+offset_left = 566.0
+offset_top = 506.0
+offset_right = 779.0
+offset_bottom = 538.0
 theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_t77pj")
@@ -78,8 +78,8 @@ text = "All"
 [node name="EntryTable" type="ColorRect" parent="TextElements"]
 offset_left = 376.0
 offset_top = 110.0
-offset_right = 1083.0
-offset_bottom = 567.0
+offset_right = 1019.0
+offset_bottom = 491.0
 
 [node name="Header" type="Label" parent="TextElements/EntryTable"]
 layout_mode = 0

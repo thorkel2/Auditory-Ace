@@ -20,17 +20,24 @@ var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
 var replayMode: bool # Boolean for game being in replay mode
 var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
+var numCorrect = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
-	
+	# Reset
+	WordListManager.score = 0
+	WordListManager.initialTime = 0
+	WordListManager.finalTime = 0
 	# Start exercise
 	nextButton.set_disabled(true)
 	replayMode = false
 	generateWords()
 	selectedIndicator.set_visible(false)
+	
+	# BG Noise
+	Audio.playBGNoise()
 
 # Functions tied to each button
 func onButton1Pressed():
@@ -60,6 +67,7 @@ func onNextButtonPressed():
 		topText.text = "Tap to hear again"
 
 func onExitButtonPressed():
+	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 
 # Logic used by four word buttons
@@ -98,20 +106,19 @@ func buttonLogic(buttonNum):
 	else:
 		print("Error")
 	
-	
 	# Enter replay mode if incorrect
 	if(!correct):
 		replayMode = true
 		nextButton.set_disabled(false)
-	
-
-
 
 # Generate next set of words and change buttons
 func generateWords():
 	# Using WordListManager.gd
 	var wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
 	correctWord = wordSet.correctWord
+	
+	# Start time tracking
+	WordListManager.initialTime = Time.get_ticks_msec()
 	
 	# Playing text for user
 	TextToSpeech.playText(correctWord)
@@ -130,10 +137,13 @@ func generateWords():
 # Checks answer, plays audio, changes indicator
 func checkCorrect(pressedWord, correctWord) -> bool:
 	if(pressedWord == correctWord):
+		WordListManager.calculateTimeScore(true)
+		numCorrect += 1
 		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
 		return true
 	else:
+		WordListManager.calculateTimeScore(false)
 		Audio.playFX('incorrect')
 		changeNextStar(false, numRounds)
 		return false
@@ -176,8 +186,21 @@ func buttonColorChange(colorBool: bool):
 			button.add_theme_color_override("font_hover_pressed_color", Color('Black'))
 
 # Function to finish the game and send statistics info
-#Not Fully implemented yet.
 func gameDone():
-	# This database entry is garbage. WIP
-	Database.addEntry(1, round(4096 - roundTimer.time_left),'Low','MVN','Exercise 1')
+	Audio.stopBGNoise()
+	
+	# Converting chosenWordList value to usable string for database
+	var wordListEntry
+	match str(WordListManager.chosenWordList):
+		'0':
+			wordListEntry = 'MvN'
+		'1':
+			wordListEntry = 'SvF'
+		'2':
+			wordListEntry = 'TvP'
+	
+	# Database entry
+	Database.addEntry(WordListManager.score, WordListManager.finalTime, WordListManager.bgLevel, wordListEntry, 'Exercise 1')
+	
+	# Move to post game
 	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")
