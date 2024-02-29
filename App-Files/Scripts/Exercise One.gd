@@ -63,7 +63,7 @@ func onNextButtonPressed():
 		nextButton.set_disabled(true)
 		topText.text = "Tap to hear again"
 
-func onExitButtonPressed():
+func _on_exit_button_pressed():
 	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 

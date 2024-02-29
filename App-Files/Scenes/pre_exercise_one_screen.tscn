@@ -192,6 +192,7 @@ selected = 0
 allow_reselect = true
 popup/item_0/text = "Text to Speech Voice"
 popup/item_0/id = 0
+popup/item_0/disabled = true
 
 [node name="BGNoiseDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0

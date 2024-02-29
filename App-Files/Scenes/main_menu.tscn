@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx6dpxdyw5xy0"]
+[gd_scene load_steps=17 format=3 uid="uid://cx6dpxdyw5xy0"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_a4l8t"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_fguwv"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="3_nyqgr"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="4_08ad4"]
+[ext_resource type="Texture2D" uid="uid://b4wk88u8bj7cr" path="res://Icons/IMG_9060.png" id="5_nnn0i"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="6_avtq5"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="6_kixc0"]
 [ext_resource type="Texture2D" uid="uid://c5eiubbcpakuh" path="res://Icons/flash-cards.png" id="7_8jk7a"]
@@ -125,16 +126,23 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Img9060" type="Sprite2D" parent="Background/ColorRect"]
+position = Vector2(313.917, 60.3302)
+rotation = -0.444427
+scale = Vector2(0.0718883, 0.065202)
+texture = ExtResource("5_nnn0i")
+
 [node name="UI" type="Node2D" parent="."]
 
 [node name="AppTitle" type="Label" parent="UI"]
-offset_top = 32.0
-offset_right = 1024.0
-offset_bottom = 112.0
+offset_left = 51.0
+offset_top = 21.0
+offset_right = 904.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_a4l8t")
 theme_override_font_sizes/font_size = 60
-text = "auditory ace"
+text = "   uditory ace"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true

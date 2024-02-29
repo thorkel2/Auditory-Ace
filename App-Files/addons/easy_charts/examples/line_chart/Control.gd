@@ -8,11 +8,11 @@ var f1: Function
 
 func _ready():
 	# Let's create our @x values
-	var x: Array = entries[0];
+	var x: Array = entries[1];
 	
 	# And our y values. It can be an n-size array of arrays.
 	# NOTE: `x.size() == y.size()` or `x.size() == y[n].size()`
-	var y: Array = entries[1];
+	var y: Array = entries[0];
 	
 	# Let's customize the chart properties, which specify how the chart
 	# should look, plus some additional elements like labels, the scale, etc...
