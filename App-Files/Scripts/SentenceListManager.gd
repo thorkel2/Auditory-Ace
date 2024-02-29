@@ -19,21 +19,22 @@ class SentencePair:
 enum WordListType {
     NOUN,
     ADJ,
-    VERB
+    PLACE,
+    FOOD
 }
 
 var nounSentencePairs: Array = []
 var adjSentencePairs: Array = []
-var verbSentencePairs: Array = []
+var placeSentencePairs: Array = []
+var foodSentencePairs: Array = []
 var usedNounSentences: Array = []
 var usedAdjSentences: Array = []
-var usedVerbSentences: Array = []
+var usedPlaceSentences: Array = []
+var usedFoodSentences: Array = []
 
 func _ready():
-    # Load the sentence pairs from the CSV files
-    loadSentencePairs("res://Word-Lists/noun_sentence_list.csv")
-    loadSentencePairs("res://Word-Lists/adj_sentence_list.csv")
-    loadSentencePairs("res://Word-Lists/verb_sentence_list.csv")
+    # Load the sentence pairs from the CSV file
+    loadSentencePairs("res://Sentence Frames.csv")
 
 # Load the sentence pairs from a CSV file
 func loadSentencePairs(filePath: String) -> void:
@@ -55,16 +56,18 @@ func loadSentencePairs(filePath: String) -> void:
             var wordType = parts[1].strip_edges()
 
             # Create a new SentencePair instance
-            var pair = SentencePair.new(sentence, wordType) # Corrected
+            var pair = SentencePair.new(sentence, wordType)
 
             # Add each sentence pair to the appropriate list
             match wordType:
-                "NOUN":
+                "Noun":
                     nounSentencePairs.append(pair)
-                "ADJ":
+                "Adjective":
                     adjSentencePairs.append(pair)
-                "VERB":
-                    verbSentencePairs.append(pair)
+                "Place":
+                    placeSentencePairs.append(pair)
+                "Food":
+                    foodSentencePairs.append(pair)
                 # Add more cases for other word types as needed
 
     file.close()
@@ -80,9 +83,12 @@ func getRandomSentencePair(type: WordListType) -> SentencePair:
     elif type == WordListType.ADJ:
         sentencePairs = adjSentencePairs
         usedSentences = usedAdjSentences
-    elif type == WordListType.VERB:
-        sentencePairs = verbSentencePairs
-        usedSentences = usedVerbSentences
+    elif type == WordListType.PLACE:
+        sentencePairs = placeSentencePairs
+        usedSentences = usedPlaceSentences
+    elif type == WordListType.FOOD:
+        sentencePairs = foodSentencePairs
+        usedSentences = usedFoodSentences
     else:
         print("Error: Unknown word list type.")
         return SentencePair.new("", "")  # Corrected
