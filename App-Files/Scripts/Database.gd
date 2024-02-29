@@ -101,7 +101,7 @@ func searchEntries(searchDays : String, searchBGNoise : String, searchSound : St
 	for i in range(queryResult.size()): 
 		var row := []
 		result.append(row)
-	for n in range (1, queryResult.size(), 1):
+	for n in range (0, queryResult.size(), 1):
 		result[0].append(queryResult[n]["Day"])
 		result[1].append(int(queryResult[n]["AverageScore"]))
 		
@@ -115,8 +115,8 @@ func addRandomEntry(num : int):
 	for n in 100:
 		var day : int = randi_range(1, 28)
 		var hour : int = randi_range(1, 23)
-		var minute : int = randi_range(1, 60)
-		var second : int = randi_range(1, 60)
+		var minute : int = randi_range(1, 59)
+		var second : int = randi_range(1, 59)
 		var randomTime : String
 		
 		if (day < 10):

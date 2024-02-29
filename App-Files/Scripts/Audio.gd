@@ -22,7 +22,8 @@ func playFX(sound : String):
 #Loads the specific sound and volume levels for background noise from database
 func loadBGNoise(BGNoise : String):
 	var Setting = Database.retrieveSetting(BGNoise)
-	$BackgroundNoise.stream = load("res://Audio/" + Setting[0] + ".mp3")
+	if (Setting[0] != "None"):
+		$BackgroundNoise.stream = load("res://Audio/" + Setting[0] + ".mp3")
 	match Setting[1]:
 		"None":
 			$BackgroundNoise.volume_db = -100
