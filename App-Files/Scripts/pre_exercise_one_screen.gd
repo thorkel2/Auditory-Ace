@@ -51,6 +51,11 @@ func _on_home_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 # Button Functions
+func _on_description_text_pressed():
+	# Must change this line when changing description of exercise.
+	# Can't use variable because it sounds weird with line breaks.
+	TextToSpeech.playText("practice different sets of sounds by word list")
+
 func wordListDropdownItemSelected(index):
 	WordListManager.setWordListVar(index)
 
@@ -92,18 +97,21 @@ func BGNoiseDropdownItemSelected(index):
 # The four BG buttons "turn off" the other BG buttons when one is pressed
 func BGLowPressed():
 	BGButtonsLogic(BGLow)
+	TextToSpeech.playText("Low")
 	WordListManager.bgLevel = "Low"
 	Audio.changeBGVolume("BG", "Low")
 	Audio.playBGNoise()
 
 func BGMediumPressed():
 	BGButtonsLogic(BGMedium)
+	TextToSpeech.playText("Medium")
 	WordListManager.bgLevel = "Medium"
 	Audio.changeBGVolume("BG", "Medium")
 	Audio.playBGNoise()
 
 func BGHighPressed():
 	BGButtonsLogic(BGHigh)
+	TextToSpeech.playText("High")
 	WordListManager.bgLevel = "High"
 	Audio.changeBGVolume("BG", "High")
 	Audio.playBGNoise()

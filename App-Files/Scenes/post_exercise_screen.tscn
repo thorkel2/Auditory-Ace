@@ -200,12 +200,24 @@ autowrap_mode = 2
 z_index = 1
 offset_left = 213.0
 offset_top = 136.0
-offset_right = 654.0
+offset_right = 354.0
 offset_bottom = 216.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g064n")
 theme_override_font_sizes/font_size = 45
-text = "your score: "
+text = "score: "
+vertical_alignment = 1
+
+[node name="AppTitle3" type="Label" parent="UI"]
+z_index = 1
+offset_left = 531.0
+offset_top = 136.0
+offset_right = 749.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "accuracy: "
 vertical_alignment = 1
 
 [node name="AppTitle4" type="Label" parent="UI"]
@@ -258,14 +270,26 @@ vertical_alignment = 1
 
 [node name="scoreVal" type="Label" parent="UI"]
 z_index = 1
-offset_left = 457.0
+offset_left = 359.0
 offset_top = 137.0
-offset_right = 575.0
+offset_right = 477.0
 offset_bottom = 217.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g064n")
 theme_override_font_sizes/font_size = 45
 text = "score"
+vertical_alignment = 1
+
+[node name="accVal" type="Label" parent="UI"]
+z_index = 1
+offset_left = 747.0
+offset_top = 137.0
+offset_right = 865.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "0"
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
