@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=12 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="2_eb51m"]
-[ext_resource type="Texture2D" uid="uid://s6wyuuaxxknt" path="res://Icons/profilepng.png" id="2_ow4sw"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="4_vsits"]
 [ext_resource type="PackedScene" uid="uid://chcj7up8k8pa8" path="res://addons/easy_charts/examples/line_chart/Control.tscn" id="7_luyg8"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="8_5dca3"]
@@ -14,6 +13,7 @@ bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
@@ -23,6 +23,7 @@ bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
@@ -30,7 +31,9 @@ shadow_offset = Vector2(-2, 2)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eir50"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
+corner_radius_top_right = 20
 corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
@@ -39,34 +42,25 @@ bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0euoa"]
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reo8k"]
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lq6yt"]
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
 corner_radius_bottom_left = 20
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
 [node name="Profile" type="Node2D"]
 script = ExtResource("1_re5px")
+
+[node name="AppTitle3" type="Label" parent="."]
+z_index = 1
+offset_left = 59.0
+offset_top = 25.0
+offset_right = 919.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_g82c2")
+theme_override_font_sizes/font_size = 50
+text = "User Statistics"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
@@ -75,26 +69,14 @@ color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="roundedEdge" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 196.0
-offset_top = 52.0
-offset_right = 899.0
-offset_bottom = 527.0
+offset_left = 59.0
+offset_top = 108.0
+offset_right = 919.0
+offset_bottom = 538.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kfp2g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iuf5p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eir50")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_yyrgu")
-disabled = true
-
-[node name="roundedEdge2" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 51.0
-offset_top = 162.0
-offset_right = 197.0
-offset_bottom = 527.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0euoa")
-theme_override_styles/hover = SubResource("StyleBoxFlat_reo8k")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eir50")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_lq6yt")
 disabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
@@ -131,29 +113,15 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Profilepng" type="Sprite2D" parent="."]
-position = Vector2(125, 98)
-scale = Vector2(0.525, 0.525)
-texture = ExtResource("2_ow4sw")
-
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 230.0
-offset_top = 85.0
-offset_right = 860.0
-offset_bottom = 495.0
+offset_left = 85.0
+offset_top = 118.0
+offset_right = 885.0
+offset_bottom = 528.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-custom_minimum_size = Vector2(630, 1000)
+custom_minimum_size = Vector2(650, 1000)
 layout_mode = 2
-
-[node name="AppTitle3" type="Label" parent="ScrollContainer/VBoxContainer"]
-z_index = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_g82c2")
-theme_override_font_sizes/font_size = 50
-text = "User Statistics"
-vertical_alignment = 1
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
@@ -166,7 +134,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Scores Over Time:"
 
 [node name="Control2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("7_luyg8")]
-custom_minimum_size = Vector2(600, 300)
+custom_minimum_size = Vector2(780, 300)
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
@@ -177,37 +145,7 @@ theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_5dca3")
 theme_override_font_sizes/normal_font_size = 30
-text = "All-Time Best Word-List:"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_5dca3")
-theme_override_font_sizes/normal_font_size = 30
-text = "All-Time Worst Word-List:"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_5dca3")
-theme_override_font_sizes/normal_font_size = 30
-text = "All-Time Best Exercise:"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_5dca3")
-theme_override_font_sizes/normal_font_size = 30
-text = "All-Time Worst Exercise:"
+text = "High Score:"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
