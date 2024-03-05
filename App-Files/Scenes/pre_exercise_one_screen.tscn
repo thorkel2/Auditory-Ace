@@ -136,6 +136,28 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_crrfk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5114w")
 text = "start"
 
+[node name="descriptionText" type="Button" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 124.0
+offset_right = 917.0
+offset_bottom = 334.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ogckx")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crrfk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5114w")
+text = "practice different
+sets of sounds
+by word list"
+flat = true
+
 [node name="WordListDropdown" type="OptionButton" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 189.0
@@ -302,20 +324,6 @@ text = "exercise 1 settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AppTitle" type="Label" parent="UI/AppTitle"]
-layout_mode = 0
-offset_left = 536.0
-offset_top = 91.0
-offset_right = 861.0
-offset_bottom = 289.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_ogckx")
-theme_override_font_sizes/font_size = 45
-text = "this is the description of the exercise!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
 [node name="AppTitle2" type="Label" parent="UI/AppTitle"]
 layout_mode = 0
 offset_left = 523.0
@@ -336,6 +344,7 @@ autowrap_mode = 2
 
 [connection signal="pressed" from="Background/ColorRect/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="Background/ColorRect/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Background/ColorRect/descriptionText" to="." method="_on_description_text_pressed"]
 [connection signal="item_selected" from="Background/ColorRect/WordListDropdown" to="." method="wordListDropdownItemSelected"]
 [connection signal="item_selected" from="Background/ColorRect/TTSDropdown" to="." method="TTSDropdownItemSelected"]
 [connection signal="item_selected" from="Background/ColorRect/BGNoiseDropdown" to="." method="BGNoiseDropdownItemSelected"]
