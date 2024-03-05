@@ -6,10 +6,10 @@ uid="uid://bbjwnjidosdu4"
 
 [deps]
 
-files=["res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Word Type.translation"]
+files=["res://Word-Lists/Food.Potato.translation", "res://Word-Lists/Food.Tomato.translation", "res://Word-Lists/Food.Cookie Dough.translation", "res://Word-Lists/Food.Food.translation"]
 
 source_file="res://Word-Lists/Food.csv"
-dest_files=["res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Incorrect.translation", "res://Word-Lists/Food.Word Type.translation"]
+dest_files=["res://Word-Lists/Food.Potato.translation", "res://Word-Lists/Food.Tomato.translation", "res://Word-Lists/Food.Cookie Dough.translation", "res://Word-Lists/Food.Food.translation"]
 
 [params]
 

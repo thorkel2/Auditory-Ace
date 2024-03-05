@@ -26,18 +26,21 @@ var numCorrect = 0
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
+	
 	# Reset
 	WordListManager.score = 0
 	WordListManager.initialTime = 0
 	WordListManager.finalTime = 0
+	
+	# BG Noise
+	Audio.playBGNoise()
+	
 	# Start exercise
 	nextButton.set_disabled(true)
 	replayMode = false
 	generateWords()
 	selectedIndicator.set_visible(false)
 	
-	# BG Noise
-	Audio.playBGNoise()
 
 # Functions tied to each button
 func onButton1Pressed():
@@ -66,7 +69,7 @@ func onNextButtonPressed():
 		nextButton.set_disabled(true)
 		topText.text = "Tap to hear again"
 
-func _on_exit_button_pressed():
+func onExitButtonPressed():
 	Audio.stopBGNoise()
 	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
 
@@ -77,7 +80,7 @@ func buttonLogic(buttonNum):
 		TextToSpeech.playText(buttonNum.text)
 		return
 	
-	var correct: bool = checkCorrect(buttonNum.text, correctWord)
+	var correct: bool = await checkCorrect(buttonNum.text, correctWord)
 	var roundAvailable: bool = (numRounds != maxNumRounds)
 	
 	if (correct && roundAvailable):
@@ -120,9 +123,6 @@ func generateWords():
 	# Start time tracking
 	WordListManager.initialTime = Time.get_ticks_msec()
 	
-	# Playing text for user
-	TextToSpeech.playText(correctWord)
-	
 	# Changing text on buttons randomly
 	var randomIndex = (randi() % 4) + 1
 	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
@@ -133,6 +133,10 @@ func generateWords():
 		else:
 			buttons[i-1].text = wordSet.similarWords[j]
 			j += 1
+	
+	# Playing text for user after short delay
+	await get_tree().create_timer(.3).timeout
+	TextToSpeech.playText(correctWord)
 
 # Checks answer, plays audio, changes indicator
 func checkCorrect(pressedWord, correctWord) -> bool:
