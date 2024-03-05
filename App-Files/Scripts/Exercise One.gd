@@ -80,7 +80,7 @@ func buttonLogic(buttonNum):
 		TextToSpeech.playText(buttonNum.text)
 		return
 	
-	var correct: bool = await checkCorrect(buttonNum.text, correctWord)
+	var correct: bool = checkCorrect(buttonNum.text, correctWord)
 	var roundAvailable: bool = (numRounds != maxNumRounds)
 	
 	if (correct && roundAvailable):
