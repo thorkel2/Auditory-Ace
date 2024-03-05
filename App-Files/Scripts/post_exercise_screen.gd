@@ -33,3 +33,4 @@ func _ready():
 	$UI/scoreVal.set_text(str(WordListManager.score))
 	$UI/wordListVal.set_text(wordListText)
 	$UI/bgVolumeVal.set_text(WordListManager.bgLevel)
+	$UI/accVal.set_text(str(WordListManager.numCorrect) + "/5")

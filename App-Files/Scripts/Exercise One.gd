@@ -20,7 +20,6 @@ var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
 var replayMode: bool # Boolean for game being in replay mode
 var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
-var numCorrect = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +30,7 @@ func _ready():
 	WordListManager.score = 0
 	WordListManager.initialTime = 0
 	WordListManager.finalTime = 0
+	WordListManager.numCorrect = 0
 	
 	# BG Noise
 	Audio.playBGNoise()
@@ -142,7 +142,7 @@ func generateWords():
 func checkCorrect(pressedWord, correctWord) -> bool:
 	if(pressedWord == correctWord):
 		WordListManager.calculateTimeScore(true)
-		numCorrect += 1
+		WordListManager.numCorrect += 1
 		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
 		return true

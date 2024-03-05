@@ -36,6 +36,8 @@ var score = 0
 var bgLevel = "None"
 var initialTime = 0
 var finalTime = 0
+var numCorrect = 0
+
 # Initialization function called when the Node enters the scene tree
 func _ready():
 	# Load the word sets from the CSV files
