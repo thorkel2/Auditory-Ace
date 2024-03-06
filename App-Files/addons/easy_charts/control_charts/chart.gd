@@ -167,7 +167,7 @@ func calculate_plotbox_margins(x_domain: Dictionary, y_domain: Dictionary) -> Ve
 		else:
 			y_ticklabel_size = chart_properties.get_string_size(y_max_formatted)
 		
-		plotbox_margins.x += y_ticklabel_size.x + chart_properties.x_ticklabel_space
+		plotbox_margins.x += y_ticklabel_size.x + chart_properties.x_ticklabel_space + 25
 		plotbox_margins.y += ThemeDB.fallback_font_size + chart_properties.y_ticklabel_space
 	
 	return plotbox_margins

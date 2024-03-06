@@ -1,11 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dn6ycwgltsy06"]
+[gd_scene load_steps=22 format=3 uid="uid://dgpwdkte8uyme"]
 
-[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="1_1671l"]
-[ext_resource type="Script" path="res://Scripts/Exercise One.gd" id="1_m5qst"]
-[ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="4_2l2q2"]
-[ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="5_hk162"]
-[ext_resource type="Texture2D" uid="uid://dw6n4hwbrq30j" path="res://Artwork/you selected.png" id="6_c7up6"]
-[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="13_s6hby"]
+[ext_resource type="Script" path="res://Scripts/Ex_2_3_5.gd" id="1_gervx"]
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="2_3rij4"]
+[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="3_8syo5"]
+[ext_resource type="Texture2D" uid="uid://cfisr5yjh2ob1" path="res://Icons/volume-2.svg" id="4_nqviw"]
+[ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="5_c4v77"]
+[ext_resource type="Texture2D" uid="uid://dw6n4hwbrq30j" path="res://Artwork/you selected.png" id="6_jmjon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dnn1"]
 content_margin_left = 10.0
@@ -204,8 +204,8 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
-[node name="ExerciseOne" type="Node2D"]
-script = ExtResource("1_m5qst")
+[node name="ExerciseTwo" type="Node2D"]
+script = ExtResource("1_gervx")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -214,26 +214,54 @@ offset_right = 1024.0
 offset_bottom = 576.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
-[node name="TopText" type="Label" parent="Background/ColorRect"]
+[node name="hear_again_text" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 126.0
-offset_right = 743.0
-offset_bottom = 206.0
+offset_left = 636.0
+offset_top = 237.0
+offset_right = 1020.0
+offset_bottom = 305.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("13_s6hby")
-theme_override_font_sizes/font_size = 45
+theme_override_fonts/font = ExtResource("2_3rij4")
+theme_override_font_sizes/font_size = 30
 text = "Tap to hear again"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="instruction" type="Label" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 38.0
+offset_right = 1066.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3rij4")
+theme_override_font_sizes/font_size = 30
+text = "Listen to the sentence displayed below and choose the missing word: "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="display_sentence" type="Label" parent="Background/ColorRect"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 115.0
+offset_right = 698.0
+offset_bottom = 273.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3rij4")
+theme_override_font_sizes/font_size = 30
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Button" type="Node2D" parent="."]
 
 [node name="Button1" type="Button" parent="Button"]
-offset_left = 183.0
-offset_top = 268.0
-offset_right = 483.0
-offset_bottom = 370.0
+offset_left = 231.0
+offset_top = 342.0
+offset_right = 447.0
+offset_bottom = 429.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -248,7 +276,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_constants/icon_max_width = 55
-theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_fonts/font = ExtResource("3_8syo5")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
@@ -258,10 +286,10 @@ text = "option 1"
 expand_icon = true
 
 [node name="Button2" type="Button" parent="Button"]
-offset_left = 535.0
-offset_top = 268.0
-offset_right = 835.0
-offset_bottom = 370.0
+offset_left = 547.0
+offset_top = 338.0
+offset_right = 777.0
+offset_bottom = 425.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -276,7 +304,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_constants/icon_max_width = 55
-theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_fonts/font = ExtResource("3_8syo5")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2epvm")
@@ -286,10 +314,10 @@ text = "option 2"
 expand_icon = true
 
 [node name="Button3" type="Button" parent="Button"]
-offset_left = 184.0
-offset_top = 402.0
-offset_right = 484.0
-offset_bottom = 504.0
+offset_left = 226.0
+offset_top = 456.0
+offset_right = 457.0
+offset_bottom = 543.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -304,7 +332,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_constants/icon_max_width = 55
-theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_fonts/font = ExtResource("3_8syo5")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_musfj")
@@ -314,10 +342,10 @@ text = "option 3"
 expand_icon = true
 
 [node name="Button4" type="Button" parent="Button"]
-offset_left = 535.0
-offset_top = 402.0
-offset_right = 835.0
-offset_bottom = 504.0
+offset_left = 555.0
+offset_top = 454.0
+offset_right = 787.0
+offset_bottom = 541.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -332,7 +360,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_constants/icon_max_width = 55
-theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_fonts/font = ExtResource("3_8syo5")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oagg8")
@@ -342,22 +370,22 @@ text = "option 4"
 expand_icon = true
 
 [node name="SoundButton" type="Button" parent="Button"]
-offset_left = 265.0
-offset_top = 122.0
-offset_right = 350.0
-offset_bottom = 207.0
+offset_left = 793.0
+offset_top = 161.0
+offset_right = 878.0
+offset_bottom = 246.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("13_s6hby")
+theme_override_fonts/font = ExtResource("2_3rij4")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_6lb0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pt32a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7ydha")
 theme_override_styles/focus = SubResource("StyleBoxFlat_a2pnv")
-icon = ExtResource("4_2l2q2")
+icon = ExtResource("4_nqviw")
 expand_icon = true
 
 [node name="ExitButton" type="Button" parent="Button"]
@@ -370,7 +398,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_fonts/font = ExtResource("3_8syo5")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_6lb0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pt32a")
@@ -391,7 +419,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_1671l")
+theme_override_fonts/font = ExtResource("3_8syo5")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_8dnn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yyuig")
@@ -405,27 +433,27 @@ text = "Next"
 [node name="Star1" type="Sprite2D" parent="Node2D"]
 position = Vector2(256, 46)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_hk162")
+texture = ExtResource("5_c4v77")
 
 [node name="Star2" type="Sprite2D" parent="Node2D"]
 position = Vector2(385, 46)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_hk162")
+texture = ExtResource("5_c4v77")
 
 [node name="Star3" type="Sprite2D" parent="Node2D"]
 position = Vector2(512, 46)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_hk162")
+texture = ExtResource("5_c4v77")
 
 [node name="Star4" type="Sprite2D" parent="Node2D"]
 position = Vector2(642, 46)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_hk162")
+texture = ExtResource("5_c4v77")
 
 [node name="Star5" type="Sprite2D" parent="Node2D"]
 position = Vector2(770, 46)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_hk162")
+texture = ExtResource("5_c4v77")
 
 [node name="RoundTimer" type="Timer" parent="."]
 wait_time = 4096.0
@@ -435,7 +463,7 @@ autostart = true
 [node name="SelectedIndicator" type="Sprite2D" parent="."]
 position = Vector2(173, 268)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("6_c7up6")
+texture = ExtResource("6_jmjon")
 offset = Vector2(50, 10)
 
 [connection signal="pressed" from="Button/Button1" to="." method="onButton1Pressed"]

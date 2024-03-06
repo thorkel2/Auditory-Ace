@@ -6,10 +6,10 @@ uid="uid://b7etr78ydqemo"
 
 [deps]
 
-files=["res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Word Type.translation"]
+files=["res://Word-Lists/Places.Shore.translation", "res://Word-Lists/Places.Dorm.translation", "res://Word-Lists/Places.Park.translation", "res://Word-Lists/Places.Place.translation"]
 
 source_file="res://Word-Lists/Places.csv"
-dest_files=["res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Incorrect.translation", "res://Word-Lists/Places.Word Type.translation"]
+dest_files=["res://Word-Lists/Places.Shore.translation", "res://Word-Lists/Places.Dorm.translation", "res://Word-Lists/Places.Park.translation", "res://Word-Lists/Places.Place.translation"]
 
 [params]
 
