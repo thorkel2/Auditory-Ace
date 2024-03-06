@@ -11,6 +11,7 @@ class SentencePair:
 	var wordType: String
 
 	# Constructor
+
 	func _init(sentence_arg: String, wordType_arg: String):
 		sentence = sentence_arg
 		wordType = wordType_arg
@@ -20,7 +21,7 @@ enum WordListType {
 	NOUN,
 	ADJ,
 	PLACE,
-	FOOD,
+ 	FOOD,
 	VERB
 }
 
@@ -123,6 +124,5 @@ func getRandomSentencePair(wordType: String) -> SentencePair:
 	# Get a random sentence pair from the filtered list
 	var randomIndex = randi() % filteredSentencePairs.size()
 	var selectedPair = filteredSentencePairs[randomIndex]
-
 	usedSentences.append(selectedPair)
 	return selectedPair
