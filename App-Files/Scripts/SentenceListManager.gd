@@ -11,7 +11,6 @@ class SentencePair:
 	var wordType: String
 
 	# Constructor
-
 	func _init(sentence_arg: String, wordType_arg: String):
 		sentence = sentence_arg
 		wordType = wordType_arg
@@ -21,7 +20,7 @@ enum WordListType {
 	NOUN,
 	ADJ,
 	PLACE,
- 	FOOD,
+	FOOD,
 	VERB
 }
 
