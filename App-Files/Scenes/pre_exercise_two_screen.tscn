@@ -133,6 +133,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="cancel" type="Button" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 153.0
 offset_top = 467.0
 offset_right = 453.0
@@ -151,6 +152,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_a4vwt")
 text = "cancel"
 
 [node name="start" type="Button" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 541.0
 offset_top = 468.0
 offset_right = 841.0
@@ -169,6 +171,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_a4vwt")
 text = "start"
 
 [node name="WordListDropdown" type="OptionButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 129.0
 offset_right = 455.0
@@ -200,6 +203,7 @@ popup/item_3/text = "T vs P"
 popup/item_3/id = 3
 
 [node name="TTSDropdown" type="OptionButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 210.0
 offset_right = 455.0
@@ -224,6 +228,7 @@ popup/item_0/text = "Text to Speech Voice"
 popup/item_0/id = 0
 
 [node name="BGNoiseDropdown" type="OptionButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 294.0
 offset_right = 455.0
@@ -257,6 +262,7 @@ popup/item_4/text = "Food Court"
 popup/item_4/id = 3
 
 [node name="BGLow" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 183.0
 offset_top = 371.0
 offset_right = 433.0
@@ -265,6 +271,7 @@ scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_ekujn")
 
 [node name="BGMedium" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 265.0
 offset_top = 371.0
 offset_right = 515.0
@@ -273,6 +280,7 @@ scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_ekujn")
 
 [node name="BGHigh" type="TextureButton" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 343.0
 offset_top = 371.0
 offset_right = 593.0
@@ -281,6 +289,7 @@ scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_ekujn")
 
 [node name="AppTitle2" type="Label" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 177.0
 offset_top = 416.0
 offset_right = 418.0
@@ -294,6 +303,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="AppTitle3" type="Label" parent="Background/ColorRect"]
+layout_mode = 0
 offset_left = 490.0
 offset_top = 121.0
 offset_right = 889.0
