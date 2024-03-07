@@ -11,8 +11,9 @@ extends Node2D
 @onready var starFour = $Node2D/Star4
 @onready var starFive = $Node2D/Star5
 @onready var roundTimer = $RoundTimer
-@onready var topText = $Background/ColorRect/TopText
+@onready var topText = $Background/ColorRect/hear_again_text
 @onready var selectedIndicator = $SelectedIndicator
+@onready var display_sentence = $Background/ColorRect/display_sentence
 
 # Other Variables used in code
 var numRounds # Current number of rounds
@@ -20,27 +21,26 @@ var maxNumRounds # Maximum number of rounds
 var correctWord # Current correct word
 var replayMode: bool # Boolean for game being in replay mode
 var soundIcon = preload('res://Icons/volume-2.svg') # Preload image
+var numCorrect = 0
+var sentence
+var sentence_string = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numRounds = 1
 	maxNumRounds = 5
-	
 	# Reset
 	WordListManager.score = 0
 	WordListManager.initialTime = 0
 	WordListManager.finalTime = 0
-	WordListManager.numCorrect = 0
-	
-	# BG Noise
-	Audio.playBGNoise()
-	
 	# Start exercise
 	nextButton.set_disabled(true)
 	replayMode = false
-	generateWords()
+	generateWordandSentence()
 	selectedIndicator.set_visible(false)
 	
+	# BG Noise
+	Audio.playBGNoise()
 
 # Functions tied to each button
 func onButton1Pressed():
@@ -56,7 +56,7 @@ func onButton4Pressed():
 	buttonLogic(buttonFour)
 
 func onSoundButtonPressed():
-	TextToSpeech.playText(correctWord)
+	TextToSpeech.playText(sentence_string)
 
 func onNextButtonPressed():
 	if(nextButton.text == "Done"):
@@ -65,7 +65,7 @@ func onNextButtonPressed():
 		replayMode = false
 		buttonColorChange(false)
 		selectedIndicator.set_visible(false)
-		generateWords()
+		generateWordandSentence()
 		nextButton.set_disabled(true)
 		topText.text = "Tap to hear again"
 
@@ -115,34 +115,69 @@ func buttonLogic(buttonNum):
 		nextButton.set_disabled(false)
 
 # Generate next set of words and change buttons
-func generateWords():
+func generateWordandSentence():
 	# Using WordListManager.gd
-	var wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
-	correctWord = wordSet.correctWord
+	correctWord = 'Correct'
+	var wordSet
+	while(correctWord == 'Correct'):
+		wordSet = WordListManager.getRandomWordSet(WordListManager.chosenWordList)
+		correctWord = wordSet.correctWord
+		print("Correct Word: ", correctWord)
+	# Load in a Random Sentence
+	var sentencePair = SentenceListManager.getRandomSentencePair(wordSet.wordType)
+	print(sentencePair.sentence)
 	
+	#Create 2 arrays: on that will be used to print the sentence
+	#the other is used to play the sound for the sentence
+	var sentence_array = sentencePair.sentence.split(' ')
+	var display_sentence_array = sentencePair.sentence.split(' ')
+	var sentence_length = sentence_array.size()
+	for i in range(sentence_length):
+		if(sentence_array[i][0] == '['):
+			sentence_array[i] = wordSet.correctWord
+			display_sentence_array[i] = "_______"
+		pass
+	
+	sentence_string = ""
+	var display_sentence_string = ""
+	for word in sentence_array:
+		sentence_string += word + " "
+		
+	for word in display_sentence_array:
+		display_sentence_string += word + " "
+	if(display_sentence_string[-1] != '.' and display_sentence_string[-2] != '.'):
+		print("\n\nDebug: ",display_sentence_string[-1])
+		display_sentence_string += "."
+		
+	display_sentence.text = display_sentence_string
 	# Start time tracking
 	WordListManager.initialTime = Time.get_ticks_msec()
 	
+	# Playing the sentence for the User
+	
+
+	TextToSpeech.playText(sentence_string)
+	
 	# Changing text on buttons randomly
-	var randomIndex = (randi() % 4) + 1
+	var randomIndex = (randi() % 4) 
 	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
 	var j = 0
-	for i in range(1,5):
-		if(randomIndex == i):
-			buttons[i-1].text = wordSet.correctWord
-		else:
-			buttons[i-1].text = wordSet.similarWords[j]
-			j += 1
 	
-	# Playing text for user after short delay
-	await get_tree().create_timer(.3).timeout
-	TextToSpeech.playText(correctWord)
+	#This loop sets words in the Buttons randomly
+	for i in range(0,4):
+		if(randomIndex == i):
+			buttons[i].text = wordSet.correctWord
+		else:
+			if (wordSet.similarWords[j] == wordSet.correctWord):
+				j += 1
+			buttons[i].text = wordSet.similarWords[j]
+			j += 1
 
 # Checks answer, plays audio, changes indicator
 func checkCorrect(pressedWord, correctWord) -> bool:
 	if(pressedWord == correctWord):
 		WordListManager.calculateTimeScore(true)
-		WordListManager.numCorrect += 1
+		numCorrect += 1
 		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
 		return true

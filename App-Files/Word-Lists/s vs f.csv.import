@@ -6,10 +6,10 @@ uid="uid://dy3ynyu0tx8wu"
 
 [deps]
 
-files=["res://Word-Lists/s vs f.Incorrect.translation", "res://Word-Lists/s vs f.Incorrect.translation", "res://Word-Lists/s vs f.Incorrect.translation", "res://Word-Lists/s vs f.Word Type.translation", "res://Word-Lists/s vs f.Sound (Correct).translation"]
+files=["res://Word-Lists/s vs f.Flay.translation", "res://Word-Lists/s vs f.Say.translation", "res://Word-Lists/s vs f.Fray.translation", "res://Word-Lists/s vs f.Noun.translation", "res://Word-Lists/s vs f./s/.translation"]
 
 source_file="res://Word-Lists/s vs f.csv"
-dest_files=["res://Word-Lists/s vs f.Incorrect.translation", "res://Word-Lists/s vs f.Incorrect.translation", "res://Word-Lists/s vs f.Incorrect.translation", "res://Word-Lists/s vs f.Word Type.translation", "res://Word-Lists/s vs f.Sound (Correct).translation"]
+dest_files=["res://Word-Lists/s vs f.Flay.translation", "res://Word-Lists/s vs f.Say.translation", "res://Word-Lists/s vs f.Fray.translation", "res://Word-Lists/s vs f.Noun.translation", "res://Word-Lists/s vs f./s/.translation"]
 
 [params]
 
