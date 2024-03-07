@@ -28,11 +28,11 @@ func loadBGNoise(BGNoise : String):
 		"None":
 			$BackgroundNoise.volume_db = -100
 		"Low":
-			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 33
+			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 28
 		"Medium":
-			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 23
+			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 18
 		"High":
-			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 13
+			$BackgroundNoise.volume_db = (TextToSpeech.Volume / 5) - 8
 			
 #Changes the volume level of background noise and loads it
 func changeBGVolume(setting : String, volume : String):

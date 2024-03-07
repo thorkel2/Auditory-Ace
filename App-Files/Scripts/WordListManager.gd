@@ -153,10 +153,11 @@ func setWordListVar(chosen: int):
 		5:
 			chosenWordList = WordListType.PLACE
 			
+#Algorithm for scoring	
 func calculateTimeScore(correct : bool):
 	var timeTaken = Time.get_ticks_msec() - initialTime
 	if (correct):
-		if timeTaken < 1500:
+		if timeTaken < 2000:
 			score += 1000
 		elif timeTaken < 27777:
 			score += int(1000 - (6 * sqrt(timeTaken - 1500)))
