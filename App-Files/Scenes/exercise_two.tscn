@@ -211,7 +211,7 @@ script = ExtResource("1_qgxh7")
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 offset_right = 1024.0
-offset_bottom = 576.0
+offset_bottom = 800.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="hear_again_text" type="Label" parent="Background/ColorRect"]

@@ -211,7 +211,7 @@ script = ExtResource("1_m5qst")
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 offset_right = 1024.0
-offset_bottom = 576.0
+offset_bottom = 800.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="TopText" type="Label" parent="Background/ColorRect"]
@@ -226,6 +226,7 @@ theme_override_font_sizes/font_size = 45
 text = "Tap to hear again"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Button" type="Node2D" parent="."]
 

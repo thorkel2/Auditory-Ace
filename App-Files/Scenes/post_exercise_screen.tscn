@@ -94,15 +94,15 @@ script = ExtResource("1_7x1wm")
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 offset_right = 1024.0
-offset_bottom = 576.0
+offset_bottom = 800.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="try again" type="Button" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 189.0
-offset_top = 450.0
+offset_top = 458.0
 offset_right = 489.0
-offset_bottom = 542.0
+offset_bottom = 544.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -110,19 +110,19 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yf24b")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_guinx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_42nvv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_25cuj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0hucv")
-text = "try again"
+text = "Try Again"
 
 [node name="done" type="Button" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 536.0
-offset_top = 450.0
+offset_top = 458.0
 offset_right = 836.0
-offset_bottom = 542.0
+offset_bottom = 544.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -130,19 +130,19 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yf24b")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ionqs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_42nvv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_25cuj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0hucv")
-text = "i'm done"
+text = "I'm Done"
 
 [node name="ExcerciseOne" type="Button" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 142.0
 offset_top = 126.0
 offset_right = 881.0
-offset_bottom = 420.0
+offset_bottom = 435.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktuvp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yt636")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5717n")
@@ -196,98 +196,50 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AppTitle" type="Label" parent="UI"]
-z_index = 1
-offset_left = 213.0
-offset_top = 136.0
-offset_right = 354.0
-offset_bottom = 216.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
-theme_override_font_sizes/font_size = 45
-text = "score: "
-vertical_alignment = 1
-
-[node name="AppTitle3" type="Label" parent="UI"]
-z_index = 1
-offset_left = 531.0
-offset_top = 136.0
-offset_right = 749.0
-offset_bottom = 216.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
-theme_override_font_sizes/font_size = 45
-text = "accuracy: "
-vertical_alignment = 1
-
-[node name="AppTitle4" type="Label" parent="UI"]
-z_index = 1
-offset_left = 213.0
-offset_top = 231.0
-offset_right = 679.0
-offset_bottom = 311.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
-theme_override_font_sizes/font_size = 45
-text = "word list practiced: "
-vertical_alignment = 1
-
 [node name="bgVolumeVal" type="Label" parent="UI"]
 z_index = 1
-offset_left = 629.0
-offset_top = 327.0
-offset_right = 747.0
-offset_bottom = 407.0
+offset_left = 623.0
+offset_top = 343.0
+offset_right = 831.0
+offset_bottom = 423.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_fonts/font = ExtResource("2_yf24b")
 theme_override_font_sizes/font_size = 45
 text = "bgvolume"
 vertical_alignment = 1
 
-[node name="AppTitle6" type="Label" parent="UI"]
-z_index = 1
-offset_left = 212.0
-offset_top = 327.0
-offset_right = 675.0
-offset_bottom = 407.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
-theme_override_font_sizes/font_size = 45
-text = "background sound: "
-vertical_alignment = 1
-
 [node name="wordListVal" type="Label" parent="UI"]
 z_index = 1
-offset_left = 633.0
-offset_top = 232.0
-offset_right = 751.0
-offset_bottom = 312.0
+offset_left = 630.0
+offset_top = 275.0
+offset_right = 809.0
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_fonts/font = ExtResource("2_yf24b")
 theme_override_font_sizes/font_size = 45
 text = "word list"
 vertical_alignment = 1
 
 [node name="scoreVal" type="Label" parent="UI"]
 z_index = 1
-offset_left = 359.0
-offset_top = 137.0
-offset_right = 477.0
-offset_bottom = 217.0
+offset_left = 335.0
+offset_top = 138.0
+offset_right = 453.0
+offset_bottom = 218.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_fonts/font = ExtResource("2_yf24b")
 theme_override_font_sizes/font_size = 45
 text = "score"
 vertical_alignment = 1
 
 [node name="accVal" type="Label" parent="UI"]
 z_index = 1
-offset_left = 747.0
-offset_top = 137.0
-offset_right = 865.0
-offset_bottom = 217.0
+offset_left = 417.0
+offset_top = 209.0
+offset_right = 535.0
+offset_bottom = 289.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_fonts/font = ExtResource("2_yf24b")
 theme_override_font_sizes/font_size = 45
 text = "0"
 vertical_alignment = 1
@@ -298,6 +250,55 @@ offset_left = 923.0
 offset_right = 1025.0
 offset_bottom = 576.0
 color = Color(0.854902, 0.929412, 0.980392, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+offset_left = 188.0
+offset_top = 126.0
+offset_right = 625.0
+offset_bottom = 435.0
+theme_override_constants/separation = 9
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ScoreTitle" type="Label" parent="UI/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "Score: "
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AccuracyTitle" type="Label" parent="UI/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "Accuracy: "
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="WordListTitle" type="Label" parent="UI/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "Word List Practiced: "
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BGTitle" type="Label" parent="UI/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_g064n")
+theme_override_font_sizes/font_size = 45
+text = "BackGround Sound: "
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Buttons" type="Node2D" parent="."]
 
