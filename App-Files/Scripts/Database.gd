@@ -92,7 +92,8 @@ func searchEntries(searchDays : String, searchBGNoise : String, searchSound : St
 			
 		Query += filter[1] + ", BackgroundNoise))
 		AND (Sound = COALESCE(" + filter[2] + ", Sound))
-		AND (Exercise = COALESCE(" + filter[3] + ", Exercise));"
+		AND (Exercise = COALESCE(" + filter[3] + ", Exercise))"
+		print(Query)
 		db.query("SELECT DATE(Date) AS Day, AVG(Score) AS AverageScore FROM (" + Query + ") AS FilteredEntries GROUP BY DATE(Date);")
 
 	var queryResult = db.query_result
