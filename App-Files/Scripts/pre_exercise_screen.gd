@@ -4,6 +4,7 @@ extends Node2D
 @onready var BGMedium = $Background/ColorRect/BGMedium
 @onready var BGHigh = $Background/ColorRect/BGHigh
 @onready var BGOptionsButton = $Background/ColorRect/BGNoiseDropdown
+@onready var descriptionText = $Background/ColorRect/DescriptionText
 
 
 var Voices: Array[String] # Array to hold available system voices
@@ -24,6 +25,13 @@ func _ready():
 	BGLow.set_disabled(true)
 	BGMedium.set_disabled(true)
 	BGHigh.set_disabled(true)
+	
+	if(Globals.backscene == "res://Scenes/exercise_one.tscn"):
+		descriptionText.text = "Let’s practice 
+hearing and differentiating between similar-sounding words!"
+	else:
+		descriptionText.text = "Let’s practice 
+hearing and differentiating between similar-sounding words in sentences!"
 	
 	# Setting TTS voice options
 	Voices = TextToSpeech.getVoices()

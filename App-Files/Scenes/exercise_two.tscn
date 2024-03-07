@@ -226,21 +226,6 @@ theme_override_font_sizes/font_size = 35
 text = "Tap to hear again"
 vertical_alignment = 1
 
-[node name="instruction" type="Label" parent="Background/ColorRect"]
-visible = false
-layout_mode = 0
-offset_left = 217.0
-offset_top = 74.0
-offset_right = 834.0
-offset_bottom = 208.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_d2poi")
-theme_override_font_sizes/font_size = 30
-text = "Listen to the sentence displayed below and choose the missing word: "
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="display_sentence" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 133.0
