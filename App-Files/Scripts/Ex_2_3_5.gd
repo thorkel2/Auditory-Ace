@@ -159,14 +159,18 @@ func generateWordandSentence():
 	TextToSpeech.playText(sentence_string)
 	
 	# Changing text on buttons randomly
-	var randomIndex = (randi() % 4) + 1
+	var randomIndex = (randi() % 4) 
 	var buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
 	var j = 0
-	for i in range(1,5):
+	
+	#This loop sets words in the Buttons randomly
+	for i in range(0,4):
 		if(randomIndex == i):
-			buttons[i-1].text = wordSet.correctWord
+			buttons[i].text = wordSet.correctWord
 		else:
-			buttons[i-1].text = wordSet.similarWords[j]
+			if (wordSet.similarWords[j] == wordSet.correctWord):
+				j += 1
+			buttons[i].text = wordSet.similarWords[j]
 			j += 1
 
 # Checks answer, plays audio, changes indicator
