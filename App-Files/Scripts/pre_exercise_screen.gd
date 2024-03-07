@@ -61,10 +61,10 @@ func _on_description_text_pressed():
 		TextToSpeech.playText("Let’s practice 
 hearing and differentiating between similar-sounding words in sentences!")
 
-func wordListDropdownItemSelected(index):
+func _on_word_list_dropdown_item_selected(index):
 	WordListManager.setWordListVar(index)
 
-func TTSDropdownItemSelected(index):
+func _on_tts_dropdown_item_selected(index):
 	# Decreases index by 1 when not default to account for default
 	if(index > 0):
 		index += -1
@@ -76,7 +76,7 @@ func TTSDropdownItemSelected(index):
 	# Play voice for user
 	TextToSpeech.playText("Hello")
 
-func BGNoiseDropdownItemSelected(index):
+func _on_bg_noise_dropdown_item_selected(index):
 	# Disable volume options if user picked none
 	if(index == 1):
 		WordListManager.bgLevel = "None"
@@ -100,21 +100,21 @@ func BGNoiseDropdownItemSelected(index):
 
 
 # The four BG buttons "turn off" the other BG buttons when one is pressed
-func BGLowPressed():
+func _on_bg_low_pressed():
 	BGButtonsLogic(BGLow)
 	TextToSpeech.playText("Low")
 	WordListManager.bgLevel = "Low"
 	Audio.changeBGVolume("BG", "Low")
 	Audio.playBGNoise()
 
-func BGMediumPressed():
+func _on_bg_medium_pressed():
 	BGButtonsLogic(BGMedium)
 	TextToSpeech.playText("Medium")
 	WordListManager.bgLevel = "Medium"
 	Audio.changeBGVolume("BG", "Medium")
 	Audio.playBGNoise()
 
-func BGHighPressed():
+func _on_bg_high_pressed():
 	BGButtonsLogic(BGHigh)
 	TextToSpeech.playText("High")
 	WordListManager.bgLevel = "High"

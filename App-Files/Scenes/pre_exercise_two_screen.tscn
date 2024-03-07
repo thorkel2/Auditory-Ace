@@ -1,12 +1,140 @@
-[gd_scene load_steps=16 format=3 uid="uid://6fypuci26d3p"]
+[gd_scene load_steps=16 format=3 uid="uid://qgbjqh5do2lt"]
 
-[ext_resource type="Script" path="res://Scripts/pre_exercise_two_screen.gd" id="1_u62lv"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_pxkja"]
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="5_21d87"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="6_ka0v8"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="7_eefkt"]
 [ext_resource type="Texture2D" uid="uid://bwqcb6ijs7s4q" path="res://Artwork/starGrey.png" id="7_ekujn"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="9_d4wut"]
+
+[sub_resource type="GDScript" id="GDScript_78g0y"]
+script/source = "extends Node2D
+
+@onready var BGLow = $Background/ColorRect/BGLow
+@onready var BGMedium = $Background/ColorRect/BGMedium
+@onready var BGHigh = $Background/ColorRect/BGHigh
+@onready var BGOptionsButton = $Background/ColorRect/BGNoiseDropdown
+
+func _on_cancel_pressed():
+	Audio.stopBGNoise()
+	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
+
+func _on_start_pressed():
+	Audio.stopBGNoise()
+	get_tree().change_scene_to_file(\"res://Scenes/exercise_two.tscn\")
+
+func _on_profile_pressed():
+	Audio.stopBGNoise()
+	get_tree().change_scene_to_file(\"res://Scenes/profile.tscn\")
+
+func _on_help_pressed():
+	Audio.stopBGNoise()
+	get_tree().change_scene_to_file(\"res://Scenes/help.tscn\")
+
+func _on_home_pressed():
+	Audio.stopBGNoise()
+	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
+
+var Voices: Array[String] # Array to hold available system voices
+var onButton = preload(\"res://Artwork/starGreen.png\") # Preload image
+var offButton = preload(\"res://Artwork/starGrey.png\") # Preload image
+var lastVolumePressed # Last button user pressed
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# Choosing random word list in case user doesn't pick
+	WordListManager.setWordListVar(randi() % 3 + 1)
+	
+	# Default BG volume to low
+	lastVolumePressed = BGLow
+	Audio.changeBGVolume(\"BG\", \"Low\")
+	
+	# Disable BG options
+	BGLow.set_disabled(true)
+	BGMedium.set_disabled(true)
+	BGHigh.set_disabled(true)
+	
+	# Setting TTS voice options
+	Voices = TextToSpeech.getVoices()
+	for voice in Voices:
+		$Background/ColorRect/TTSDropdown.add_item(voice)
+
+# Button Functions
+func _on_description_text_pressed():
+	# Must change this line when changing description of exercise.
+	# Can't use variable because it sounds weird with line breaks.
+	TextToSpeech.playText(\" Let’s practice hearing and differentiating between similar-sounding words in sentences!\")
+
+func _on_word_list_dropdown_item_selected(index):
+	WordListManager.setWordListVar(index)
+
+func _on_tts_dropdown_item_selected(index):
+	# Decreases index by 1 when not default to account for default
+	if(index > 0):
+		index += -1
+	
+	# Set voice
+	TextToSpeech.Voice = index
+	Database.updateSetting(\"TTS\", \"Sound\", str(index))
+	
+	# Play voice for user
+	TextToSpeech.playText(\"Hello\")
+
+func _on_bg_noise_dropdown_item_selected(index):
+	# Disable volume options if user picked none
+	if(index == 1):
+		WordListManager.bgLevel = \"None\"
+		BGLow.set_texture_normal(offButton)
+		BGMedium.set_texture_normal(offButton)
+		BGHigh.set_texture_normal(offButton)
+		BGLow.set_disabled(true)
+		BGMedium.set_disabled(true)
+		BGHigh.set_disabled(true)
+		Audio.changeBGSound(\"BG\", BGOptionsButton.get_item_text(index))
+		Audio.stopBGNoise()
+	else:
+		# Otherwise enable buttons and set to latest volume
+		BGLow.set_disabled(false)
+		BGMedium.set_disabled(false)
+		BGHigh.set_disabled(false)
+		BGButtonsLogic(lastVolumePressed)
+		
+		Audio.changeBGSound(\"BG\", BGOptionsButton.get_item_text(index))
+		Audio.playBGNoise()
+
+# The four BG buttons \"turn off\" the other BG buttons when one is pressed
+func _on_bg_low_pressed():
+	BGButtonsLogic(BGLow)
+	TextToSpeech.playText(\"Low\")
+	WordListManager.bgLevel = \"Low\"
+	Audio.changeBGVolume(\"BG\", \"Low\")
+	Audio.playBGNoise()
+
+func _on_bg_medium_pressed():
+	BGButtonsLogic(BGMedium)
+	TextToSpeech.playText(\"Medium\")
+	WordListManager.bgLevel = \"Medium\"
+	Audio.changeBGVolume(\"BG\", \"Medium\")
+	Audio.playBGNoise()
+
+func _on_bg_high_pressed():
+	BGButtonsLogic(BGHigh)
+	TextToSpeech.playText(\"High\")
+	WordListManager.bgLevel = \"High\"
+	Audio.changeBGVolume(\"BG\", \"High\")
+	Audio.playBGNoise()
+
+# Background volume button on/off logic
+func BGButtonsLogic(buttonPressed):
+	lastVolumePressed = buttonPressed
+	var buttonArray = [BGLow, BGMedium, BGHigh]
+	
+	for button in buttonArray:
+		if(buttonPressed == button):
+			button.set_texture_normal(onButton)
+		else:
+			button.set_texture_normal(offButton)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_745x7"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
@@ -89,7 +217,7 @@ shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
 [node name="Main Menu" type="Node2D"]
-script = ExtResource("1_u62lv")
+script = SubResource("GDScript_78g0y")
 
 [node name="Background" type="Node2D" parent="."]
 
