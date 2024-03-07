@@ -33,6 +33,7 @@ func _ready():
 	cp.y_label = "Score"
 	cp.x_scale = 10
 	cp.y_scale = 5
+	#cp.x_tick_size = 60
 	cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
 	# and interecept clicks on the plot
 	
