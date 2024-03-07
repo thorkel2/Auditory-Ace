@@ -66,7 +66,7 @@ func addEntry(score : int, time : float, bgNoise : String, sound : String, exerc
 	+ str(score) + ", " + str(time) + ", '" + bgNoise + "', '" + sound + "', '" + exercise + "');")
 	db.close_db()
 	
-#Search for entries based on parameters
+#Search for entries based on parameters, returning two arrays containing score and date to be displayed on the Stats page
 func searchEntries(searchDays : String, searchBGNoise : String, searchSound : String, searchExercise : String):
 	db.open_db() 
 	var Query : String = "SELECT * FROM (SELECT * FROM Entries ORDER BY Date Desc) AS SortedEntries "

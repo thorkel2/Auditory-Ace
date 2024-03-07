@@ -160,6 +160,6 @@ func calculateTimeScore(correct : bool):
 		if timeTaken < 2000:
 			score += 1000
 		elif timeTaken < 27777:
-			score += int(1000 - (6 * sqrt(timeTaken - 1500)))
+			score += int(1000 - (6 * sqrt(timeTaken - 2000)))
 	finalTime += timeTaken
 	print("Time taken: " + str(timeTaken) + "ms Total time: " + str(finalTime) + "ms Score: " + str(score))
