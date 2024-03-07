@@ -177,7 +177,7 @@ func generateWordandSentence():
 func checkCorrect(pressedWord, correctWord) -> bool:
 	if(pressedWord == correctWord):
 		WordListManager.calculateTimeScore(true)
-		numCorrect += 1
+		WordListManager.numCorrect += 1
 		Audio.playFX('correct')
 		changeNextStar(true, numRounds)
 		return true

@@ -121,7 +121,9 @@ func getRandomSentencePair(wordType: String) -> SentencePair:
 		usedSentences = []
 
 	# Get a random sentence pair from the filtered list
-	var randomIndex = randi() % filteredSentencePairs.size()
+	var temp_rand = randi()
+	if(temp_rand == 0): temp_rand += 1 #to prevent 0 % x error
+	var randomIndex = temp_rand % filteredSentencePairs.size()
 	var selectedPair = filteredSentencePairs[randomIndex]
 	usedSentences.append(selectedPair)
 	return selectedPair
