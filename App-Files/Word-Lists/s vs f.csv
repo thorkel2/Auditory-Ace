@@ -8,6 +8,11 @@ Cuff,Cuss,Cliff,Class,Noun,/f/
 Fat,Sat,Fate,Sate,Noun,/f/
 Buff,Bus,Beef,Bust,Noun,/f/
 Few,Slew,Flew,Sew,Noun,/f/
+Snake,Flake,Stake,Frame,Noun,/s/
+Dress,Chef,Elf,Mess,Noun,/s/
+Coffee,Toffee,Flosser,Trustee,Noun,/f/
+Roof,Hoof,Goose,Kangaroo,Noun,/f/
+Fire,Sire,Squire,Flier,Noun,/f/
 Soft,Frothed,Strong,Flawed,Adjective,/s/
 Sad,Fast,Flat,Smart,Adjective,/s/
 Safe,Faint,Sane,Frayed,Adjective,/s/
@@ -18,3 +23,8 @@ Fine,Sane,Slain,Famed,Adjective,/f/
 Fair,Flared,Scarce,Smart,Adjective,/f/
 Fresh,Squished,Fretted,Fishy,Adjective,/f/
 Fierce,Fleecey,Sweet,Sleepy,Adjective,/f/
+Fluffy,Puffy,Messy,Sassy,Adjective,/f/
+Fearful,Cheerful,Abysmal,Universal,Adjective,/f/
+Fierce,Brief,Beef,Messy,Adjective,/s/
+Serious,Spacious,Furious,Famous,Adjective,/s/
+Faithful,Graceful,Casual,Abyssal,Adjective,/f/
