@@ -217,9 +217,9 @@ color = Color(0.631373, 0.823529, 0.945098, 1)
 [node name="hear_again_text" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
 offset_left = 391.0
-offset_top = 107.0
+offset_top = 90.0
 offset_right = 775.0
-offset_bottom = 175.0
+offset_bottom = 158.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_d2poi")
 theme_override_font_sizes/font_size = 35
@@ -228,13 +228,14 @@ vertical_alignment = 1
 
 [node name="display_sentence" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 133.0
-offset_top = 192.0
-offset_right = 892.0
-offset_bottom = 276.0
+offset_left = 58.0
+offset_top = 162.0
+offset_right = 968.0
+offset_bottom = 273.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -9
 theme_override_fonts/font = ExtResource("2_d2poi")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 43
 text = "This is a test sentence for UI Design."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -244,9 +245,9 @@ autowrap_mode = 3
 
 [node name="Button1" type="Button" parent="Button"]
 offset_left = 183.0
-offset_top = 292.0
+offset_top = 296.0
 offset_right = 483.0
-offset_bottom = 392.0
+offset_bottom = 396.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -272,9 +273,9 @@ expand_icon = true
 
 [node name="Button2" type="Button" parent="Button"]
 offset_left = 535.0
-offset_top = 292.0
+offset_top = 296.0
 offset_right = 835.0
-offset_bottom = 392.0
+offset_bottom = 396.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -300,9 +301,9 @@ expand_icon = true
 
 [node name="Button3" type="Button" parent="Button"]
 offset_left = 184.0
-offset_top = 426.0
+offset_top = 429.0
 offset_right = 484.0
-offset_bottom = 526.0
+offset_bottom = 529.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -328,9 +329,9 @@ expand_icon = true
 
 [node name="Button4" type="Button" parent="Button"]
 offset_left = 535.0
-offset_top = 426.0
+offset_top = 429.0
 offset_right = 835.0
-offset_bottom = 526.0
+offset_bottom = 529.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -355,10 +356,10 @@ text = "option 4"
 expand_icon = true
 
 [node name="SoundButton" type="Button" parent="Button"]
-offset_left = 296.0
-offset_top = 96.0
-offset_right = 381.0
-offset_bottom = 181.0
+offset_left = 305.0
+offset_top = 90.0
+offset_right = 376.0
+offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -446,7 +447,7 @@ one_shot = true
 autostart = true
 
 [node name="SelectedIndicator" type="Sprite2D" parent="."]
-position = Vector2(173, 290)
+position = Vector2(173, 294)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("6_831bu")
 offset = Vector2(50, 10)
