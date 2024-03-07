@@ -71,7 +71,7 @@ func onNextButtonPressed():
 
 func onExitButtonPressed():
 	Audio.stopBGNoise()
-	get_tree().change_scene_to_file("res://Scenes/pre_exercise_one_screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/pre_exercise_screen.tscn")
 
 # Logic used by four word buttons
 func buttonLogic(buttonNum):

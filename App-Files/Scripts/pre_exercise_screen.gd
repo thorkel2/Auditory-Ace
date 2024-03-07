@@ -5,6 +5,7 @@ extends Node2D
 @onready var BGHigh = $Background/ColorRect/BGHigh
 @onready var BGOptionsButton = $Background/ColorRect/BGNoiseDropdown
 
+
 var Voices: Array[String] # Array to hold available system voices
 var onButton = preload("res://Artwork/starGreen.png") # Preload image
 var offButton = preload("res://Artwork/starGrey.png") # Preload image
@@ -36,7 +37,7 @@ func _on_cancel_pressed():
 
 func _on_start_pressed():
 	Audio.stopBGNoise()
-	get_tree().change_scene_to_file("res://Scenes/exercise_one.tscn")
+	get_tree().change_scene_to_file(Globals.backscene)
 
 func _on_profile_pressed():
 	Audio.stopBGNoise()
@@ -54,12 +55,16 @@ func _on_home_pressed():
 func _on_description_text_pressed():
 	# Must change this line when changing description of exercise.
 	# Can't use variable because it sounds weird with line breaks.
-	TextToSpeech.playText("practice different sets of sounds by word list")
+	if(Globals.backscene == "res://Scenes/exercise_one.tscn"):
+		TextToSpeech.playText("Let’s practice hearing and differentiating between similar-sounding words!")
+	else:
+		TextToSpeech.playText("Let’s practice 
+hearing and differentiating between similar-sounding words in sentences!")
 
-func wordListDropdownItemSelected(index):
+func _on_word_list_dropdown_item_selected(index):
 	WordListManager.setWordListVar(index)
 
-func TTSDropdownItemSelected(index):
+func _on_tts_dropdown_item_selected(index):
 	# Decreases index by 1 when not default to account for default
 	if(index > 0):
 		index += -1
@@ -71,7 +76,7 @@ func TTSDropdownItemSelected(index):
 	# Play voice for user
 	TextToSpeech.playText("Hello")
 
-func BGNoiseDropdownItemSelected(index):
+func _on_bg_noise_dropdown_item_selected(index):
 	# Disable volume options if user picked none
 	if(index == 1):
 		WordListManager.bgLevel = "None"
@@ -95,21 +100,21 @@ func BGNoiseDropdownItemSelected(index):
 
 
 # The four BG buttons "turn off" the other BG buttons when one is pressed
-func BGLowPressed():
+func _on_bg_low_pressed():
 	BGButtonsLogic(BGLow)
 	TextToSpeech.playText("Low")
 	WordListManager.bgLevel = "Low"
 	Audio.changeBGVolume("BG", "Low")
 	Audio.playBGNoise()
 
-func BGMediumPressed():
+func _on_bg_medium_pressed():
 	BGButtonsLogic(BGMedium)
 	TextToSpeech.playText("Medium")
 	WordListManager.bgLevel = "Medium"
 	Audio.changeBGVolume("BG", "Medium")
 	Audio.playBGNoise()
 
-func BGHighPressed():
+func _on_bg_high_pressed():
 	BGButtonsLogic(BGHigh)
 	TextToSpeech.playText("High")
 	WordListManager.bgLevel = "High"
