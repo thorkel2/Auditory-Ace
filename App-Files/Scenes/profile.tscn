@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=11 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]
 [ext_resource type="Texture2D" uid="uid://bicymrmg256x1" path="res://Icons/user.svg" id="2_eb51m"]
 [ext_resource type="Texture2D" uid="uid://c4j0354y3ycey" path="res://Icons/help-circle.svg" id="4_vsits"]
 [ext_resource type="PackedScene" uid="uid://chcj7up8k8pa8" path="res://addons/easy_charts/examples/line_chart/Control.tscn" id="7_luyg8"]
-[ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="8_5dca3"]
 [ext_resource type="Texture2D" uid="uid://luawu3g403j4" path="res://Icons/home.svg" id="8_hfgah"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfp2g"]
@@ -115,16 +114,16 @@ expand_icon = true
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 50)
-offset_left = 101.0
-offset_top = 153.0
-offset_right = 881.0
-offset_bottom = 203.0
+offset_left = 93.0
+offset_top = 121.0
+offset_right = 873.0
+offset_bottom = 171.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_5dca3")
+theme_override_fonts/normal_font = ExtResource("1_g82c2")
 theme_override_font_sizes/normal_font_size = 35
-text = "Your Scores Over Time:"
+text = "Your Score Over Time:"
 
 [node name="Control2" parent="." instance=ExtResource("7_luyg8")]
 custom_minimum_size = Vector2(780, 300)
@@ -132,9 +131,9 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 99.0
-offset_top = 207.0
+offset_top = 178.0
 offset_right = 879.0
-offset_bottom = 507.0
+offset_bottom = 519.0
 grow_horizontal = 1
 grow_vertical = 1
 
