@@ -64,7 +64,7 @@ vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
-offset_bottom = 576.0
+offset_bottom = 800.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="roundedEdge" type="Button" parent="ColorRect"]
@@ -113,39 +113,30 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 85.0
-offset_top = 118.0
-offset_right = 885.0
-offset_bottom = 528.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-custom_minimum_size = Vector2(650, 1000)
-layout_mode = 2
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 50)
+offset_left = 101.0
+offset_top = 153.0
+offset_right = 881.0
+offset_bottom = 203.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_5dca3")
-theme_override_font_sizes/normal_font_size = 30
-text = "Scores Over Time:"
+theme_override_font_sizes/normal_font_size = 35
+text = "Your Scores Over Time:"
 
-[node name="Control2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("7_luyg8")]
+[node name="Control2" parent="." instance=ExtResource("7_luyg8")]
 custom_minimum_size = Vector2(780, 300)
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_5dca3")
-theme_override_font_sizes/normal_font_size = 30
-text = "High Score:"
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 99.0
+offset_top = 207.0
+offset_right = 879.0
+offset_bottom = 507.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]

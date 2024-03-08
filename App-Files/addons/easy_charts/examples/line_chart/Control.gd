@@ -3,8 +3,8 @@ extends Control
 @onready var chart: Chart = $VBoxContainer/Chart
 
 var entries = Database.searchEntries("All","All","All","All")
-var date = entries[0];
-var score = entries[1];
+var date = entries[0] if entries else [0];
+var score = entries[1] if entries else [0];
 var result_array = []
 
 # This Chart will plot 3 different functions
@@ -32,7 +32,8 @@ func _ready():
 	cp.x_label = "Time"
 	cp.y_label = "Score"
 	cp.x_scale = 10
-	cp.y_scale = 10
+	cp.y_scale = 5
+	#cp.x_tick_size = 60
 	cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
 	# and interecept clicks on the plot
 	
@@ -45,7 +46,7 @@ func _ready():
 						# (if enabled thourgh ChartProperties) and on the Tooltip (if enabled).
 		# Let's also provide a dictionary of configuration parameters for this specific function.
 		{ 
-			color = Color("#FFFFFF"), 		# The color associated to this function
+			color = Color("#004999"), 		# The color associated to this function
 			marker = Function.Marker.CIRCLE, 	# The marker that will be displayed for each drawn point (x,y)
 											# since it is `NONE`, no marker will be shown.
 			type = Function.Type.LINE, 		# This defines what kind of plotting will be used, 

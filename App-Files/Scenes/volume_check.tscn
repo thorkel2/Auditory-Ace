@@ -41,7 +41,7 @@ script = ExtResource("1_2vm7i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
-offset_bottom = 576.0
+offset_bottom = 800.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
 [node name="start" type="Button" parent="ColorRect"]
