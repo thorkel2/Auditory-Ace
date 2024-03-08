@@ -35,13 +35,9 @@ func _on_point_entered(point: Point, function: Function, props: Dictionary = {})
 	var y_value: String = point.value.y if point.value.y is String else ECUtilities._format_value(point.value.y, ECUtilities._is_decimal(point.value.y))
 	var color: Color = function.get_color() if function.get_type() != Function.Type.PIE \
 		else function.get_gradient().sample(props.interpolation_index)
-	tooltip.show()
-	tooltip.update_values(x_value, y_value, function.name, color)
-	tooltip.update_position(point.position)
 	emit_signal("function_point_entered", point, function)
 
 func _on_point_exited(point: Point, function: Function) -> void:
 	if function != self.focused_function:
 		return
-	tooltip.hide()
 	emit_signal("function_point_exited", point, function)
