@@ -44,7 +44,7 @@ func retrieveSetting(setting : String):
 	db.open_db()
 	db.query("SELECT * FROM Settings WHERE Name = '" + setting + "';")
 	if (db.query_result.size() < 1):
-		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('" + setting + "', 'None', -12);")
+		db.query("INSERT INTO Settings (Name, Sound, Volume) VALUES ('" + setting + "', 'None', 'None');")
 		db.query("SELECT * FROM Settings WHERE Name = '" + setting + "';")
 	var Setting = [db.query_result[0]["Sound"], db.query_result[0]["Volume"]]
 	db.close_db()
@@ -99,13 +99,11 @@ func searchEntries(searchDays : String, searchBGNoise : String, searchSound : St
 	var queryResult = db.query_result
 	db.close_db()
 	var result := []
-	for i in range(queryResult.size()): 
-		var row := []
-		result.append(row)
+	result.append([])
+	result.append([])
 	for n in range (0, queryResult.size(), 1):
 		result[0].append(queryResult[n]["Day"])
 		result[1].append(int(queryResult[n]["AverageScore"]))
-		
 	return(result)	
 
 #Randomly generates x amount of entries (testing purposes)
