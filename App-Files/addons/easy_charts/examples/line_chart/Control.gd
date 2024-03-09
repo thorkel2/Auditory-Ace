@@ -2,7 +2,9 @@ extends Control
 
 @onready var chart: Chart = $VBoxContainer/Chart
 @onready var wordlist = Globals.wordlist if Globals.wordlist else "All"
-@onready var entries = Database.searchEntries("All","All",wordlist,"All")
+@onready var bgnoises = Globals.bgnoises if Globals.bgnoises else "All"
+@onready var exercise = Globals.exercise if Globals.exercise else "All"
+@onready var entries = Database.searchEntries("All",bgnoises,wordlist,exercise)
 @onready var score = [0];
 @onready var date = [0];
 @onready var result_array = [];
@@ -71,4 +73,26 @@ func _on_word_list_dropdown_item_selected(index):
 		Globals.wordlist = "SvF"
 	if(index == 3):
 		Globals.wordlist = "TvP"
+	get_tree().change_scene_to_file("res://Scenes/profile.tscn")
+	
+func _on_bg_noise_dropdown_item_selected(index):
+	if(index == 0):
+		Globals.bgnoises = "All"
+	if(index == 1):
+		Globals.bgnoises = "Low"
+	if(index == 2):
+		Globals.bgnoises = "Medium"
+	if(index == 3):
+		Globals.bgnoises = "High"
+	if(index == 4):
+		Globals.bgnoises = "None"
+	get_tree().change_scene_to_file("res://Scenes/profile.tscn")
+
+func _on_exercise_item_selected(index):
+	if(index == 0):
+		Globals.exercise = "All"
+	if(index == 1):
+		Globals.exercise = "1"
+	if(index == 2):
+		Globals.exercise = "2"
 	get_tree().change_scene_to_file("res://Scenes/profile.tscn")

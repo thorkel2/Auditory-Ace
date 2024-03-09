@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0bfa31wqss6d"]
+[gd_scene load_steps=19 format=3 uid="uid://c0bfa31wqss6d"]
 
 [ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="1_g82c2"]
 [ext_resource type="Script" path="res://Scripts/profile.gd" id="1_re5px"]
@@ -76,6 +76,46 @@ shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryvov"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxxlx"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6ncr"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlfd3"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brhah"]
 content_margin_left = 10.0
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
@@ -191,11 +231,10 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="WordListDropdown" type="OptionButton" parent="ColorRect"]
-z_index = 1
 layout_mode = 0
-offset_left = 64.0
+offset_left = 307.0
 offset_top = 87.0
-offset_right = 364.0
+offset_right = 509.0
 offset_bottom = 132.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -222,6 +261,69 @@ popup/item_2/id = 2
 popup/item_3/text = "T vs P"
 popup/item_3/id = 3
 
+[node name="BGNoiseDropdown" type="OptionButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 87.0
+offset_right = 883.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_g82c2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_nxxlx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6ncr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vlfd3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_brhah")
+button_pressed = true
+item_count = 5
+selected = 0
+allow_reselect = true
+popup/item_0/text = "All Background Noise Levels"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "None"
+popup/item_1/id = 4
+popup/item_2/text = "Low"
+popup/item_2/id = 1
+popup/item_3/text = "Medium"
+popup/item_3/id = 2
+popup/item_4/text = "High"
+popup/item_4/id = 3
+
+[node name="Exercise" type="OptionButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 87.0
+offset_right = 283.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_g82c2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_nxxlx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6ncr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vlfd3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_brhah")
+button_pressed = true
+item_count = 3
+selected = 0
+allow_reselect = true
+popup/item_0/text = "All Exercises"
+popup/item_0/id = 0
+popup/item_1/text = "Exercise One"
+popup/item_1/id = 1
+popup/item_2/text = "Exercise Twp"
+popup/item_2/id = 2
+
 [node name="Control2" parent="." instance=ExtResource("7_luyg8")]
 custom_minimum_size = Vector2(750, 300)
 anchors_preset = 0
@@ -238,3 +340,5 @@ grow_vertical = 1
 [connection signal="pressed" from="ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="item_selected" from="ColorRect/WordListDropdown" to="Control2" method="_on_word_list_dropdown_item_selected"]
+[connection signal="item_selected" from="ColorRect/BGNoiseDropdown" to="Control2" method="_on_bg_noise_dropdown_item_selected"]
+[connection signal="item_selected" from="ColorRect/Exercise" to="Control2" method="_on_exercise_item_selected"]
