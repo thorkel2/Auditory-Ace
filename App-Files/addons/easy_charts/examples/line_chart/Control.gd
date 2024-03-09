@@ -1,25 +1,30 @@
 extends Control
 
 @onready var chart: Chart = $VBoxContainer/Chart
-
-var entries = Database.searchEntries("All","All","All","All")
-var date = entries[0] if entries else [0];
-var score = entries[1] if entries else [0];
-var result_array = []
+@onready var entries = Database.searchEntries("All","All","All","All")
+@onready var score = [0];
+@onready var date = [0];
+@onready var result_array = [];
 
 # This Chart will plot 3 different functions
 var f1: Function
 
 func create_array(n: int) -> Array:
 	var result_array = []
-	for i in range(n):
+	for i in range(1, n + 1):
 		result_array.append(i)
 	return result_array
 
 func _ready():
-	var x: Array = create_array(date.size())
+	if(entries[0]):
+		var temp = create_array(entries[0].size())
+		date.append_array(temp)
+	if(entries[1]):
+		score.append_array(entries[1])
+	var x: Array = date
 	var y: Array = score
-	
+	print(x)
+	print(y)
 	# Let's customize the chart properties, which specify how the chart
 	# should look, plus some additional elements like labels, the scale, etc...
 	var cp: ChartProperties = ChartProperties.new()
@@ -29,8 +34,6 @@ func _ready():
 	cp.colors.ticks = Color("#283442")
 	cp.colors.text = Color("#000000")
 	cp.draw_bounding_box = false
-	cp.x_label = "Time"
-	cp.y_label = "Score"
 	cp.x_scale = 10
 	cp.y_scale = 5
 	#cp.x_tick_size = 60
@@ -55,6 +58,9 @@ func _ready():
 															# Line Charts and Area Charts.
 		}
 	)
+	print(x)
+	print(y)
 	
 	# Now let's plot our data
+
 	chart.plot([f1], cp)
