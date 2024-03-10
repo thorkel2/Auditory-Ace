@@ -38,46 +38,6 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kqm4"]
-content_margin_left = 10.0
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uemmh"]
-content_margin_left = 10.0
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2iw4"]
-content_margin_left = 10.0
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jxne"]
-content_margin_left = 10.0
-bg_color = Color(0.854902, 0.929412, 0.980392, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 1
-shadow_offset = Vector2(-2, 2)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txnfl"]
 bg_color = Color(0.854902, 0.929412, 0.980392, 1)
 corner_radius_top_left = 20
@@ -138,13 +98,53 @@ shadow_color = Color(0.129412, 0.129412, 0.129412, 0.486275)
 shadow_size = 1
 shadow_offset = Vector2(-2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kqm4"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uemmh"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2iw4"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jxne"]
+content_margin_left = 10.0
+bg_color = Color(0.854902, 0.929412, 0.980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 1
+shadow_offset = Vector2(-2, 2)
+
 [node name="Exercise 1 Settings2" type="Node2D"]
 script = ExtResource("1_7ned1")
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-offset_right = 1024.0
+offset_right = 1200.0
 offset_bottom = 800.0
 color = Color(0.631373, 0.823529, 0.945098, 1)
 
@@ -201,55 +201,21 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="BGNoiseDropdown" type="OptionButton" parent="Background/ColorRect"]
-layout_mode = 0
-offset_left = 533.0
-offset_top = 292.0
-offset_right = 833.0
-offset_bottom = 352.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_i8ov1")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxFlat_5kqm4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
-button_pressed = true
-item_count = 5
-selected = 0
-allow_reselect = true
-popup/item_0/text = "Background Noise"
-popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "None"
-popup/item_1/id = 4
-popup/item_2/text = "Announcer"
-popup/item_2/id = 1
-popup/item_3/text = "Bus Interior"
-popup/item_3/id = 2
-popup/item_4/text = "Food Court"
-popup/item_4/id = 3
-
 [node name="BGLow" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 570.0
-offset_top = 369.0
-offset_right = 820.0
-offset_bottom = 579.0
+offset_left = 564.0
+offset_top = 375.0
+offset_right = 814.0
+offset_bottom = 585.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_04ai3")
 
 [node name="AppTitle2" type="Label" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 564.0
-offset_top = 414.0
-offset_right = 805.0
-offset_bottom = 452.0
+offset_left = 558.0
+offset_top = 420.0
+offset_right = 799.0
+offset_bottom = 458.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_i8ov1")
 theme_override_font_sizes/font_size = 22
@@ -260,95 +226,39 @@ autowrap_mode = 2
 
 [node name="DescriptionTextButton" type="Button" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 124.0
-offset_right = 487.0
+offset_left = 132.0
+offset_top = 108.0
+offset_right = 477.0
 offset_bottom = 435.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_txnfl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g7su8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_d4ph1")
 
-[node name="TTSDropdown" type="OptionButton" parent="Background/ColorRect"]
-layout_mode = 0
-offset_left = 533.0
-offset_top = 208.0
-offset_right = 833.0
-offset_bottom = 268.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_i8ov1")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxFlat_5kqm4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
-button_pressed = true
-item_count = 1
-selected = 0
-allow_reselect = true
-popup/item_0/text = "Text to Speech Voice"
-popup/item_0/id = 0
-
-[node name="WordListDropdown" type="OptionButton" parent="Background/ColorRect"]
-layout_mode = 0
-offset_left = 533.0
-offset_top = 127.0
-offset_right = 833.0
-offset_bottom = 187.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_i8ov1")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxFlat_5kqm4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
-button_pressed = true
-item_count = 4
-selected = 0
-allow_reselect = true
-popup/item_0/text = "Random Word List"
-popup/item_0/id = 0
-popup/item_1/text = "M vs N"
-popup/item_1/id = 1
-popup/item_2/text = "S vs F"
-popup/item_2/id = 2
-popup/item_3/text = "T vs P"
-popup/item_3/id = 3
-
 [node name="BGMedium" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 652.0
-offset_top = 369.0
-offset_right = 902.0
-offset_bottom = 579.0
+offset_left = 646.0
+offset_top = 375.0
+offset_right = 896.0
+offset_bottom = 585.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_04ai3")
 
 [node name="BGHigh" type="TextureButton" parent="Background/ColorRect"]
 layout_mode = 0
-offset_left = 730.0
-offset_top = 369.0
-offset_right = 980.0
-offset_bottom = 579.0
+offset_left = 724.0
+offset_top = 375.0
+offset_right = 974.0
+offset_bottom = 585.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_04ai3")
 
 [node name="DescriptionText" type="Label" parent="Background/ColorRect"]
 z_index = 1
 layout_mode = 0
-offset_left = 143.0
-offset_top = 133.0
-offset_right = 487.0
-offset_bottom = 424.0
+offset_left = 133.0
+offset_top = 127.0
+offset_right = 477.0
+offset_bottom = 418.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_i8ov1")
 theme_override_font_sizes/font_size = 35
@@ -383,9 +293,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_q8sbs")
 text = "Cancel"
 
 [node name="AppTitle" type="Label" parent="."]
-offset_top = 24.0
+offset_top = 19.0
 offset_right = 1024.0
-offset_bottom = 104.0
+offset_bottom = 99.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_i8ov1")
 theme_override_font_sizes/font_size = 60
@@ -393,15 +303,121 @@ text = "Exercise Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 530.0
+offset_top = 108.0
+offset_right = 830.0
+offset_bottom = 368.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Word List"
+vertical_alignment = 1
+
+[node name="WordListDropdown" type="OptionButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i8ov1")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_5kqm4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
+button_pressed = true
+item_count = 4
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Random"
+popup/item_0/id = 0
+popup/item_1/text = "M vs N"
+popup/item_1/id = 1
+popup/item_2/text = "S vs F"
+popup/item_2/id = 2
+popup/item_3/text = "T vs P"
+popup/item_3/id = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Text to Speech Voice"
+vertical_alignment = 1
+
+[node name="TTSDropdown" type="OptionButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i8ov1")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_5kqm4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
+button_pressed = true
+selected = 0
+allow_reselect = true
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Background Noise"
+vertical_alignment = 1
+
+[node name="BGNoiseDropdown" type="OptionButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i8ov1")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_5kqm4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
+button_pressed = true
+item_count = 4
+selected = 0
+allow_reselect = true
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Announcer"
+popup/item_1/id = 1
+popup/item_2/text = "Bus Interior"
+popup/item_2/id = 2
+popup/item_3/text = "Food Court"
+popup/item_3/id = 3
+
 [connection signal="pressed" from="Background/ColorRect/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Background/ColorRect/VBoxContainer/Help" to="." method="_on_help_pressed"]
-[connection signal="item_selected" from="Background/ColorRect/BGNoiseDropdown" to="." method="_on_bg_noise_dropdown_item_selected"]
 [connection signal="pressed" from="Background/ColorRect/BGLow" to="." method="_on_bg_low_pressed"]
 [connection signal="pressed" from="Background/ColorRect/DescriptionTextButton" to="." method="_on_description_text_pressed"]
-[connection signal="item_selected" from="Background/ColorRect/TTSDropdown" to="." method="_on_tts_dropdown_item_selected"]
-[connection signal="item_selected" from="Background/ColorRect/WordListDropdown" to="." method="_on_word_list_dropdown_item_selected"]
 [connection signal="pressed" from="Background/ColorRect/BGMedium" to="." method="_on_bg_medium_pressed"]
 [connection signal="pressed" from="Background/ColorRect/BGHigh" to="." method="_on_bg_high_pressed"]
 [connection signal="pressed" from="cancel" to="." method="_on_cancel_pressed"]
+[connection signal="item_selected" from="VBoxContainer/WordListDropdown" to="." method="_on_word_list_dropdown_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/TTSDropdown" to="." method="_on_tts_dropdown_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/BGNoiseDropdown" to="." method="_on_bg_noise_dropdown_item_selected"]

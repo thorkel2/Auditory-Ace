@@ -239,7 +239,7 @@ func gameDone():
 			wordListEntry = 'TvP'
 	
 	# Database entry
-	Database.addEntry(WordListManager.score, WordListManager.finalTime, WordListManager.bgLevel, wordListEntry, 'Exercise 1')
+	Database.addEntry(WordListManager.score, WordListManager.finalTime, WordListManager.bgLevel, wordListEntry, 'Exercise 2')
 	
 	# Move to post game
 	get_tree().change_scene_to_file("res://Scenes/post_exercise_screen.tscn")
