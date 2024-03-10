@@ -10,6 +10,8 @@ var Volume : int
 
 #Will play text inputted via TTS
 func playText(text : String): 
+	if (DisplayServer.tts_is_speaking()):
+		DisplayServer.tts_stop()
 	DisplayServer.tts_speak(text, voices[Voice]["id"], Volume)
 
 #Returns the names of all voices in system

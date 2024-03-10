@@ -3,7 +3,8 @@ extends Node2D
 @onready var BGLow = $Background/ColorRect/BGLow
 @onready var BGMedium = $Background/ColorRect/BGMedium
 @onready var BGHigh = $Background/ColorRect/BGHigh
-@onready var BGOptionsButton = $Background/ColorRect/BGNoiseDropdown
+@onready var BGOptionsButton = $VBoxContainer/BGNoiseDropdown
+@onready var descriptionText = $Background/ColorRect/DescriptionText
 
 
 var Voices: Array[String] # Array to hold available system voices
@@ -25,10 +26,17 @@ func _ready():
 	BGMedium.set_disabled(true)
 	BGHigh.set_disabled(true)
 	
+	if(Globals.backscene == "res://Scenes/exercise_one.tscn"):
+		descriptionText.text = "Let’s practice 
+hearing and differentiating between similar-sounding words!"
+	else:
+		descriptionText.text = "Let’s practice 
+hearing and differentiating between similar-sounding words in sentences!"
+	
 	# Setting TTS voice options
 	Voices = TextToSpeech.getVoices()
 	for voice in Voices:
-		$Background/ColorRect/TTSDropdown.add_item(voice)
+		$VBoxContainer/TTSDropdown.add_item(voice)
 
 # Scene change functions
 func _on_cancel_pressed():
@@ -78,7 +86,7 @@ func _on_tts_dropdown_item_selected(index):
 
 func _on_bg_noise_dropdown_item_selected(index):
 	# Disable volume options if user picked none
-	if(index == 1):
+	if(index == 0):
 		WordListManager.bgLevel = "None"
 		BGLow.set_texture_normal(offButton)
 		BGMedium.set_texture_normal(offButton)

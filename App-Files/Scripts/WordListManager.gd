@@ -156,10 +156,22 @@ func setWordListVar(chosen: int):
 #Algorithm for scoring	
 func calculateTimeScore(correct : bool):
 	var timeTaken = Time.get_ticks_msec() - initialTime
+	var calcScore : int = 0
 	if (correct):
 		if timeTaken < 2000:
-			score += 1000
-		elif timeTaken < 27777:
-			score += int(1000 - (6 * sqrt(timeTaken - 2000)))
+			calcScore = 1000
+		else:
+			calcScore = 1000 - min((5 * sqrt(timeTaken - 2000)), (150 * (log(timeTaken - 2000) / log(10))))
+
+	match(bgLevel):
+		"Low":
+			calcScore *= 1.2
+		"Medium":
+			calcScore *= 1.4
+		"High":
+			calcScore *= 1.6
+			
+	score += calcScore
 	finalTime += timeTaken
-	print("Time taken: " + str(timeTaken) + "ms Total time: " + str(finalTime) + "ms Score: " + str(score))
+	
+	print("Time taken: " + str(timeTaken) + "ms Total time: " + str(finalTime) + "ms Score: " + str(calcScore) + "ms Total Score: " + str(score))

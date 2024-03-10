@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dlwq4kmdb3bhs"]
 
 [ext_resource type="Script" path="res://addons/easy_charts/control_charts/chart.gd" id="1"]
-[ext_resource type="PackedScene" path="res://addons/easy_charts/utilities/containers/data_tooltip/data_tooltip.tscn" id="2"]
 [ext_resource type="Script" path="res://addons/easy_charts/utilities/containers/canvas/canvas.gd" id="3"]
+[ext_resource type="FontFile" uid="uid://dynbc330hutk" path="res://Fonts/DMSans_24pt-Medium.ttf" id="3_bv2ic"]
 [ext_resource type="Script" path="res://addons/easy_charts/utilities/containers/canvas/plot_box/plot_box.gd" id="4"]
 [ext_resource type="Script" path="res://addons/easy_charts/utilities/containers/canvas/plot_box/grid_box.gd" id="5"]
-[ext_resource type="PackedScene" path="res://addons/easy_charts/utilities/containers/legend/function_legend.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bg8ciujswawm7" path="res://addons/easy_charts/utilities/containers/legend/function_legend.tscn" id="6"]
 
 [sub_resource type="Theme" id="4"]
 
@@ -45,7 +45,7 @@ theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Canvas/CanvasContainer"]
 layout_mode = 2
-text = "{title}"
+theme_override_fonts/font = ExtResource("3_bv2ic")
 
 [node name="DataContainer" type="HBoxContainer" parent="Canvas/CanvasContainer"]
 layout_mode = 2
@@ -55,6 +55,8 @@ theme_override_constants/separation = 10
 
 [node name="YLabel" type="Label" parent="Canvas/CanvasContainer/DataContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bv2ic")
+theme_override_font_sizes/font_size = 35
 text = "{ylabel}"
 
 [node name="PlotContainer" type="VBoxContainer" parent="Canvas/CanvasContainer/DataContainer"]
@@ -87,15 +89,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_default_cursor_shape = 3
 
-[node name="Tooltip" parent="Canvas/CanvasContainer/DataContainer/PlotContainer/PlotBox" instance=ExtResource("2")]
-layout_mode = 0
-offset_left = -67.0
-offset_top = -33.0
-offset_right = -17.0
-offset_bottom = 33.0
-
 [node name="XLabel" type="Label" parent="Canvas/CanvasContainer/DataContainer/PlotContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bv2ic")
+theme_override_font_sizes/font_size = 35
 text = "{xlabel}"
 
 [node name="FunctionLegend" parent="Canvas/CanvasContainer/DataContainer" instance=ExtResource("6")]
