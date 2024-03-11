@@ -70,13 +70,12 @@ func _on_description_text_pressed():
 hearing and differentiating between similar-sounding words in sentences!")
 
 func _on_word_list_dropdown_item_selected(index):
-	WordListManager.setWordListVar(index)
+	if(index == 0):
+		WordListManager.setWordListVar(randi() % 3 + 1)
+	else:
+		WordListManager.setWordListVar(index)
 
 func _on_tts_dropdown_item_selected(index):
-	# Decreases index by 1 when not default to account for default
-	if(index > 0):
-		index += -1
-	
 	# Set voice
 	TextToSpeech.Voice = index
 	Database.updateSetting("TTS", "Sound", str(index))
