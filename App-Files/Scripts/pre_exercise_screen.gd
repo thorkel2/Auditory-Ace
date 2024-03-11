@@ -17,14 +17,12 @@ func _ready():
 	# Choosing random word list in case user doesn't pick
 	WordListManager.setWordListVar(randi() % 3 + 1)
 	
-	# Default BG volume to low
+	# Default lastVolumePressed to low
 	lastVolumePressed = BGLow
-	Audio.changeBGVolume("BG", "Low")
 	
-	# Disable BG options
-	BGLow.set_disabled(true)
-	BGMedium.set_disabled(true)
-	BGHigh.set_disabled(true)
+	# Default bgLevel to None
+	_on_bg_noise_dropdown_item_selected(0)
+	
 	
 	if(Globals.backscene == "res://Scenes/exercise_one.tscn"):
 		descriptionText.text = "Let’s practice 
@@ -44,7 +42,6 @@ func _on_cancel_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_start_pressed():
-	Audio.stopBGNoise()
 	get_tree().change_scene_to_file(Globals.backscene)
 
 func _on_profile_pressed():
@@ -70,13 +67,12 @@ func _on_description_text_pressed():
 hearing and differentiating between similar-sounding words in sentences!")
 
 func _on_word_list_dropdown_item_selected(index):
-	WordListManager.setWordListVar(index)
+	if(index == 0):
+		WordListManager.setWordListVar(randi() % 3 + 1)
+	else:
+		WordListManager.setWordListVar(index)
 
 func _on_tts_dropdown_item_selected(index):
-	# Decreases index by 1 when not default to account for default
-	if(index > 0):
-		index += -1
-	
 	# Set voice
 	TextToSpeech.Voice = index
 	Database.updateSetting("TTS", "Sound", str(index))
@@ -110,24 +106,12 @@ func _on_bg_noise_dropdown_item_selected(index):
 # The four BG buttons "turn off" the other BG buttons when one is pressed
 func _on_bg_low_pressed():
 	BGButtonsLogic(BGLow)
-	TextToSpeech.playText("Low")
-	WordListManager.bgLevel = "Low"
-	Audio.changeBGVolume("BG", "Low")
-	Audio.playBGNoise()
 
 func _on_bg_medium_pressed():
 	BGButtonsLogic(BGMedium)
-	TextToSpeech.playText("Medium")
-	WordListManager.bgLevel = "Medium"
-	Audio.changeBGVolume("BG", "Medium")
-	Audio.playBGNoise()
 
 func _on_bg_high_pressed():
 	BGButtonsLogic(BGHigh)
-	TextToSpeech.playText("High")
-	WordListManager.bgLevel = "High"
-	Audio.changeBGVolume("BG", "High")
-	Audio.playBGNoise()
 
 # Background volume button on/off logic
 func BGButtonsLogic(buttonPressed):
@@ -139,3 +123,19 @@ func BGButtonsLogic(buttonPressed):
 			button.set_texture_normal(onButton)
 		else:
 			button.set_texture_normal(offButton)
+	
+	match buttonPressed:
+		BGLow:
+			TextToSpeech.playText("Low")
+			WordListManager.bgLevel = "Low"
+			Audio.changeBGVolume("BG", "Low")
+		BGMedium:
+			TextToSpeech.playText("Medium")
+			WordListManager.bgLevel = "Medium"
+			Audio.changeBGVolume("BG", "Medium")
+		BGHigh:
+			TextToSpeech.playText("High")
+			WordListManager.bgLevel = "High"
+			Audio.changeBGVolume("BG", "High")
+	
+	Audio.playBGNoise()

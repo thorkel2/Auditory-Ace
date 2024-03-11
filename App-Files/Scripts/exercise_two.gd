@@ -33,14 +33,14 @@ func _ready():
 	WordListManager.score = 0
 	WordListManager.initialTime = 0
 	WordListManager.finalTime = 0
+	WordListManager.numCorrect = 0
+	
 	# Start exercise
 	nextButton.set_disabled(true)
 	replayMode = false
 	generateWordandSentence()
 	selectedIndicator.set_visible(false)
 	
-	# BG Noise
-	Audio.playBGNoise()
 
 # Functions tied to each button
 func onButton1Pressed():

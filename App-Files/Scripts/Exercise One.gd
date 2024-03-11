@@ -32,9 +32,6 @@ func _ready():
 	WordListManager.finalTime = 0
 	WordListManager.numCorrect = 0
 	
-	# BG Noise
-	Audio.playBGNoise()
-	
 	# Start exercise
 	nextButton.set_disabled(true)
 	replayMode = false

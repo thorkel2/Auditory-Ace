@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhq3j05ofi0lb"]
+[gd_scene load_steps=21 format=3 uid="uid://bcyyoftvn2ikv"]
 
 [ext_resource type="Script" path="res://Scripts/pre_exercise_screen.gd" id="1_7ned1"]
 [ext_resource type="FontFile" uid="uid://bslnk4jwc4au1" path="res://Fonts/DMSans_24pt-Regular.ttf" id="2_dodwc"]
@@ -370,7 +370,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uemmh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x2iw4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8jxne")
 button_pressed = true
-selected = 0
 allow_reselect = true
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
