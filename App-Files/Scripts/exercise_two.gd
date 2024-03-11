@@ -41,8 +41,6 @@ func _ready():
 	generateWordandSentence()
 	selectedIndicator.set_visible(false)
 	
-	# BG Noise
-	Audio.playBGNoise()
 
 # Functions tied to each button
 func onButton1Pressed():
