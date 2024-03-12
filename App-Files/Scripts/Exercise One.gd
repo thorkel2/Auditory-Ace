@@ -134,7 +134,7 @@ func generateWords():
 			j += 1
 	
 	# Playing text for user after short delay
-	await get_tree().create_timer(.3).timeout
+	await get_tree().create_timer(.5).timeout
 	TextToSpeech.playText(correctWord)
 
 # Checks answer, plays audio, changes indicator
